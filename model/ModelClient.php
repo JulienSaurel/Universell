@@ -71,7 +71,4 @@ class ModelClient extends Model
         $req_prep->execute($data);
     }
 
-
-
-
 }

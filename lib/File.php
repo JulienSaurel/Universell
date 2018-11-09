@@ -8,3 +8,4 @@ class File
     return $ROOT_FOLDER. $DS . join($DS, $path_array);
 	}
 }
+?>

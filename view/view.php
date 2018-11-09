@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="view/CSS/styles.css">
     <head>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
-    <?php require File::build_path(array("view", "menu.php")); ?>
+        <link rel="stylesheet" type="text/css" href="view/CSS/styles.css">
     </head>
-    	<body>
-<?php
+    <body>
+    	<header> <?php require File::build_path(array("view", "menu.php")); ?> </header>
+    	<main>
+			<?php
 
-$filepath = File::build_path(array("view", static::$object, "$view.php"));
-require $filepath;
+			$filepath = File::build_path(array("view", static::$object, "$view.php"));
+			require $filepath;
 
-?>
+			?>
+		</main>
+		<footer> <?php require File::build_path(array("view", "footer.php")); ?> </footer>
     </body>
 </html>
 
