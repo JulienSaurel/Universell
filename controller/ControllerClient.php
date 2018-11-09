@@ -67,7 +67,7 @@ class ControllerClient
         $u->save();
         
         $view = 'created';
-        $pagetitle = 'Liste des Utilisateurs';
+        $pagetitle = 'Liste des Clients';
         require File::build_path(array('view','view.php'));
         self::readAll();
     }

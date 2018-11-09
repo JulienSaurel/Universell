@@ -75,3 +75,4 @@ static public function selectAll() {
 
 }
 Model::Init();
+?>

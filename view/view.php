@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
-        <link rel="stylesheet" type="text/css" href="view/CSS/styles.css">
+        <link rel="stylesheet" type="text/css" href="view/css/styles.css">
     </head>
     <body>
     	<header> <?php require File::build_path(array("view", "menu.php")); ?> </header>
