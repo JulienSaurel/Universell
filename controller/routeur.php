@@ -1,12 +1,12 @@
 <?php
 require_once File::build_path(array('controller','ControllerClient.php'));
-
+require_once File::build_path(array('controller','ControllerAccueil.php'));
 
 
 //------------controller-------------
 if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifiée
 	{
-		$controller = 'client'; //On définit un controller par defaut (Personne)
+		$controller = 'accueil'; //On définit un controller par defaut (Personne)
 	}
 
 	else
@@ -20,7 +20,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 //--------------action---------------
 	if(!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 	{
-		$action = 'readAll'; //On définit une action par defaut (readAll)
+		$action = 'homepage'; //On définit une action par defaut (readAll)
 	}
 
 	else 
