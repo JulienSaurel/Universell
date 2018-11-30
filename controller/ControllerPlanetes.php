@@ -1,5 +1,5 @@
 <?php 
-require_once File::build_path(array('model','ModelPanetes.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelPlanetes.php')); // chargement du modèle
 class ControllerPlanetes
 {
 	protected static $object='planete';
@@ -17,5 +17,6 @@ class ControllerPlanetes
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
+}
 	
 ?>
