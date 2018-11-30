@@ -63,24 +63,56 @@ class ControllerClient
 
     public static function created() 
     {   
-        $login = $_POST['login'];
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $mail = $_POST['mail'];
-        $rue = $_POST['rue'];
-        $codepostal = $_POST['codepostal'];
-        $ville = $_POST['ville'];
-        $password = $_POST['pw1'];
-        $password2 = $_POST['pw2'];
-        $dateinscription = date("Y-m-d H:i:s");
+        if(isset($_POST['login']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['rue']) && isset($_POST['codepostal']) && isset($_POST['ville']) && isset($_POST['pw1']) && isset($_POST['pw2']))
+        {
+            $login = $_POST['login'];
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $mail = $_POST['mail'];
+            $rue = $_POST['rue'];
+            $codepostal = $_POST['codepostal'];
+            $ville = $_POST['ville'];
+            $password = $_POST['pw1'];
+            $password2 = $_POST['pw2'];
+            $dateinscription = date("Y-m-d H:i:s");
 
-        $c = new ModelClient($login, $prenom, $nom, $mail, $rue, $codepostal, $ville, $password, $dateinscription);
-        $c->save();
-        
-        $view = 'created';
-        $pagetitle = 'Liste des Clients';
-        require File::build_path(array('view','view.php'));
+            if ($password == $password2)
+            {
+                $c = new ModelClient($login, $prenom, $nom, $mail, $rue, $codepostal, $ville, Security::chiffrer($password), $dateinscription);
+                $c->save();
+            }
+            
+        }
+        ControllerAccueil::homepage();
+
     }
+
+    public static function connect()
+    {
+            $view = 'connect';
+            $pagetitle = 'Se connecter';
+            require File::build_path(array('view','view.php'));
+    }
+
+    public static function connected()
+    {
+        if (isset($_POST['login'])&&isset($_POST['pw']))
+        {
+            $login = $_POST['login'];
+            $pw = Security::chiffrer($_POST['pw']);
+            if (ModelClient::select($login))
+              {
+                if (ModelClient::select($login)->checkPW($login, $pw))
+                 {
+                        $_SESSION['login'] = $login;
+                        $c = ModelClient::select($login);
+//                       ControllerAccueil::homepage();
+
+                    }
+                }
+            }
+
+        }
 
     public static function error()
     {
