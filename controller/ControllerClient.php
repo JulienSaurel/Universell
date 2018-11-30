@@ -1,5 +1,6 @@
 <?php
 require_once File::build_path(array('model','ModelClient.php')); // chargement du modèle
+require_once File::build_path(array('controller','ControllerMonProfil.php')); // chargement du modèle
 
 class ControllerClient 
 {
@@ -103,15 +104,20 @@ class ControllerClient
             if (ModelClient::select($login))
               {
                 if (ModelClient::select($login)->checkPW($login, $pw))
-                 {
+                 {      
                         $_SESSION['login'] = $login;
-                        $c = ModelClient::select($login);
-//                       ControllerAccueil::homepage();
+                        ControllerMonProfil::profile();
 
                     }
                 }
             }
 
+        }
+        public static function deconnect()
+        {
+            session_unset();
+
+            ControllerAccueil::homepage();
         }
 
     public static function error()
