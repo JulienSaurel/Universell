@@ -13,6 +13,7 @@
 
 
 	<?php
+	var_dump($_SESSION['panier']);
 	
 		$nbArticles=count($_SESSION['panier']['libelleProduit']);
 		if ($nbArticles <= 0)
@@ -31,7 +32,7 @@
 
 			echo "<tr><td colspan=\"2\"> </td>";
 			echo "<td colspan=\"2\">";
-			echo "Total : ".MontantGlobal();
+			echo "Total : ".ModelPanier::MontantGlobal();
 			echo "</td></tr>";
 
 			echo "<tr><td colspan=\"4\">";
@@ -39,7 +40,7 @@
 			echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
 
 			echo "</td></tr>";
-		}
+		}	
 	
 	?>
 </table>
