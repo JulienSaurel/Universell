@@ -62,14 +62,24 @@ class ControllerClient
     }
 
     public static function created() 
-    {
-        $u = new ModelClient($_POST['login'],$_POST['nom'],$_POST['prenom']);
-        $u->save();
+    {   
+        $login = $_POST['login'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $mail = $_POST['mail'];
+        $rue = $_POST['rue'];
+        $codepostal = $_POST['codepostal'];
+        $ville = $_POST['ville'];
+        $password = $_POST['pw1'];
+        $password2 = $_POST['pw2'];
+        $dateinscription = date("Y-m-d H:i:s");
+
+        $c = new ModelClient($login, $prenom, $nom, $mail, $rue, $codepostal, $ville, $password, $dateinscription);
+        $c->save();
         
         $view = 'created';
         $pagetitle = 'Liste des Clients';
         require File::build_path(array('view','view.php'));
-        self::readAll();
     }
 
     public static function error()
