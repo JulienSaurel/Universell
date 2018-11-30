@@ -25,7 +25,7 @@ static public function selectAll() {
 
         $table_name = static::$object;
         $class_name = 'Model' . ucfirst($table_name);        
-        $sql = 'SELECT * FROM '.ucfirst($table_name);
+        $sql = 'SELECT * FROM uni_'.ucfirst($table_name);
         
 
         $req_prep = Model::$pdo->prepare($sql);
@@ -45,7 +45,7 @@ static public function selectAll() {
         $class_name = 'Model' . ucfirst($table_name);        
         $primary_key = static::$primary;   
 
-        $sql = "SELECT * from " . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
+        $sql = "SELECT * from uni_" . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
         var_dump($sql);
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -66,7 +66,7 @@ static public function selectAll() {
         $table_name = static::$object;
         $class_name = 'Model' . ucfirst($table_name);        
         $primary_key = static::$primary;
-        $sql = "DELETE from " . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
+        $sql = "DELETE from uni_" . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
    
