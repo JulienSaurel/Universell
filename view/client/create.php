@@ -25,7 +25,7 @@
         </p>
          <p>
             <label for="addpost">Code postale :</label> 
-            <input type="text" placeholder="Ex : 7, rue Marceau" name="codepostale" id="addpost" required/>
+            <input type="text" placeholder="Ex : 7, rue Marceau" name="codepostal" id="addpost" required/>
         </p>
         <p>
             <label for="ville">Ville :</label> 
@@ -38,7 +38,7 @@
         </p>
         <p>
             <label for="pw2">Valider le mot de passe :</label>
-            <input type="password" name="PW_Adherent2" id="pw2" required/>
+            <input type="password" name="pw2" id="pw2" required/>
         </p>
         <p>
             <input type="submit" value="Envoyer" />

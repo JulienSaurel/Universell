@@ -68,15 +68,13 @@ class ControllerClient
         $prenom = $_POST['prenom'];
         $mail = $_POST['mail'];
         $rue = $_POST['rue'];
-        $codepostale = $_POST['codepostale'];
+        $codepostal = $_POST['codepostal'];
         $ville = $_POST['ville'];
-        $password = $_POST['password'];
-        $dateinscription = $_POST['dateinscription'];
         $password = $_POST['pw1'];
         $password2 = $_POST['pw2'];
-        $dateinscription = date();
+        $dateinscription = date("Y-m-d H:i:s");
 
-        $c = new ModelClient($login, $prenom, $nom, $mail, $rue, $codepostale, $ville, $password, $dateinscription);
+        $c = new ModelClient($login, $prenom, $nom, $mail, $rue, $codepostal, $ville, $password, $dateinscription);
         $c->save();
         
         $view = 'created';

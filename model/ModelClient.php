@@ -10,8 +10,8 @@ class ModelClient extends Model
     private $prenom;
     private $mail;
     private $rue;
-    private $codepostale;
-    private $ville
+    private $codepostal;
+    private $ville;
     private $password;
     private $dateinscription;
     static protected $object = 'client';
@@ -34,15 +34,15 @@ class ModelClient extends Model
         return false;
     }
 
-    public function __construct($login = NULL, $nom = NULL, $prenom = NULL $mail = NULL, $rue = NULL, $codepostale = NULL $ville = NULL, $password = NULL, $dateinscription = NULL) {
-        if (!is_null($login) && !is_null($nom) && !is_null($prenom) && !is_null($mail) && !is_null($rue) && !is_null($codepostale) && !is_null($ville) && !is_null($password) && !is_null($prenom) && !is_null($dateinscription)) {
+    public function __construct($login = NULL, $nom = NULL, $prenom = NULL, $mail = NULL, $rue = NULL, $codepostal = NULL, $ville = NULL, $password = NULL, $dateinscription = NULL) {
+        if (!is_null($login) && !is_null($nom) && !is_null($prenom) && !is_null($mail) && !is_null($rue) && !is_null($codepostal) && !is_null($ville) && !is_null($password) && !is_null($prenom) && !is_null($dateinscription)) {
 
             $this->login = $login;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->mail = $mail;
             $this->rue = $rue;
-            $this->codepostale = $codepostale;
+            $this->codepostal = $codepostal;
             $this->ville = $ville;
             $this->password = $password;
             $this->dateinscription = $dateinscription;
@@ -50,7 +50,7 @@ class ModelClient extends Model
     }
 
      public function save() {    
-        $sql = "INSERT INTO Utilisateur (login, prenom, nom, mail, rue, codepostale, ville, password, dateinscription) VALUES (:login, :prenom, :nom, :mail, :rue, :codepostale, :ville, :password, :dateinscription)";
+        $sql = "INSERT INTO uni_Client (login, prenom, nom, mail, rue, codepostal, ville, password, dateinscription) VALUES (:login, :prenom, :nom, :mail, :rue, :codepostal, :ville, :password, :dateinscription)";
         
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
@@ -61,7 +61,7 @@ class ModelClient extends Model
             "prenom" => $this->prenom,     
             "mail" => $this->mail,
             "rue" => $this->rue,
-            "codepostale" => $this->codepostale,
+            "codepostal" => $this->codepostal,
             "ville" => $this->ville,     
             "password" => $this->password,
             "dateinscription" => $this->dateinscription,
@@ -72,7 +72,7 @@ class ModelClient extends Model
 
 
     public function update($data) {    
-        $sql = "UPDATE Utilisateur SET prenom=:prenom, nom=:nom, mail=:mail, rue=:rue, codepostale=:codepostale, ville=:ville, password=:password, dateinscription=:dateinscription WHERE login = :login";
+        $sql = "UPDATE uni_Client SET prenom=:prenom, nom=:nom, mail=:mail, rue=:rue, codepostal=:codepostal, ville=:ville, password=:password, dateinscription=:dateinscription WHERE login = :login";
         
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
@@ -83,7 +83,7 @@ class ModelClient extends Model
             "prenom" => $this->prenom,     
             "mail" => $this->mail,
             "rue" => $this->rue,
-            "codepostale" => $this->codepostale,
+            "codepostal" => $this->codepostal,
             "ville" => $this->ville,     
             "password" => $this->password,
             "dateinscription" => $this->dateinscription,
