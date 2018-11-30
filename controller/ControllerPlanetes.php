@@ -1,13 +1,18 @@
 <?php 
-require_once File::build_path(array('model','ModelPanetes.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelPlanetes.php')); // chargement du modèle
+
 class ControllerPlanetes
 {
-	protected static $object='planete';
+	protected static $object='planetes';
 
 	public static function display()
 	{
-        $view = 'nosProduits';
-        $pagetitle = 'Nos produits';
+        $planetes = ModelPlanetes::selectAll();
+        var_dump($planetes[1]);
+        
+
+        $view = 'nosPlanetes';
+        $pagetitle = 'Nos planetes';
         require File::build_path(array('view','view.php')); 
 	}
 
@@ -17,5 +22,6 @@ class ControllerPlanetes
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
+}
 	
 ?>

@@ -10,7 +10,7 @@ class ModelPlanetes extends Model
     private $qteStock;
     private $image;
 
-    static protected $object = 'planete';
+    static protected $object = 'planetes';
     protected static $primary='id';
 
     // Getter générique
