@@ -1,14 +1,18 @@
-<?php 
-require_once File::build_path(array('model','ModelPlanetes.php')); // chargement du modèle
-class ControllerPlanetes
+<?php
+require_once File::build_path(array('model','ModelPanier.php'));
+
+class ControllerPanier
 {
-	protected static $object='planete';
+	protected static $object='panier';
 
 	public static function display()
+	{	
+		if (ModelPanier::creationPanier())
 	{
-        $view = 'nosProduits';
-        $pagetitle = 'Nos produits';
+        $view = 'Panier';
+        $pagetitle = 'Votre panier';
         require File::build_path(array('view','view.php')); 
+    }
 	}
 
 	 public static function error()
@@ -18,5 +22,3 @@ class ControllerPlanetes
     require File::build_path(array('view','view.php'));
     }
 }
-	
-?>
