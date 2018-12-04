@@ -35,7 +35,7 @@ public static function compterArticles()
 public static function ajouterArticle($libelleProduit,$qteProduit,$prixProduit){
 
    //Si le panier existe
-   if (creationPanier() && !isVerrouille())
+   if (Self::creationPanier() && !Self::isVerrouille())
    {
       //Si le produit existe déjà on ajoute seulement la quantité
       $positionProduit = array_search($libelleProduit,  $_SESSION['panier']['libelleProduit']);
