@@ -7,14 +7,22 @@ class ControllerPlanetes
 
 	public static function display()
 	{
-        $planetes = ModelPlanetes::selectAll();
-        var_dump($planetes[1]);
-        
+        $planetes = ModelPlanetes::selectAll();        
 
         $view = 'nosPlanetes';
         $pagetitle = 'Nos planetes';
         require File::build_path(array('view','view.php')); 
 	}
+
+    public static function achat(){
+        $idPlanete = $_GET['planete'];
+
+        $planete = ModelPlanetes::getPlaneteById($idPlanete);
+
+        $view = 'infoPlanete';
+        $pagetitle = 'Acheter une planète';
+        require File::build_path(array('view','view.php'));
+    }
 
 	 public static function error()
     {

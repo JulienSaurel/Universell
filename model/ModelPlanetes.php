@@ -61,6 +61,23 @@ class ModelPlanetes extends Model
         // On donne les valeurs et on exécute la requête
         $req_prep->execute($values);
     }
+
+    public static function getPlaneteById($id){
+        $sql = "SELECT * from uni_Planetes WHERE id=:id";
+
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $values = array(
+            'id' => $id );
+        //var_dump($sql);
+        
+        $req_prep->execute($values);
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPlanetes');
+        $tab = $req_prep->fetchAll();
+
+        return $tab[0];
+    }
     
 }
 ?>
