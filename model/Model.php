@@ -24,7 +24,8 @@ class Model {
 static public function selectAll() {
 
         $table_name = static::$object;
-        $class_name = 'Model' . ucfirst($table_name);        
+        $class_name = 'Model' . ucfirst($table_name);  
+        var_dump($class_name);      
         $sql = 'SELECT * FROM uni_'.ucfirst($table_name);
         
 

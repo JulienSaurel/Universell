@@ -4,6 +4,9 @@
 <li class="nousConnaitre"><a href="?action=display1st&controller=nousConnaitre">Nos Produits</a></li>
 
 <li class="Panier"><a href="?action=display&controller=Panier">Panier</a></li>
+
+
+
 <?php  if (!isset($_SESSION['login'])) { ?>
         <li class="SeConnecter">
           <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=client">Se connecter</a>
