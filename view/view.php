@@ -3,8 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
-        <link rel="stylesheet" type="text/css" href="view/css/styles.css">
-                <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="script/jquery.min.js"></script>
+        <script src="script/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     </head>
     <body>

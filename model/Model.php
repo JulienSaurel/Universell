@@ -47,7 +47,7 @@ static public function selectAll() {
         $primary_key = static::$primary;   
 
         $sql = "SELECT * from uni_" . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
-        var_dump($sql);
+        //var_dump($sql);
         $req_prep = Model::$pdo->prepare($sql);
 
         $req_prep->execute();
