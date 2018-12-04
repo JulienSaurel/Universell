@@ -23,13 +23,19 @@ class ControllerPanier
     require File::build_path(array('view','view.php'));
     }
 
+    public static function suppression(){
+      $l = $_GET['l'];
+      ModelPanier::supprimerArticle($l);
+      Self::display();
+
+    }
+
 
     public static function action(){
-      ModelPanier::creationPanier();
-    ModelPanier::ajouterArticle('Bite',3,50);
-    var_dump($_SESSION['panier']);
+
+    
     $erreur = false;
-		$action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? $_GET['action']:null )) ;
+		$action = (isset($_POST['agir'])? $_POST['agir']:  (isset($_GET['agir'])? $_GET['agir']:null )) ;
 		if($action !== null){
    			if(!in_array($action,array('ajout', 'suppression', 'refresh')))
    				$erreur=true;
@@ -60,26 +66,28 @@ class ControllerPanier
 		if (!$erreur){
    		switch($action){
       Case "ajout":
-         ajouterArticle($l,$q,$p);
+         ModelPanier::ajouterArticle($l,$q,$p);
          break;
 
       Case "suppression":
-         supprimerArticle($l);
+         ModelPanier::supprimerArticle($l);
          break;
 
       Case "refresh" :
          for ($i = 0 ; $i < count($QteArticle) ; $i++)
          {
-            modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i],round($QteArticle[$i]));
+            ModelPanier::modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i],round($QteArticle[$i]));
          }
          break;
 
       Default:
          break;
    }
-}   
+}   else {
+  echo "no action";
+}
 
 
-
+    Self::display();
     }
 }

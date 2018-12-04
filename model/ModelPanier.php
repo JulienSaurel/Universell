@@ -58,7 +58,7 @@ public static function ajouterArticle($libelleProduit,$qteProduit,$prixProduit){
 
 public static function supprimerArticle($libelleProduit){
    //Si le panier existe
-   if (creationPanier() && !isVerrouille())
+   if (Self::creationPanier() && !Self::isVerrouille())
    {
       //Nous allons passer par un panier temporaire
       $tmp=array();
