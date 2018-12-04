@@ -24,7 +24,7 @@
             <input type="text" placeholder="Ex : 7, rue Marceau" name="rue" id="addpost" required/>
         </p>
          <p>
-            <label for="addpost">Code postale :</label> 
+            <label for="addpost">Code postal :</label> 
             <input type="text" placeholder="Ex : 7, rue Marceau" name="codepostal" id="addpost" required/>
         </p>
         <p>

@@ -3,6 +3,7 @@ require_once File::build_path(array('controller','ControllerClient.php'));
 require_once File::build_path(array('controller','ControllerAccueil.php'));
 require_once File::build_path(array('controller','ControllerPlanetes.php'));
 require_once File::build_path(array('controller','ControllerPanier.php'));
+require_once File::build_path(array('controller','ControllerMonProfil.php'));
 
 
 

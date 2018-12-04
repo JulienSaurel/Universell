@@ -91,4 +91,27 @@ class ModelClient extends Model
         $req_prep->execute($data);
     }
 
+
+    public function checkPW($login, $mot_de_passe_chiffre)
+    {
+
+        $sql = "SELECT * FROM uni_Client WHERE login=:login";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "login" => $login,);
+
+        $req_prep->execute($data);
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelClient');
+
+        $tab = $req_prep->fetchAll();
+
+
+        return ($tab[0]->login==$login) && ($tab[0]->password==$mot_de_passe_chiffre);
+
+    }
+
 }
