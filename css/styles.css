@@ -244,11 +244,7 @@ input:not([type='submit']):not([type='number']) {
 
 }
 
-input:not([type='submit']):not([type='number']):focus {
-    width:250px;
-  transition: width 500ms;
 
-}
 input[type=number] {
   height: 30px;
   width: 50px;
@@ -362,4 +358,8 @@ footer {
 
  img {
   width: 300px;
+ }
+
+ table, tr, td, th {
+  border: 1px solid black;
  }
