@@ -5,21 +5,21 @@ require_once File::build_path(array('model' , 'Model.php'));
 class ModelClient extends Model
 {
 
-    private $login;
-    private $nom;
-    private $prenom;
-    private $mail;
-    private $rue;
-    private $codepostal;
-    private $ville;
-    private $password;
-    private $dateinscription;
+    protected $login;
+    protected $nom;
+    protected $prenom;
+    protected $mail;
+    protected $rue;
+    protected $codepostal;
+    protected $ville;
+    protected $password;
+    protected $dateinscription;
     static protected $object = 'client';
     protected static $primary='login';
 
 
 
-	public function get($nom_attribut) 
+	/*public function get($nom_attribut)
     {
         if (property_exists($this, $nom_attribut))
             return $this->$nom_attribut;
@@ -47,9 +47,9 @@ class ModelClient extends Model
             $this->password = $password;
             $this->dateinscription = $dateinscription;
         }
-    }
+    }*/
 
-     public function save() {    
+    /* public function save() {
         $sql = "INSERT INTO uni_Client (login, prenom, nom, mail, rue, codepostal, ville, password, dateinscription) VALUES (:login, :prenom, :nom, :mail, :rue, :codepostal, :ville, :password, :dateinscription)";
         
         // Préparation de la requête
@@ -68,10 +68,10 @@ class ModelClient extends Model
         );
         
         $req_prep->execute($values);
-    }
+    }*/
 
 
-    public function update($data) {    
+   /* public function update($data) {
         $sql = "UPDATE uni_Client SET prenom=:prenom, nom=:nom, mail=:mail, rue=:rue, codepostal=:codepostal, ville=:ville, password=:password, dateinscription=:dateinscription WHERE login = :login";
         
         // Préparation de la requête
@@ -89,7 +89,7 @@ class ModelClient extends Model
             "dateinscription" => $this->dateinscription,
         );
         $req_prep->execute($data);
-    }
+    }*/
 
 
     public function checkPW($login, $mot_de_passe_chiffre)
