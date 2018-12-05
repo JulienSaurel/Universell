@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66ce5f71-bdca-4e46-bc57-2ba55ac59d7d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Conf.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Conf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerMonProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerMonProfil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/routeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/routeur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ModelClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ModelPlanetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelPlanetes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/menu.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/routeur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+            <state relative-caret-position="615">
+              <caret line="41" lean-forward="true" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -213,12 +205,12 @@
       <updated>1543961181406</updated>
       <workItem from="1543961186299" duration="286000" />
       <workItem from="1544002789033" duration="1468000" />
-      <workItem from="1544011145589" duration="5800000" />
+      <workItem from="1544011145589" duration="6319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7554000" />
+    <option name="totallyTimeSpent" value="8073000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -332,8 +324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/routeur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="15" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+        <state relative-caret-position="615">
+          <caret line="41" lean-forward="true" selection-end-line="46" />
         </state>
       </provider>
     </entry>
