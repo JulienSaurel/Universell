@@ -92,7 +92,7 @@ src: url("font/Philosopher-Regular.ttf");
     #menu > li > ul {
       top: -500%;
       text-align: center;
-      background-color: #cbdcc9;
+      background-color: #c2f6f7;
       border: 2px solid #c2f6f7;
       border-radius: 8px;
       transition: top .6s;

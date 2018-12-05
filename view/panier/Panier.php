@@ -1,5 +1,5 @@
 
-<form method="post" action="panier.php">
+<form method="post" action="index.php?controller=Panier&action=modifier">
 <table style="width: 400px">
 	<tr>
 		<td colspan="4">Votre panier</td>
@@ -36,13 +36,18 @@
 			echo "</td></tr>";
 
 			echo "<tr><td colspan=\"4\">";
-			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
 			echo "<input type=\"hidden\" name=\"controller\" value=\"Panier\"/>";
 			echo "<input type=\"hidden\" name=\"action\" value=\"modifier\"/>";
+			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
+			
 
 			echo "</td></tr>";
 		}	
 	
 	?>
 </table>
+</form>
+
+<form method="post" action="index.php?controller=Panier&action=commande">
+		<input type="submit" value="Finaliser la commande" >
 </form>
