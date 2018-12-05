@@ -7,13 +7,13 @@
 
 <?php  if (!isset($_SESSION['login'])) { ?>
         <li class="SeConnecter">
-          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=client">Se connecter</a>
+          <a onclick="openLink()"  href="?action=connect&controller=client">Se connecter</a>
       </li>
        <?php }
        else
        { ?>
       <li class="monProfil">
-      <a onclick="openLink()" class="lienMenu" href="?action=profile&controller=monProfil">Mon profil</a>
+      <a onclick="openLink()"  href="?action=profile&controller=monProfil">Mon profil</a>
       <ul>
         <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
         <li><a class="lienMenu"href="?action=deconnect&controller=client">Se deconnecter</a></li>
