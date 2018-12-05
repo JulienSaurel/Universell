@@ -32,9 +32,9 @@ class ControllerPanier
 
     public static function ajout(){
       $id = $_GET['idPlanete'];
-      $q = $_GET['qte'];
+      $q = $_GET['qte']; // VERIFIER QUANTITÉ EN STOCK
       
-      $planete = ModelPlanetes::getPlaneteById($id);
+      $planete = ModelPlanetes::select($id);
 
       $l = $planete-> get('nom');
       $p = $planete-> get('prix');
