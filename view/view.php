@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
+        <link rel="icon" type="image/png" href="images/favicon/favicon.png" />
         <script src="script/jquery.min.js"></script>
         <script src="script/script.js"></script>
         <link rel="stylesheet" type="text/css" href="css/styles.css">

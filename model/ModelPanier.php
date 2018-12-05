@@ -88,7 +88,7 @@ public static function supprimerArticle($libelleProduit){
 
 public static function modifierQTeArticle($libelleProduit,$qteProduit){
    //Si le panier éxiste
-   if (creationPanier() && !isVerrouille())
+   if (Self::creationPanier() && !Self::isVerrouille())
    {
       //Si la quantité est positive on modifie sinon on supprime l'article
       if ($qteProduit > 0)
@@ -102,7 +102,7 @@ public static function modifierQTeArticle($libelleProduit,$qteProduit){
          }
       }
       else
-      supprimerArticle($libelleProduit);
+      Self::supprimerArticle($libelleProduit);
    }
    else
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";

@@ -1,4 +1,4 @@
-
+<p> <span class="erreurFormulaire"> <?php echo $errmsg ?> </span></p>
 <form method="post" action="index.php?controller=Panier&action=modifier">
 <table style="width: 400px">
 	<tr>
