@@ -30,6 +30,19 @@ class ControllerPanier
 
     }
 
+    public static function ajout(){
+      $id = $_GET['idPlanete'];
+      $q = $_GET['qte']; // VERIFIER QUANTITÉ EN STOCK
+      
+      $planete = ModelPlanetes::select($id);
+
+      $l = $planete-> get('nom');
+      $p = $planete-> get('prix');
+
+      ModelPanier::ajouterArticle($l,$q,$p);
+      Self::display();
+    }
+
 
     public static function action(){
 
@@ -41,9 +54,9 @@ class ControllerPanier
    				$erreur=true;
 
    //récuperation des variables en POST ou GET
-   		$l = (isset($_POST['l'])? $_POST['l']:  (isset($_GET['l'])? $_GET['l']:null )) ;
-   		$p = (isset($_POST['p'])? $_POST['p']:  (isset($_GET['p'])? $_GET['p']:null )) ;
-  		$q = (isset($_POST['q'])? $_POST['q']:  (isset($_GET['q'])? $_GET['q']:null )) ;
+   		//$l = (isset($_POST['l'])? $_POST['l']:  (isset($_GET['l'])? $_GET['l']:null )) ;
+   		//$p = (isset($_POST['p'])? $_POST['p']:  (isset($_GET['p'])? $_GET['p']:null )) ;
+  		//$q = (isset($_POST['q'])? $_POST['q']:  (isset($_GET['q'])? $_GET['q']:null )) ;
 
    //Suppression des espaces verticaux
    		$l = preg_replace('#\v#', '',$l);
