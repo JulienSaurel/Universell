@@ -77,10 +77,23 @@ class ControllerClient
             $password2 = $_POST['pw2'];
             $dateinscription = date("Y-m-d H:i:s");
 
+            $array = array(
+                'login' => $login,
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'mail' => $mail,
+                'rue' => $rue,
+                'codepostal' => $codepostal,
+                'ville' => $ville,
+                'password' => Security::chiffrer($password),
+                'dateinscription' => $dateinscription,
+            );
+            var_dump($array);
+
             if ($password == $password2)
             {
-                $c = new ModelClient($login, $prenom, $nom, $mail, $rue, $codepostal, $ville, Security::chiffrer($password), $dateinscription);
-                $c->save();
+                $c = new ModelClient($array);
+                ModelClient::save($array);
             }
             
         }

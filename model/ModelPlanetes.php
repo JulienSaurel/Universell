@@ -4,17 +4,17 @@ require_once File::build_path(array('model','Model.php'));
 class ModelPlanetes extends Model
 {
 
-    private $id;
-    private $nom;
-    private $prix;
-    private $qteStock;
-    private $image;
+    protected $id;
+    protected $nom;
+    protected $prix;
+    protected $qteStock;
+    protected $image;
 
     static protected $object = 'planetes';
     protected static $primary='id';
 
     // Getter générique
-    public function get($nom_attribut)
+    /*public function get($nom_attribut)
     {
         if (property_exists($this, $nom_attribut))
             return $this->$nom_attribut;
@@ -60,7 +60,7 @@ class ModelPlanetes extends Model
 	    );
         // On donne les valeurs et on exécute la requête
         $req_prep->execute($values);
-    }
+    }*/
 
     public static function getPlaneteById($id){
         $sql = "SELECT * from uni_Planetes WHERE id=:id";
