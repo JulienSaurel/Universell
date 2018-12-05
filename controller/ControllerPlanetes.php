@@ -20,7 +20,7 @@ class ControllerPlanetes
         $planete = ModelPlanetes::select($idPlanete);
 
         $view = 'infoPlanete';
-        $pagetitle = 'Acheter une planète';
+        $pagetitle = 'Acheter ' . $planete->get('nom');
         require File::build_path(array('view','view.php'));
     }
 

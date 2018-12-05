@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="66ce5f71-bdca-4e46-bc57-2ba55ac59d7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControllerAccueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAccueil.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerPlanetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerPlanetes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ModelClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ModelPlanetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelPlanetes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/planetes/infoPlanete.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/planetes/infoPlanete.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,11 +33,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/planetes/infoPlanete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+            <state>
+              <caret column="28" selection-start-column="28" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerAccueil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -54,12 +60,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/ModelPlanetes.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerPanier.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1081" />
           </provider>
         </entry>
       </file>
@@ -86,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/ControllerPlanetes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -112,10 +125,11 @@
         <option value="$PROJECT_DIR$/controller/routeur.php" />
         <option value="$PROJECT_DIR$/controller/ControllerClient.php" />
         <option value="$PROJECT_DIR$/model/ModelClient.php" />
-        <option value="$PROJECT_DIR$/view/planetes/infoPlanete.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerPlanetes.php" />
         <option value="$PROJECT_DIR$/model/Model.php" />
         <option value="$PROJECT_DIR$/model/ModelPlanetes.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAccueil.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerPlanetes.php" />
+        <option value="$PROJECT_DIR$/view/planetes/infoPlanete.php" />
       </list>
     </option>
   </component>
@@ -207,15 +221,24 @@
       <workItem from="1543961186299" duration="286000" />
       <workItem from="1544002789033" duration="1468000" />
       <workItem from="1544011145589" duration="8638000" />
-      <workItem from="1544021830951" duration="858000" />
+      <workItem from="1544021830951" duration="2656000" />
     </task>
+    <task id="LOCAL-00001" summary="debut admin">
+      <created>1544023154450</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1544023154450</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11250000" />
+    <option name="totallyTimeSpent" value="13048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10469509" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -229,9 +252,9 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49973017" weight="0.32982087" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50026983" side_tool="true" weight="0.32982087" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -240,6 +263,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="debut admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="debut admin" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/controller/ControllerNosProduits.php">
@@ -251,9 +278,6 @@
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAccueil.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/view/client/connect.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -300,24 +324,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/planetes/infoPlanete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/Conf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerPlanetes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -346,6 +356,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerPanier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1081" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerAccueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerPlanetes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="52" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/planetes/infoPlanete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
         </state>
       </provider>
     </entry>

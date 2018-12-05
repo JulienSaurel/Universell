@@ -6,7 +6,7 @@ class ControllerAccueil
 	public static function homepage()
 	{
 		$view = 'accueil';
-		$pagetitle = 'Accueil';
+		$pagetitle = 'Accueil Universell';
 		require_once File::build_path(array('view','view.php'));
 	}
 

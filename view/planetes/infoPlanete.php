@@ -1,4 +1,4 @@
-<h1> info planete </h1>
+<h1> La planète <?php echo $planete->get('nom') ?> </h1>
 
 <?php echo "<img src=". $planete->get('image')." alt=\" planete \" >"?>
 
