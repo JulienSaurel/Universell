@@ -52,7 +52,7 @@ src: url("font/Philosopher-Regular.ttf");
       height: 50px;
       display: inline-block;
       width: 120px;
-      background-color: #adbfab;
+      background-color: #7192bb;
       border: 1px solid #cbdcc9;
       padding-left: 5px;
       padding-right: 5px;
@@ -80,8 +80,8 @@ src: url("font/Philosopher-Regular.ttf");
     }
 
     #menu > li:hover{
-      background-color: #cbdcc9;
-        transition: background-color 0.9s linear;
+      background-color: #c2f6f7;
+        transition: background-color 0.5s linear;
         
     }
 
@@ -93,7 +93,7 @@ src: url("font/Philosopher-Regular.ttf");
       top: -500%;
       text-align: center;
       background-color: #cbdcc9;
-      border: 2px solid #adbfab;
+      border: 2px solid #c2f6f7;
       border-radius: 8px;
       transition: top .6s;
       width: 120px;
@@ -112,21 +112,21 @@ src: url("font/Philosopher-Regular.ttf");
     }
 
     #menu > li:hover, #menu > li > ul > li:hover {
-      border: 1px solid #adbfab;
+      border: 1px solid #c2f6f7;
     }
 
     #menu > li > ul > li > a{
-      border-bottom:1px solid #adbfab;
+      border-bottom:1px solid #c2f6f7;
       padding-top:8px;
       padding-bottom: 8px;
       transition: color 500ms;
     }
 
     #menu > li > ul > li > a:hover{
-      border-bottom:1px solid #adbfab;
+      border-bottom:1px solid #c2f6f7;
       padding-top:8px;
       padding-bottom: 8px;
-      color: #a9f49e;
+      color: #c2f6f7;
       transition: color 500ms;
     }
 }   
@@ -177,7 +177,7 @@ article img, form {
 
 /* Regles du body */
 body, html{
-  background-color: #cce3ce;
+  background-color: #afbfd3;
   font-family: "Philosopher";
   font-size: 20px;
     height: 99%;
@@ -215,25 +215,25 @@ a {
 
 a:not(.lienMenu):not(.imgfooter) {
   text-decoration: none;
-  color: #636363;
-  border-bottom: 0.02em solid #636363;
+  color: #FFFFFF;
+
 
 }
 
 a:not(.lienMenu):not(.imgfooter):hover {
-  color: #828282;
+  
 
 }
 
 input {
-    border: 2px solid #adbfab;
+    border: 2px solid #7192bb;
    border-radius: 0px; 
 
 }
 input:not([type='submit']) {
     border: none;
     border-bottom: 2px solid #738173;
-    background-color: #cce3ce;
+    background-color: #afbfd3;
   }
 
 input:not([type='submit']):not([type='number']) {
@@ -258,9 +258,9 @@ input[type=submit]{
 }
 
 input[type=submit]:hover, input[type=submit]:focus {
-box-shadow: 2px 2px 2px #85ad85;
+box-shadow: 2px 2px 2px #4982c9;
 color:white;
-background-color: #85ad85;
+background-color: #4982c9;
 transition: color 300ms;
 transition: background-color 300ms
 }
@@ -271,7 +271,7 @@ textarea {
   border-top: 2px solid #738173;
   border-right: 0px;
   resize: none;
-  background-color: #cce3ce;
+  background-color: #afbfd3;
   width: 15%;
    transition: color 500ms;
 transition: background-color 500ms;
@@ -330,7 +330,7 @@ footer {
   width: 100%;
   display: inline-block;
   margin-top: 10%;
-  border-top: 1px solid #adbfab;
+  border-top: 1px solid #7192bb;
 }
 
 #logoFB , #logoTT , #logoGP, #logoBurger {

@@ -37,7 +37,8 @@
 
 			echo "<tr><td colspan=\"4\">";
 			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
-			echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
+			echo "<input type=\"hidden\" name=\"controller\" value=\"Panier\"/>";
+			echo "<input type=\"hidden\" name=\"action\" value=\"modifier\"/>";
 
 			echo "</td></tr>";
 		}	

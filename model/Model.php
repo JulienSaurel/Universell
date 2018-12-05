@@ -111,6 +111,8 @@ class Model {
         return $tab[0];
     }
 
+
+
     static public function delete($primary_value) {
         try{
             $table_name = static::$object;

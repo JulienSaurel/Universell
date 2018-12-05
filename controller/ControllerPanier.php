@@ -43,6 +43,15 @@ class ControllerPanier
       Self::display();
     }
 
+    public static function modifier()
+    {
+      for ($i = 0 ; $i < count($QteArticle) ; $i++)
+         {
+            ModelPanier::modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i],round($QteArticle[$i]));
+         }
+
+    }
+
 
     public static function action(){
 

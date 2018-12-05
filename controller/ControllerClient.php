@@ -87,6 +87,7 @@ class ControllerClient
                 'ville' => $ville,
                 'password' => Security::chiffrer($password),
                 'dateinscription' => $dateinscription,
+                'isAdmin' => false,
             );
             var_dump($array);
 
