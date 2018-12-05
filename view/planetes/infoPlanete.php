@@ -2,7 +2,7 @@
 
 <?php echo "<img src=". $planete->get('image')." alt=\" planete \" >"?>
 
-<div> <p> <?php echo $planete->get('nom')." : ". $planete->get('prix')." € " ?>: </p>
+<div> <p> <?php echo $planete->get('nom')." : ". $planete->get('prix')." € " ?> </p>
 <?php $idP = $planete->get('id') ?>
 
     	<form method="get" action="index.php">
