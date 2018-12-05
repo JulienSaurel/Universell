@@ -33,6 +33,7 @@ class ControllerPanier
     public static function ajout(){
       $id = $_GET['idPlanete'];
       $q = $_GET['qte']; // VERIFIER QUANTITÉ EN STOCK
+      if ($q > 0) {
       
       $planete = ModelPlanetes::select($id);
 
@@ -41,14 +42,23 @@ class ControllerPanier
 
       ModelPanier::ajouterArticle($l,$q,$p);
       Self::display();
+    } else {
+      $view = 'errPanier';
+      $pagetitle = 'Votre Panier';
+      $errmsg = "Quantité d'article incorrecte";
+      require File::build_path(array('view','view.php'));
+    }
+      
     }
 
     public static function modifier()
     {
+      $QteArticle = $_POST['q'];
       for ($i = 0 ; $i < count($QteArticle) ; $i++)
          {
             ModelPanier::modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i],round($QteArticle[$i]));
          }
+         Self::display();
 
     }
 
