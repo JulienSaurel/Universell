@@ -17,7 +17,7 @@ class ControllerPlanetes
     public static function achat(){
         $idPlanete = $_GET['planete'];
 
-        $planete = ModelPlanetes::getPlaneteById($idPlanete);
+        $planete = ModelPlanetes::select($idPlanete); 
 
         $view = 'infoPlanete';
         $pagetitle = 'Acheter une planète';

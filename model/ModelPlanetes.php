@@ -43,41 +43,6 @@ class ModelPlanetes extends Model
     }
 
     
-
-    public function save()
-    {
-        $sql = "INSERT INTO uni_Planete (nom, prix, qteStock, image) VALUES (:nom, :prix, :qteStock, :image)";
-
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-
-        $values = array(
-            "nom" => $this->nom,
-            "prix" => $this->prix,
-            "qteStock" => $this->qteStock,
-            "image" => $this->image,
-	    );
-        // On donne les valeurs et on exécute la requête
-        $req_prep->execute($values);
-    }
-
-    public static function getPlaneteById($id){
-        $sql = "SELECT * from uni_Planetes WHERE id=:id";
-
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $values = array(
-            'id' => $id );
-        //var_dump($sql);
-        
-        $req_prep->execute($values);
-
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPlanetes');
-        $tab = $req_prep->fetchAll();
-
-        return $tab[0];
-    }
     
 }
 ?>
