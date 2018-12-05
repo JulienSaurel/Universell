@@ -2,10 +2,63 @@
 
 <?php echo "<img src=". $planete->get('image')." alt=\" planete \" >"?>
 
-<div> <p> <?php echo $planete->get('nom')." : ". $planete->get('prix')." € " ?>: </p>
-<?php $idP = $planete->get('id') ?>
+<div> <p> <?php echo $planete->get('nom')." : ". $planete->get('prix')." € " ?>: </p> </div>
+<?php $idP = $planete->get('id');
 
-    	<form method="get" action="index.php">
+if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
+        echo "<a href='?action=delete&id={$idP}&controller=planetes'>Supprimer </a>";?>
+
+        <form method="post" action="?action=update&controller=planetes">
+
+  <fieldset>
+      <legend>Modifier une planete :</legend>
+    <p>
+      <label for="id">Id</label> :
+      <input type="text"  name="id" id="id" value='<?php echo htmlspecialchars($planete->get('id')); ?>' readonly/>
+    </p>
+      <p>
+          <label for="nom">Nom</label> :
+          <input type="text"  name="nom" id="nom" value='<?php echo htmlspecialchars($planete->get('nom')); ?>' required/>
+      </p>
+      <p>
+          <label for="prix">Prix</label> :
+          <input type="text"  name="prix" id="prix" value='<?php echo htmlspecialchars($planete->get('prix')); ?>' required/>
+      </p>
+      <p>
+          <label for="img">Lien Image</label> :
+          <input type="text"  name="img" id="img" value='<?php echo htmlspecialchars($planete->get('image')); ?>' required/>
+      </p>
+    <p>
+        <input type="submit" value="Envoyer" />
+    </p>
+    </fieldset>
+    </form>
+
+        <form method="post" action="?action=stock&controller=planetes">
+
+            <fieldset>
+                <legend>Modifier le nombre de planètes en stock :</legend>
+                <p>
+                    <input type='hidden' name='id' value='<?php echo $idP; ?>' >
+                </p>
+                <p>
+                    <label for="qte">Quantité en Stock</label> :
+                    <input type="number"  name="qteStock" id="qte" value='<?php echo htmlspecialchars($planete->get('qteStock')); ?>' required/>
+                </p>
+                <p>
+                    <input type="submit" value="Envoyer" />
+                </p>
+            </fieldset>
+        </form>
+   <?php }
+else
+    { ?>
+
+
+
+
+
+  <div>  	<form method="get" action="index.php">
 
 
 		  <fieldset>
@@ -29,3 +82,4 @@
 		  </fieldset> 
 </form>
 </div>
+<?php } ?>
