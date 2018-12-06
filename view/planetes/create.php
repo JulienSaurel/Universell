@@ -3,12 +3,8 @@
     <fieldset>
         <legend>Mise en ligne d'un nouvel article :</legend>
         <p>
-            <label for="id">Id</label> :
+            <label for="id">Nom</label> :
             <input type="text"  name="id" id="id"  required/>
-        </p>
-        <p>
-            <label for="nom">Nom</label> :
-            <input type="text"  name="nom" id="nom"  required/>
         </p>
         <p>
             <label for="prix">Prix</label> :

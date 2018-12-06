@@ -3,6 +3,7 @@ require_once File::build_path(array('config','Conf.php'));
 class Model {
     public static $pdo;
 
+    //se connecte a la bdd en utilisant Conf.php
     public static function Init() {
         $hostname = Conf::getHostname();
         $database_name = Conf::getDatabase();
@@ -21,6 +22,8 @@ class Model {
         }
     }
 
+    //retourne la valeur d'un attribut du model sur lequel on l'appelle
+    //si la propriété nom_attribut n'existe pas retourne false
     public function get($nom_attribut)
     {
         if (property_exists($this, $nom_attribut))
@@ -29,6 +32,7 @@ class Model {
     }
 
     // Setter générique
+    //si la propriété nom_attribut n'existe pas retourne false
     public function set($nom_attribut, $valeur)
     {
         if (property_exists($this, $nom_attribut))
@@ -36,7 +40,8 @@ class Model {
         return false;
     }
 
-
+    //constructeur générique à partir d'un tableau des attributs de l'objet
+    //si le tableau est null, ne fait rien
     public function __construct($data = NULL)
     {
         if($data) {
@@ -46,14 +51,19 @@ class Model {
         }
     }
 
-
+    //retourne un tableau de tous les objets d'un model
     static public function selectAll() {
         try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
             $table_name = static::$object;
             $class_name = 'Model' . ucfirst($table_name);
 
+            //on ecrit la requete scl generique sans oublier le uni_
+
             $sql = 'SELECT * FROM uni_'.ucfirst($table_name);
 
+
+            //on prepare la requete pour l'executer de maniere securisee
 
             $req_prep = Model::$pdo->prepare($sql);
 
@@ -63,7 +73,7 @@ class Model {
 
 
             $tab = $req_prep->fetchAll();
-        } catch(PDOException $e) {
+        } catch(PDOException $e) { //on gere les exceptions
             if (Conf::getDebug())
             {
                 echo $e->getMessage(); // affiche un message d'erreur
@@ -74,9 +84,12 @@ class Model {
             }
             die();
         }
+
+        //on retourne le tableau contenant le resultat de la requete
         return $tab;
     }
-
+//TODO continuer les commentaires
+    //retourne l'objet dont la clé primaire est $primary_value
     static public function select($primary_value)
     {
         try{
@@ -111,8 +124,7 @@ class Model {
         return $tab[0];
     }
 
-
-
+    //supprime un objet dont la clé primaire est $primary_value
     static public function delete($primary_value) {
         try{
             $table_name = static::$object;
@@ -136,6 +148,7 @@ class Model {
         }
     }
 
+    //remplace les champs d'un objet par ceux contenus par $data
     public static function update($data)
     {
         try
@@ -164,6 +177,7 @@ class Model {
         }
     }
 
+    //sauvegarde un objet dans la base de données à partir d'un tableau contenant tous ses attributs
     public static function save($data)
     {
         try
@@ -196,6 +210,36 @@ class Model {
             }
             die();
         }
+    }
+
+    //genere une id qui n'est pas presente dans la bdd
+    public static function generateId()
+    {
+        try {
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $primary_key = static::$primary;
+
+
+            $sql = "SELECT MAX(" . $primary_key . ") FROM uni_". ucfirst($table_name);
+            $req = Model::$pdo->query($sql);
+            $res = $req->fetchColumn();
+
+        }catch (PDOException $e) {
+            if (Conf::getDebug())
+            {
+                echo $e->getMessage(); // affiche un message d'erreur
+            }
+            else
+            {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+
+        if ($res)
+            return $res+1;
+        return 1;
     }
 
 }

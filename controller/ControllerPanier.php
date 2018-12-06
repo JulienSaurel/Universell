@@ -38,7 +38,7 @@ class ControllerPanier
       
       $planete = ModelPlanetes::select($id);
 
-      $l = $planete-> get('nom');
+      $l = $id;
       $p = $planete-> get('prix');
 
       ModelPanier::ajouterArticle($l,$q,$p);
@@ -58,7 +58,7 @@ class ControllerPanier
     }
 
 
-    public static function action(){
+/*    public static function action(){
 
     
     $erreur = false;
@@ -116,19 +116,13 @@ class ControllerPanier
 
 
     Self::display();
-    }
+    }*/
 
 
 
     public static function facture(){
 
       Self::generePDF();
-    }
-
-    public static function paye(){
-      $view = 'payed';
-      $pagetitle = 'Merci';
-      require File::build_path(array('view','view.php'));
     }
 
 

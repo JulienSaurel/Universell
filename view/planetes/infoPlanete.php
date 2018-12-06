@@ -1,8 +1,8 @@
-<h1> La planète <?php echo $planete->get('nom') ?> </h1>
+<h1> La planète <?php echo $planete->get('id') ?> </h1>
 
 <?php echo "<img src=". $planete->get('image')." alt=\" planete \" >"?>
 
-<div> <p> <?php echo $planete->get('nom')." : ". $planete->get('prix')." € " ?> </p>
+<div> <p> <?php echo $planete->get('id')." : ". $planete->get('prix')." € " ?> </p>
   <p> Stock restant : <?php echo $stockPlanete ?> </p>
 <?php $idP = $planete->get('id');
 
@@ -17,10 +17,6 @@ if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='tr
       <label for="id">Id</label> :
       <input type="text"  name="id" id="id" value='<?php echo htmlspecialchars($planete->get('id')); ?>' readonly/>
     </p>
-      <p>
-          <label for="nom">Nom</label> :
-          <input type="text"  name="nom" id="nom" value='<?php echo htmlspecialchars($planete->get('nom')); ?>' required/>
-      </p>
       <p>
           <label for="prix">Prix</label> :
           <input type="text"  name="prix" id="prix" value='<?php echo htmlspecialchars($planete->get('prix')); ?>' required/>
