@@ -47,7 +47,7 @@
 </table>
 </form>
 
-<form method="post" action="index.php?controller=Panier&action=commande">
+<form method="post" action="index.php?controller=commande&action=commande">
 	<?php if(!isset($_SESSION['login'])){ ?>
 		<p> <span class="erreurFormulaire"> <?php echo $errmsg ?> </span></p>
 		<?php }else{ ?>

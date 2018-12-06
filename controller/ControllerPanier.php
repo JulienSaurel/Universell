@@ -119,13 +119,6 @@ class ControllerPanier
     }
 
 
-public static function commande(){
-
-        $view = 'commande';
-        $pagetitle = 'Votre commande';
-        require File::build_path(array('view','view.php'));
-
-    }
 
     public static function facture(){
 
