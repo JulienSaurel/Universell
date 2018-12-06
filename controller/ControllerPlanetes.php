@@ -24,6 +24,91 @@ class ControllerPlanetes
         require File::build_path(array('view','view.php'));
     }
 
+    public static function gotocreate()
+    {
+        $view = 'create';
+        $pagetitle = 'Mise en ligne d\'un nouvel article';
+        require File::build_path(array('view','view.php'));
+    }
+
+    public static function create()
+    {
+        if(isset($_POST['id'])&&isset($_POST['nom'])&&isset($_POST['prix'])&&isset($_POST['qteStock'])&&isset($_POST['img']))
+        {
+            $id = $_POST['id'];
+            $nom = $_POST['nom'];
+            $prix = $_POST['prix'];
+            $qteStock = $_POST['qteStock'];
+            $image = $_POST['img'];
+            $array = array(
+                'id' => $id,
+                'nom' => $nom,
+                'prix' => $prix,
+                'qteStock' => $qteStock,
+                'image' => $image,
+            );
+            $p = new ModelPlanetes($array);
+            ModelPlanetes::save($array);
+            self::display();
+        }
+    }
+
+    public static function delete()
+    {
+        $p = $_GET['id'];
+        ModelPlanetes::delete($p);
+        $planetes = ModelPlanetes::selectAll();
+
+        $view = 'nosPlanetes';
+        $pagetitle = 'La planète a bien été supprimée';
+        require File::build_path(array('view','view.php'));
+    }
+
+
+    public static function update()
+    {
+        if (isset($_POST['id'])&&isset($_POST['nom'])&&isset($_POST['prix'])&&isset($_POST['img'])) {
+            $array = array(
+                'id' => $_POST['id'],
+                'nom' => $_POST['nom'],
+                'prix' => $_POST['prix'],
+                'image' => $_POST['img'],
+            );
+            ModelPlanetes::update($array);
+
+            $idPlanete = $_POST['id'];
+            $planete = ModelPlanetes::select($idPlanete);
+
+            $view = 'infoPlanete';
+            $pagetitle = 'La planète a bien été mise à jour';
+            require File::build_path(array('view','view.php'));
+        }
+        else {
+            self::error();
+        }
+    }
+
+    public static function stock()
+    {
+        if (isset($_POST['qteStock'])) {
+            $array = array(
+                'id' => $_POST['id'],
+                'qteStock' => $_POST['qteStock'],
+            );
+            ModelPlanetes::update($array);
+
+            $idPlanete = $_POST['id'];
+            $planete = ModelPlanetes::select($idPlanete);
+
+            $view = 'infoPlanete';
+            $pagetitle = 'Le nombre de planètes a bien été mis à jour';
+            require File::build_path(array('view','view.php'));
+        }
+        else {
+            self::error();
+        }
+    }
+
 	 public static function error()
     {
     $view = 'error';
@@ -31,5 +116,4 @@ class ControllerPlanetes
     require File::build_path(array('view','view.php'));
     }
 }
-	
 ?>

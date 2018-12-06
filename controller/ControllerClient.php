@@ -115,19 +115,24 @@ class ControllerClient
         {
             $login = $_POST['login'];
             $pw = Security::chiffrer($_POST['pw']);
-            if (ModelClient::select($login))
+            $c = ModelClient::select($login);
+            if ($c)
               {
-                if (ModelClient::select($login)->checkPW($login, $pw))
+                if ($c->checkPW($login, $pw))
                  {      
                         $_SESSION['login'] = $login;
                         ControllerMonProfil::profile();
-
+                        if ($c->get('isAdmin')==1)
+                        {
+                            $_SESSION['admin'] = true;
+                        }
                     }
                 }
             }
 
         }
-        public static function deconnect()
+
+    public static function deconnect()
         {
             session_unset();
 
