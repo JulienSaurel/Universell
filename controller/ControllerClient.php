@@ -111,6 +111,7 @@ class ControllerClient
 
     public static function connected()
     {
+        
         if (isset($_POST['login'])&&isset($_POST['pw']))
         {
             $login = $_POST['login'];
@@ -126,6 +127,12 @@ class ControllerClient
                         {
                             $_SESSION['admin'] = true;
                         }
+
+                    } else {
+                        $errmsg = "Mot de passe incorrect";
+                        $view = 'errConnect';
+                        $pagetitle = 'erreur connection';
+                        require File::build_path(array('view','view.php'));
                     }
                 }
             }

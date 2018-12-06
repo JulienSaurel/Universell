@@ -8,3 +8,4 @@ class ModelAchats extends Model
     static protected $object = 'achats';
     protected static $primary='numero';
 }
+?>

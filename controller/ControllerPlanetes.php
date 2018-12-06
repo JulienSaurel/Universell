@@ -18,7 +18,8 @@ class ControllerPlanetes
         $idPlanete = $_GET['planete'];
 
         $planete = ModelPlanetes::select($idPlanete);
-
+        $stockPlanete = $planete->get('qteStock');
+        
         $view = 'infoPlanete';
         $pagetitle = 'Acheter ' . $planete->get('nom');
         require File::build_path(array('view','view.php'));
@@ -107,6 +108,13 @@ class ControllerPlanetes
         else {
             self::error();
         }
+    }
+
+    public static function erreurPlanete(){
+        $errmsg = "Veuillez entrer un montant correct";
+        $view = 'infoPlanete';
+        $pagetitle = 'Achat';
+        require File::build_path(array('view','view.php'));
     }
 
 	 public static function error()
