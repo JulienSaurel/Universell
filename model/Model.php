@@ -243,5 +243,6 @@ class Model {
     }
 
 }
+
 Model::Init();
 ?>

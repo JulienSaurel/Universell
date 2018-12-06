@@ -6,7 +6,7 @@ class Conf {
     static private $databases = array(
         // Le nom d'hote est webinfo a l'IUT
         // ou localhost sur votre machine
-        'hostname' => 'webinfo.iutmontp.univ-montp2.fr',
+        'hostname' => 'webinfo',
         // A l'IUT -> login
         // Chez vous -> vous le coisissez en creant la base
 
