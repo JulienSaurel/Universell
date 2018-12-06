@@ -12,7 +12,7 @@ class ControllerPanier
 	public static function display(){	
 
 		if (ModelPanier::creationPanier())
-	{      $errmsg = "Vous devez vous identifier avant de finaliser votre commande"; 
+	{      $errmsg = "Vous devez vous identifier avant de finaliser votre commande";
 
         $view = 'Panier';
         $pagetitle = 'Votre panier';
@@ -36,7 +36,7 @@ class ControllerPanier
 
     public static function ajout(){
       $id = $_GET['idPlanete'];
-      $q = $_GET['qte']; 
+      $q = $_GET['qte'];
       
       $planete = ModelPlanetes::select($id);
 
@@ -131,11 +131,12 @@ class ControllerPanier
     Self::display();
     }
 
+
 public static function commande(){
-                
+
         $view = 'commande';
         $pagetitle = 'Votre commande';
-        require File::build_path(array('view','view.php')); 
+        require File::build_path(array('view','view.php'));
 
     }
 
@@ -147,7 +148,7 @@ public static function commande(){
     public static function paye(){
       $view = 'payed';
       $pagetitle = 'Merci';
-      require File::build_path(array('view','view.php')); 
+      require File::build_path(array('view','view.php'));
     }
 
 
@@ -195,7 +196,7 @@ public static function commande(){
         'email' => $client->get('mail')
     );
 
-    /* la facture 
+    /* la facture
     $numFacture = $don->get('idDon'); */
     
     // les articles de la facture
@@ -281,6 +282,6 @@ public static function commande(){
     }
 }
 ?>
-    
-   
+
+
 }

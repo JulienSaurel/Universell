@@ -1,17 +1,11 @@
 <?php
 
-require_once File::build_path(array('model','Model.php'));
 class ModelAchats extends Model
 {
+    protected $numero;
+    protected $ligneCommande;
 
-    protected $id;
-    protected $id_planete;
-    protected $login_client;
-
-    static protected $object = 'achat';
-    protected static $primary='id';
-
-
-    
+    static protected $object = 'achats';
+    protected static $primary='numero';
 }
 ?>
