@@ -8,7 +8,7 @@ echo "<a href='?action=gotocreate&controller=planetes'>Mettre en ligne un nouvel
 }
 foreach ($planetes as $plan){ 
 	
-	echo "<p> ".$plan->get('nom')." : ". $plan->get('prix')." € \n";
+	echo "<p> ".$plan->get('id')." : ". $plan->get('prix')." € \n";
 	$image = "<a href=\"?action=achat&controller=planetes&planete=".$plan->get('id')."\" > <img src=". $plan->get('image')." alt=\" planete \" > </a>"; 
 	echo $image;
 }

@@ -2,6 +2,8 @@
 require_once File::build_path(array('model','ModelPanier.php'));
 require_once File::build_path(array('controller','ControllerPlanetes.php'));
 require_once File::build_path(array('model','ModelCommandes.php'));
+require_once File::build_path(array('model','ModelPlanetes.php'));
+
 
 class ControllerPanier
 {
@@ -38,7 +40,7 @@ class ControllerPanier
       
       $planete = ModelPlanetes::select($id);
 
-      $l = $planete-> get('nom');
+      $l = $planete-> get('id');
       $p = $planete-> get('prix');
 
       ModelPanier::ajouterArticle($l,$q,$p);
@@ -48,12 +50,23 @@ class ControllerPanier
 
     public static function modifier()
     {
-      $QteArticle = $_POST['q'];
-      for ($i = 0 ; $i < count($QteArticle) ; $i++)
-         {
-            ModelPanier::modifierQTeArticle($_SESSION['panier']['libelleProduit'][$i],round($QteArticle[$i]));
-         }
-         Self::display();
+
+
+
+      for ($q=0 ; $q < count($_SESSION['panier']['libelleProduit']) ; $q++) {
+      $idPlanete = $_SESSION['panier']['libelleProduit'][$q];
+      $planete = ModelPlanetes::select($idPlanete);
+      $stockPlanete = $planete->get('qteStock');
+      $e = "q".$q; 
+      $QteArticle = $_POST[$e];
+      if ($QteArticle <= $stockPlanete) {
+      
+      ModelPanier::modifierQTeArticle($_SESSION['panier']['libelleProduit'][$q],round($QteArticle));
+    } 
+         
+         
+       }
+       Self::display();
 
     }
 
