@@ -3,7 +3,7 @@
 <?php //FAIRE LE CAS OU N'EST PAS CONNECTÉ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //var_dump($_SESSION);
 $instanceClient = ModelClient::select($_SESSION["login"]);
-var_dump($instanceClient);
+//var_dump($instanceClient);
 $cpt = count($_SESSION["panier"]["libelleProduit"]);
 
 $i = 0;
@@ -20,4 +20,6 @@ echo "<h4> Prix total : ". $prixTotal." € </h4>";
 
 ?>
 
-<a href="?action=generePDF&controller=panier&login=<?php echo $instanceClient->get('login') ?> ?>" target="_blank"> télécharger la facture </a>
+<a href="?action=paye&controller=panier"> Payer </a>
+
+<a href="?action=generePDF&controller=panier&login=<?php echo $instanceClient->get('login') ?>&montant=<?php echo $prixTotal ?>" target="_blank"> télécharger la facture </a>

@@ -8,7 +8,8 @@ class ControllerMonProfil
 
     public static function profile()
     {
-/*    	var_dump($_SESSION['login']);*/
+
+    	//var_dump($_SESSION['login']);
     	$login = $_SESSION['login'];
         $c = ModelClient::select($login);
     	$view = 'voirmonprofil';

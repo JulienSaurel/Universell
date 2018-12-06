@@ -1,6 +1,7 @@
 <?php
 require_once File::build_path(array('model','ModelPanier.php'));
 
+
 class ControllerPanier
 {
 	protected static $object='panier';
@@ -8,7 +9,7 @@ class ControllerPanier
 	public static function display(){	
 
 		if (ModelPanier::creationPanier())
-	{      
+	{      $errmsg = "Vous devez vous identifier avant de finaliser votre commande"; 
 
         $view = 'Panier';
         $pagetitle = 'Votre panier';
@@ -123,16 +124,29 @@ class ControllerPanier
     Self::display();
     }
 
-
-    public static function commande(){
+public static function commande(){
+                
         $view = 'commande';
         $pagetitle = 'Votre commande';
         require File::build_path(array('view','view.php')); 
 
     }
 
+    public static function facture(){
+
+      Self::generePDF();
+    }
+
+    public static function paye(){
+      $view = 'payed';
+      $pagetitle = 'Merci';
+      require File::build_path(array('view','view.php')); 
+    }
+
+
     public static function generePDF(){
         $login = $_GET['login'];
+        $prixTotal = $_GET['montant'];
 
 
         $sql="SELECT * FROM uni_Client WHERE login=:tag";
@@ -148,7 +162,7 @@ class ControllerPanier
         $client = $tab_cli[0];
 
         /* 
-        $sql="SELECT * FROM uni_Commandes WHERE loginClient=:tag AND idDon = (SELECT MAX(idDon) FROM don WHERE mailAddressDonnateur=:tag )";
+        $sql="SELECT * FROM uni_Commandes WHERE login_client=:tag AND idDon = (SELECT MAX(idDon) FROM don WHERE mailAddressDonnateur=:tag )";
 
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -170,18 +184,18 @@ class ControllerPanier
     // l'adhérent à qui s'adresse la facture
     $adh = array(
         'nom' => $client->get('nom'),
-        'prenom' => $donnateur->get('prenom'),
-        'email' => $donnateur->get('mail')
+        'prenom' => $client->get('prenom'),
+        'email' => $client->get('mail')
     );
 
-    /* la facture PASSER LE MONTANT DANS L'URL
+    /* la facture 
     $numFacture = $don->get('idDon'); */
     
     // les articles de la facture
     $A = array();
     $article1 = array(
-        'typeMontant' => 'don',
-        'montant' => $don->get('montantDon')
+        'typeMontant' => 'commande',
+        'montant' => $prixTotal
     );
 
     $A[] = $article1;
@@ -205,7 +219,7 @@ class ControllerPanier
     // 'L' = left, 'C' = center, 'R' = right
     $PDF->SetFont('Arial','B',18);
     // le titre
-    $PDF->Cell(190,$hau,"monAMAP d'Occitanie ",0,0,'L');
+    $PDF->Cell(190,$hau,"Facture ",0,0,'L');
     
     // retour à la ligne
     $PDF->Ln($esp);
@@ -215,21 +229,21 @@ class ControllerPanier
     $PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
     $PDF->Ln($esp);
     $PDF->SetFont('Arial','B',20); 
-    $PDF->Cell(190,$hau,utf8_decode("Reçu de la donnation"),0,0,'C');
+    $PDF->Cell(190,$hau,utf8_decode("Reçu de la commande"),0,0,'C');
     $PDF->SetFont('Arial','',14);
     // descriptif de l'adhérent
     $PDF->Ln(16);
     $strAdh = $adh['prenom']." ".$adh['nom'].", ".$adh['email'];
-    $PDF->Cell(190,$hau,utf8_decode("donnateur : ".$strAdh),0,0,'L');
+    $PDF->Cell(190,$hau,utf8_decode("Client : ".$strAdh),0,0,'L');
     $PDF->Ln(20);
 
     // descriptif de la facture (identifiant de facure)
-    $PDF->Cell(190,$hau,utf8_decode("don n°".$numFacture),0,0,'L');
+    $PDF->Cell(190,$hau,utf8_decode("commande n° rien"),0,0,'L');
     $PDF->Ln(20);
 
     // ligne d'entête du tableau
-    $PDF->Cell(100,$hau,utf8_decode("Montant du don: "),1,0,'C',true);
-    $PDF->Cell(90,$hau,$don->get('montantDon')." ".chr(128),1,0,'C',false);
+    $PDF->Cell(100,$hau,utf8_decode("Montant de la commande: "),1,0,'C',true);
+    $PDF->Cell(90,$hau,$prixTotal." ".chr(128),1,0,'C',false);
     $PDF->Ln();
 
     // ligne par article, et calcul du prix total au fur et à mesure
@@ -256,7 +270,10 @@ class ControllerPanier
     $PDF->Output("facture", "I");
 
     // affichage du pdf
-    echo '<embed src="facture".$numFacture.".pdf" width="100%" height="900px">';
+    echo '<embed src="facture_n°rien".".pdf" width="100%" height="900px">';
     }
+}
+?>
+    
    
 }

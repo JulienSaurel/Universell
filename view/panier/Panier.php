@@ -48,5 +48,9 @@
 </form>
 
 <form method="post" action="index.php?controller=Panier&action=commande">
+	<?php if(!isset($_SESSION['login'])){ ?>
+		<p> <span class="erreurFormulaire"> <?php echo $errmsg ?> </span></p>
+		<?php }else{ ?>
 		<input style="margin-top: 30px" type="submit" value="Finaliser la commande" >
+		<?php } ?>
 </form>
