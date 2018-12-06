@@ -1,6 +1,6 @@
-<h1> PAYE </h1>
+<h1> PAYE </h1> 
 
-<?php 
+<?php //FAIRE LE CAS OU N'EST PAS CONNECTÉ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //var_dump($_SESSION);
 $instanceClient = ModelClient::select($_SESSION["login"]);
 var_dump($instanceClient);
