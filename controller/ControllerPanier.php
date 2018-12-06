@@ -1,6 +1,7 @@
 <?php
 require_once File::build_path(array('model','ModelPanier.php'));
-
+require_once File::build_path(array('controller','ControllerPlanetes.php'));
+require_once File::build_path(array('model','ModelCommandes.php'));
 
 class ControllerPanier
 {
@@ -33,8 +34,7 @@ class ControllerPanier
 
     public static function ajout(){
       $id = $_GET['idPlanete'];
-      $q = $_GET['qte']; // VERIFIER QUANTITÉ EN STOCK
-      if ($q > 0) {
+      $q = $_GET['qte']; 
       
       $planete = ModelPlanetes::select($id);
 
@@ -43,12 +43,6 @@ class ControllerPanier
 
       ModelPanier::ajouterArticle($l,$q,$p);
       Self::display();
-    } else {
-      $view = 'errPanier';
-      $pagetitle = 'Votre Panier';
-      $errmsg = "Quantité d'article incorrecte";
-      require File::build_path(array('view','view.php'));
-    }
       
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 require_once File::build_path(array('model','Model.php'));
-class ModelPlanetes extends Model
+class ModelCommandes extends Model
 {
 
     protected $numero;

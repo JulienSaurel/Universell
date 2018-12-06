@@ -3,6 +3,7 @@
 <?php echo "<img src=". $planete->get('image')." alt=\" planete \" >"?>
 
 <div> <p> <?php echo $planete->get('nom')." : ". $planete->get('prix')." € " ?> </p>
+  <p> Stock restant : <?php echo $stockPlanete ?> </p>
 <?php $idP = $planete->get('id');
 
 if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
@@ -74,7 +75,7 @@ else
 		    </p>
 			<p>
 		      <label for="qte">quantité souhaitée :</label> 
-		      <input type="number" placeholder="Ex : 1" name="qte" id="qte" required/>
+		      <input type="number" min="1" max="<?php echo $stockPlanete?>" placeholder="Ex : 1" name="qte" id="qte" required/>
 		    </p>
 		    <p>
 		      <input type="submit" value="Ajouter au panier" />
