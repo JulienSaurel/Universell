@@ -45,3 +45,4 @@
         </p>
     </fieldset>
 </form>
+<a onclick="openLink()"  href="?action=connect&controller=client">Se connecter</a>
