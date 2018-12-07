@@ -37,18 +37,21 @@ class ControllerPanier
     public static function ajout(){
         if (!isset($_SESSION['panier'])){
         ModelPanier::creationPanier();
-    }
+    }   
       $id = $_GET['idPlanete'];
       $q = $_GET['qte'];
       $l = $id;
       $planete = ModelPlanetes::select($id);
       $p = $planete-> get('prix');
+      $stockPlanete = $planete->get('qteStock');
       $r=0;
       if(isset($_SESSION['panier']['libelleProduit'][$r])){
-      while($_SESSION['panier']['libelleProduit'][$r] != $id && $r < count($_SESSION['panier']['libelleProduit'])){
+      while( $r < count($_SESSION['panier']['libelleProduit']) && $_SESSION['panier']['libelleProduit'][$r] != $id && 
+        isset($_SESSION['panier']['libelleProduit'][$r])){
         $r = $r + 1;
       }
-      $stockPlanete = $planete->get('qteStock');
+      if(isset($_SESSION['panier']['libelleProduit'][$r])){
+      
       $total = $q + (int)$_SESSION['panier']['qteProduit'][$r];
       
 
@@ -66,6 +69,11 @@ class ControllerPanier
      
     ModelPanier::ajouterArticle($l,$q,$planete->get('qteStock'));
     Self::display();
+  } 
+ } else {
+    ModelPanier::ajouterArticle($l,$q,$p);
+    Self::display();
+
   }
 }
     

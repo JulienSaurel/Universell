@@ -14,6 +14,12 @@ src: url("font/Philosopher-Regular.ttf");
 .planetes {
   border: 0.05em solid grey;
   width: 35%;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  height: 400px;
+  margin-left: 100px;
+  margin-top: 50px
 }
 
 .planetes p {
@@ -21,6 +27,7 @@ src: url("font/Philosopher-Regular.ttf");
 }
 .planetes img {
   margin-left: 21%;
+  z-index: -5;
 }
 
 #adminPlanetes, #adminPlanetes p, #adminClients, #adminClients p {
@@ -69,6 +76,7 @@ src: url("font/Philosopher-Regular.ttf");
       left: 50%;
       transform: translate(-50%);
       width: 1320px;
+      z-index: 25;
       
        
     }

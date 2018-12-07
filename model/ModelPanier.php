@@ -54,7 +54,7 @@ public static function ajouterArticle($libelleProduit,$qteProduit,$prixProduit){
       }
    }
    else
-   echo "Un problème est survenu veuillez contacter l'administrateur du site.";
+   echo "Un problèmeeeeee est survenu veuillez contacter l'administrateur du site.";
 }
 
 public static function supprimerArticle($libelleProduit){
