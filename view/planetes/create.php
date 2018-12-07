@@ -1,3 +1,5 @@
+<?php if (isset($_SESSION['admin'])&&$_SESSION['admin']=='true')
+{ ?>
 <form method="post" action="?action=create&controller=planetes">
 
     <fieldset>
@@ -24,3 +26,4 @@
         </p>
     </fieldset>
 </form>
+<?php } ?>
