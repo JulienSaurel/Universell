@@ -11,7 +11,6 @@ class ControllerCommande
 
     public static function commande()
     {
-        var_dump($_COOKIE['idCommande']);
         $view = 'commande';
         $pagetitle = 'Votre commande';
         require File::build_path(array('view', 'view.php'));
