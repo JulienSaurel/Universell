@@ -1390,5 +1390,5 @@ class phpToPDF extends FPDF
 		
 		$pdf->Draw_Table_Border();
 	}
-
+}
 ?>

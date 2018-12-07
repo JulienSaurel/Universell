@@ -1,5 +1,5 @@
-
 <nav>
+
 <ul id="menu">
 <li class="accueil"><a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a></li>
 <li class="nousConnaitre"><a class="lienMenu" href="?action=display&controller=planetes">Nos Produits</a></li>
@@ -29,4 +29,4 @@
     <?php } ?>
 
 </ul>
-</nav>
+</nav> 
