@@ -72,7 +72,7 @@ else
 		    </p>
 			<p>
 		      <label for="qte">quantité souhaitée :</label> 
-		      <input type="number" min="1" max="<?php echo $stockPlanete?>" placeholder="Ex : 1" name="qte" id="qte" required/>
+		      <input type="number" min="1" max="<?php echo $stockPlanete?>" value="1" placeholder="Ex : 1" name="qte" id="qte" required/>
 		    </p>
 		    <p>
 		      <input type="submit" value="Ajouter au panier" />
