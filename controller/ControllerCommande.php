@@ -9,6 +9,8 @@ class ControllerCommande
     protected static $object = 'commande';
 
     public static function commande(){
+        $com = ModelCommande::getCommandeById(4);
+        var_dump($com[0]);
         $view = 'commande';
         $pagetitle = 'Votre commande';
         require File::build_path(array('view','view.php'));
@@ -25,7 +27,8 @@ class ControllerCommande
 
             //On enregistre la commande dans la bdd
             $numero = ModelCommande::generateId();
-            setcookie("idCommande",$numero, 3600);
+            setcookie("idCommande",serialize($numero), time()+3600);
+
             $arraycommande=array(
                 'numero' => $numero,
                 'login_client' => $_SESSION['login'],
@@ -99,17 +102,10 @@ class ControllerCommande
         $client = $tab_cli[0];
 
         
-        $sql="SELECT * FROM uni_Commandes C JOIN uni_Achats A ON C.numero=A.numero JOIN uni_LigneCommande L ON L.idligneCommande=A.idligneCommande  WHERE login_client=:tag AND idDon = (SELECT MAX(idDon) FROM don WHERE mailAddressDonnateur=:tag )";
+        $idCommande = unserialize($_COOKIE['idCommande']);
 
-        $req_prep = Model::$pdo->prepare($sql);
+        $tabCommande = ModelCommande::getCommandeById($idCommande);
 
-        $valeur = array(
-            "tag" => $mail);
-
-        $req_prep->execute($valeur);
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDon');
-        $tab_don = $req_prep->fetchAll();
-        $don = $tab_don[0]; */
 
         include_once('libExternes/phpToPDF/phpToPDF.php');
 
@@ -130,12 +126,17 @@ class ControllerCommande
     
     // les articles de la facture
     $A = array();
-    $article1 = array(
-        'typeMontant' => 'commande',
-        'montant' => $prixTotal
-    );
-
-    $A[] = $article1;
+    $i= 0;
+    while( $i< count($tabCommande) ){
+        $article = "article".$i+1;
+        $article = array(
+            'libelleArticle' => $tabCommande[$i]["id"],
+            'quantite' => $tabCommande[$i]["qte"]
+            //GET LE PRIX D'UN ARTICLE 
+            );
+        $A[] = $article;
+        $i = $i + 1;
+    }
 
     // un logo
     //$url = '../images/logo.png';
