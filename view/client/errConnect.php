@@ -13,6 +13,9 @@
       <input type="password" placeholder="Ex : Alizan" name="pw" id="pw_id" required/>
     </p> 
     <p>
+      <input type="submit" value="Envoyer" />
+    </p>
+    <p>
       <span class="erreurFormulaire"> <?php echo $errmsg ?> </span>
     </p>
 
