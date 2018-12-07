@@ -35,26 +35,39 @@ class ControllerPanier
     }
 
     public static function ajout(){
+        if (!isset($_SESSION['panier'])){
+        ModelPanier::creationPanier();
+    }
       $id = $_GET['idPlanete'];
       $q = $_GET['qte'];
-      
-      $planete = ModelPlanetes::select($id);
-      // while($r != $planete){
-      //   $r
-      // }
       $l = $id;
-      $p = $planete-> get('prix');
       $planete = ModelPlanetes::select($id);
+      $p = $planete-> get('prix');
+      $r=0;
+      if(isset($_SESSION['panier']['libelleProduit'][$r])){
+      while($_SESSION['panier']['libelleProduit'][$r] != $id && $r < count($_SESSION['panier']['libelleProduit'])){
+        $r = $r + 1;
+      }
       $stockPlanete = $planete->get('qteStock');
-      $total = $q + (int)$_SESSION['panier']['qteProduit'][$i];
-      var_dump($total);
+      $total = $q + (int)$_SESSION['panier']['qteProduit'][$r];
+      
       if ($total <= $stockPlanete) {
 
       ModelPanier::ajouterArticle($l,$q,$p);
-    }
       Self::display();
-      
-    }
+        } else {
+            Self::display();
+        } 
+    } elseif ($q < $planete->get('qteStock')){   
+    ModelPanier::ajouterArticle($l,$q,$p);
+      Self::display();
+  } else {
+     
+    ModelPanier::ajouterArticle($l,$q,$planete->get('qteStock'));
+    Self::display();
+  }
+}
+    
 
     public static function modifier()
     {
@@ -64,7 +77,7 @@ class ControllerPanier
       for ($q=0 ; $q < count($_SESSION['panier']['libelleProduit']) ; $q++) {
       $idPlanete = $_SESSION['panier']['libelleProduit'][$q];
       $planete = ModelPlanetes::select($idPlanete);
-      echo $idPlanete;
+      
       $stockPlanete = $planete->get('qteStock');
       $e = "q".$q;
       $QteArticle = $_POST[$e];
