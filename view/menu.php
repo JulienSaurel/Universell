@@ -23,7 +23,7 @@
       <?php } ?>
     <?php if (isset($_SESSION['admin'])&&$_SESSION['admin']=='true') { ?>
         <li class="admin">
-            <a  href="?action=adminhomepage&controller=administrateur">Menu Administrateur</a>
+            <a  href="?action=adminhomepage&controller=administrateur">Menu Admin</a>
         </li>
     <?php } ?>
 

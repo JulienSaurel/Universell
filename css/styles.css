@@ -4,16 +4,23 @@ font-family: "Philosopher";
 src: url("font/Philosopher-Regular.ttf");
 }
 
+#adminPlanetes, #adminPlanetes p, #adminClients, #adminClients p {
+  display: inline-block;
+  position: relative;
+  width: 45%;
+  border: 1px solid black;
+  vertical-align: top;
+}
 
-      iframe {
-        float: left;
-        width: 100%;
-        height: 400px;
-      }
+#adminPlanetes, #adminClients {
+  height: 100%;
+  padding-top: 25px;
+}
+#adminPlanetes p, #adminClients p {
+  border: 0px;
+  margin-left: 33%;
+}
 
-      .sidenav, #openav {
-        display: none;
-      }
 
 
       #navMenu {
@@ -143,30 +150,6 @@ src: url("font/Philosopher-Regular.ttf");
   background-clip: text;
   }
 
-  section.usercontent {
-    width: 100%;
-    display: inline-block;
-  }
-
-  .usercontent article{ 
-    display: block;
-    width: 60%;
-    float: left;
-
-  }
-    .usercontent aside{ 
-    width: 40%;
-    float: right;
-  }
-
-  .usercontent > aside > img{ 
-    width: inherit;
-    width: 100px;
-    height: 500px;
-    width: 100%;
-    float: left;
-  }
-
 
 
 article img, form {
@@ -197,10 +180,6 @@ main {
     flex: 1 0 auto !important;
 }
 
-header {
-
-
-}
 
 label {
   vertical-align: top;
@@ -321,45 +300,17 @@ transition: background-color 500ms;
 footer {
   margin-left: 10%;
   margin-right: 10%;
+  margin-top: 15px;
    flex-shrink: 0 !important;
 }
 
-#logos {
-  display: inline-block;
-  height: 15%;
-  width: 100%;
-  display: inline-block;
-  margin-top: 10%;
-  border-top: 1px solid #7192bb;
-}
 
-#logoFB , #logoTT , #logoGP, #logoBurger {
-  padding-left: 1%;
-  height: 25px;
-  width: 25px;
-  text-decoration: none;
-}
-
-
-.banniere {
-/*  position: absolute;
-  width: 100%;
-  height: 200px;
-  z-index: 5;*/
-  display: none;
-}
- body {
-  z-index: 2;
- }
-
- main {
-  
- }
-
+/*Les seules images sont celles des produits, taille fixe*/
  img {
   width: 300px;
  }
 
+/*Css du panier et autres tableaux */
  table, tr, td, th {
   border: 1px solid black;
  }

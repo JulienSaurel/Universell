@@ -42,8 +42,14 @@ class ControllerPanier
 
       $l = $id;
       $p = $planete-> get('prix');
+      $planete = ModelPlanetes::select($id);
+      $stockPlanete = $planete->get('qteStock');
+      $total = $q + (int)$_SESSION['panier']['qteProduit'];
+      var_dump($total);
+      if ($total <= $stockPlanete) {
 
       ModelPanier::ajouterArticle($l,$q,$p);
+    }
       Self::display();
       
     }
@@ -269,6 +275,3 @@ class ControllerPanier
     }
 }
 ?>
-
-
-}
