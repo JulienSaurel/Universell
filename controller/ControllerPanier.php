@@ -80,6 +80,11 @@ class ControllerPanier
     }
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 521d29fb9e16a2fc9b1d9a37d288a7cc8bced58a
 
     public static function facture(){
 
@@ -216,4 +221,4 @@ class ControllerPanier
     echo '<embed src="facture_n°rien".".pdf" width="100%" height="900px">';
     }
 }
-
+?>

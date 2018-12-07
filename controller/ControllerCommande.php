@@ -3,6 +3,7 @@ require_once File::build_path(array('model','ModelCommande.php'));
 require_once File::build_path(array('model','ModelLigneCommande.php'));
 require_once File::build_path(array('model','ModelAchats.php'));
 require_once File::build_path(array('model','ModelPlanetes.php'));
+require_once File::build_path(array('model','ModelPanier.php'));
 
 class ControllerCommande
 {
@@ -23,15 +24,9 @@ class ControllerCommande
             $_SESSION['panier']['verrou'] = true;
 
 
-            //On enregistre la commande dans la bdd
             $numero = ModelCommande::generateId();
             setcookie("idCommande",$numero, 3600);
-            $arraycommande=array(
-                'numero' => $numero,
-                'login_client' => $_SESSION['login'],
-                'date' => date("Y-m-d H:i:s"),
-            );
-            ModelCommande::save($arraycommande);
+            self::saveCommande($numero);
 
 
             //on boucle sur les produits pour les enregistrer avec leurs quantités et les liés à la commande
@@ -46,19 +41,10 @@ class ControllerCommande
 
                 //on prend en compte les modifications de stock
                 $p = ModelPlanetes::select($id);
-                $arrayplanete = array(
-                    'id' => $id,
-                    'qteStock' => $p->get('qteStock')-$qte,
-                );
-                ModelPlanetes::update($arrayplanete);
+                self::savesavePlanetes($p, $id, $qte);
 
                 //on cree l'array pour appeler save avec
-                $arrayliste=array(
-                    'id' => $id,
-                    'qte' => $qte,
-                    'idligneCommande' => $tab[$i],
-                );
-                ModelLigneCommande::save($arrayliste);
+                self::saveligneCommande($tab, $i, $id, $qte);
 
                 //On cree l'array pour recuperer l'association entre la commande et les lignes
                 $arrayAchats= array(
@@ -67,11 +53,42 @@ class ControllerCommande
                 );
                 ModelAchats::save($arrayAchats);
             }
-            $_SESSION['panier']['verrou'] = false; //on deverouille
-
+            ModelPanier::creationPanier();
             self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
 
         }
+
+    }
+
+    public static function saveCommande($numero)
+    {
+        //On enregistre la commande dans la bdd
+        $arraycommande=array(
+            'numero' => $numero,
+            'login_client' => $_SESSION['login'],
+            'date' => date("Y-m-d H:i:s"),
+        );
+        ModelCommande::save($arraycommande);
+    }
+
+    public static function savePlanetes($p, $id, $qte)
+    {
+        $arrayplanete = array(
+            'id' => $id,
+            'qteStock' => $p->get('qteStock')-$qte,
+        );
+        ModelPlanetes::update($arrayplanete);
+
+    }
+
+    public static function saveligneCommande($tab, $i, $id, $qte)
+    {
+        $arrayliste=array(
+            'id' => $id,
+            'qte' => $qte,
+            'idligneCommande' => $tab[$i],
+        );
+        ModelLigneCommande::save($arrayliste);
 
     }
 

@@ -66,15 +66,15 @@ class ControllerClient
     {   
         if(isset($_POST['login']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['rue']) && isset($_POST['codepostal']) && isset($_POST['ville']) && isset($_POST['pw1']) && isset($_POST['pw2']))
         {
-            $login = $_POST['login'];
-            $nom = $_POST['nom'];
-            $prenom = $_POST['prenom'];
-            $mail = $_POST['mail'];
-            $rue = $_POST['rue'];
-            $codepostal = $_POST['codepostal'];
-            $ville = $_POST['ville'];
-            $password = $_POST['pw1'];
-            $password2 = $_POST['pw2'];
+            $login = htmlspecialchars($_POST['login']);
+            $nom = htmlspecialchars($_POST['nom']);
+            $prenom = htmlspecialchars($_POST['prenom']);
+            $mail = htmlspecialchars($_POST['mail']);
+            $rue = htmlspecialchars($_POST['rue']);
+            $codepostal = htmlspecialchars($_POST['codepostal']);
+            $ville = htmlspecialchars($_POST['ville']);
+            $password = htmlspecialchars($_POST['pw1']);
+            $password2 = htmlspecialchars($_POST['pw2']);
             $dateinscription = date("Y-m-d H:i:s");
 
             $array = array(
@@ -89,12 +89,14 @@ class ControllerClient
                 'dateinscription' => $dateinscription,
                 'isAdmin' => false,
             );
-            
 
             if ($password == $password2)
             {
-                $c = new ModelClient($array);
                 ModelClient::save($array);
+            }
+            else
+            {
+                self::error();
             }
             
         }
