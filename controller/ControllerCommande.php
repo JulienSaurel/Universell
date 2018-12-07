@@ -25,7 +25,7 @@ class ControllerCommande
 
 
             $numero = ModelCommande::generateId();
-            setcookie("idCommande",$numero, 3600);
+            setcookie("idCommande",serialize($numero), 3600);
             self::saveCommande($numero);
 
 
@@ -41,13 +41,13 @@ class ControllerCommande
 
                 //on prend en compte les modifications de stock
                 $p = ModelPlanetes::select($id);
-                self::savesavePlanetes($p, $id, $qte);
+                self::savePlanetes($p, $id, $qte);
 
                 //on cree l'array pour appeler save avec
                 self::saveligneCommande($tab, $i, $id, $qte);
 
                 //On cree l'array pour recuperer l'association entre la commande et les lignes
-                self::saveAchats();
+                self::saveAchats($tab, $i, $numero);
             }
             ModelPanier::creationPanier();
             self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
