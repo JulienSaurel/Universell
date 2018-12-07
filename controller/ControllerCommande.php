@@ -50,11 +50,7 @@ class ControllerCommande
                 self::saveligneCommande($tab, $i, $id, $qte);
 
                 //On cree l'array pour recuperer l'association entre la commande et les lignes
-                $arrayAchats= array(
-                    'numero' => $numero,
-                    'idligneCommande' => $tab[$i],
-                );
-                ModelAchats::save($arrayAchats);
+                self::saveAchats();
             }
             ModelPanier::creationPanier();
             self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
@@ -92,6 +88,16 @@ class ControllerCommande
             'idligneCommande' => $tab[$i],
         );
         ModelLigneCommande::save($arrayliste);
+
+    }
+
+    public static function saveAchats($tab, $i, $numero)
+    {
+        $arrayAchats= array(
+            'numero' => $numero,
+            'idligneCommande' => $tab[$i],
+        );
+        ModelAchats::save($arrayAchats);
 
     }
 
