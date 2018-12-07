@@ -21,4 +21,3 @@ echo "<h4> Prix total : ". $prixTotal." € </h4>";
 echo "<a href='?action=command&controller=commande'> Valider ma commande </a> <br>"
 ?>
 
-<a href="?action=generePDF&controller=commande&login=<?php echo $instanceClient->get('login') ?>&montant=<?php echo $prixTotal ?>" target="_blank"> télécharger la facture </a>
