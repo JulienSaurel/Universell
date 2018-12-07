@@ -4,8 +4,15 @@ font-family: "Philosopher";
 src: url("font/Philosopher-Regular.ttf");
 }
 
+/*#banner {
+  position: fixed;
+  width: 800px;
+  margin-left: 200px;
+  height: 100px;
+}*/
+
 .planetes {
-  border: 2px solid #3b3b3b;
+  border: 0.05em solid grey;
   width: 35%;
 }
 
@@ -51,7 +58,7 @@ src: url("font/Philosopher-Regular.ttf");
 
      ul a {
       text-decoration: none;
-      color: black;
+      
       display: block;
      }
 
@@ -71,14 +78,15 @@ src: url("font/Philosopher-Regular.ttf");
       height: 50px;
       display: inline-block;
       width: 120px;
-      background-color: #5f5f5f;
-      border: 1px solid #cbdcc9;
+      /*background-color: #5f5f5f;*/
+      border: 0.05em solid grey;
       padding-left: 5px;
       padding-right: 5px;
       border-radius: 7px;
       text-align: center;
       margin-top: 10px;
       top: 50%;
+
 
     }
 
@@ -87,20 +95,17 @@ src: url("font/Philosopher-Regular.ttf");
       display: block;
       padding-top: 15px;
         height: 40px;
+        font-size: 18px;
 
 
 
     }
 
-    #menu > li:hover > a{
-      color: black;
-        transition: color 250ms linear;
-        
-    }
+  
 
     #menu > li:hover{
-      background-color: #c2f6f7;
-        transition: background-color 0.5s linear;
+      background-color: #grey;
+        transition: background-color 1s linear;
         
     }
 
@@ -111,8 +116,8 @@ src: url("font/Philosopher-Regular.ttf");
     #menu > li > ul {
       top: -500%;
       text-align: center;
-      background-color: #c2f6f7;
-      border: 2px solid #c2f6f7;
+     /* background-color: #c2f6f7;
+      border: 2px solid #c2f6f7;*/
       border-radius: 8px;
       transition: top .6s;
       width: 120px;
@@ -139,6 +144,7 @@ src: url("font/Philosopher-Regular.ttf");
       padding-top:8px;
       padding-bottom: 8px;
       transition: color 500ms;
+      color: white;
     }
 
     #menu > li > ul > li > a:hover{
@@ -194,11 +200,13 @@ label {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
-a:not(.lienMenu):not(.imgfooter) {
+a:not(.lienMenu) {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #b1b2f9;
+ 
 
 
 }
@@ -209,14 +217,15 @@ a:not(.lienMenu):not(.imgfooter):hover {
 }
 
 input {
-    border: 2px solid #5f5f5f;
+    border: 0.05em solid grey;
    border-radius: 0px; 
 
 }
 input:not([type='submit']) {
     border: none;
     border-bottom: 2px solid #738173;
-    background-color: #afbfd3;
+    color: white;
+    background-color: black;
   }
 
 input:not([type='submit']):not([type='number']) {
@@ -231,7 +240,7 @@ input:not([type='submit']):not([type='number']) {
 input[type=number] {
   height: 30px;
   width: 50px;
-  border: 2px solid #738173;
+    border: 0.05em solid grey;
   border-radius: 5px;
 }
 
@@ -243,7 +252,7 @@ input[type=submit]{
 input[type=submit]:hover, input[type=submit]:focus {
 box-shadow: 2px 2px 2px #4982c9;
 color:white;
-background-color: #4982c9;
+background-color: grey;
 transition: color 300ms;
 transition: background-color 300ms
 }
@@ -262,7 +271,7 @@ transition: width 500ms;
 }
 
 textarea:focus {
-  background-color: #738173;
+  background-color: black;
   color: white;
   width:25%;
  transition: color 500ms;
@@ -316,5 +325,5 @@ footer {
 
 /*Css du panier et autres tableaux */
  table, tr, td, th {
-  border: 1px solid black;
+  border: 0.01em solid white;
  }

@@ -80,12 +80,6 @@ class ControllerPanier
     }
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 521d29fb9e16a2fc9b1d9a37d288a7cc8bced58a
-
     public static function facture(){
 
       Self::generePDF();
