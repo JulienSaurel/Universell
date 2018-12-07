@@ -3,7 +3,7 @@
 <?php 
 //var_dump($_SESSION);
 $instanceClient = ModelClient::select($_SESSION["login"]);
-var_dump($instanceClient);
+//var_dump($instanceClient->get('login'));
 $cpt = count($_SESSION["panier"]["libelleProduit"]);
 
 $i = 0;
@@ -18,7 +18,7 @@ while($i < $cpt){
 
 echo "<h4> Prix total : ". $prixTotal." € </h4>";  
 
-echo "<a href='?action=command&controller=commande'> Valider ma commande </a>"
+echo "<a href='?action=command&controller=commande'> Valider ma commande </a> <br>"
 ?>
 
-<a href="?action=generePDF&controller=panier&login=<?php echo $instanceClient->get('login') ?> ?>" target="_blank"> télécharger la facture </a>
+<a href="?action=generePDF&controller=commande&login=<?php echo $instanceClient->get('login') ?>&montant=<?php echo $prixTotal ?>" target="_blank"> télécharger la facture </a>
