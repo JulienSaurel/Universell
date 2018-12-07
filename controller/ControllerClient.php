@@ -89,7 +89,6 @@ class ControllerClient
                 'dateinscription' => $dateinscription,
                 'isAdmin' => false,
             );
-            //var_dump($array);
 
             if ($password == $password2)
             {

@@ -39,12 +39,14 @@ class ControllerPanier
       $q = $_GET['qte'];
       
       $planete = ModelPlanetes::select($id);
-
+      // while($r != $planete){
+      //   $r
+      // }
       $l = $id;
       $p = $planete-> get('prix');
       $planete = ModelPlanetes::select($id);
       $stockPlanete = $planete->get('qteStock');
-      $total = $q + (int)$_SESSION['panier']['qteProduit'];
+      $total = $q + (int)$_SESSION['panier']['qteProduit'][$i];
       var_dump($total);
       if ($total <= $stockPlanete) {
 
@@ -62,6 +64,7 @@ class ControllerPanier
       for ($q=0 ; $q < count($_SESSION['panier']['libelleProduit']) ; $q++) {
       $idPlanete = $_SESSION['panier']['libelleProduit'][$q];
       $planete = ModelPlanetes::select($idPlanete);
+      echo $idPlanete;
       $stockPlanete = $planete->get('qteStock');
       $e = "q".$q;
       $QteArticle = $_POST[$e];
@@ -75,9 +78,6 @@ class ControllerPanier
        Self::display();
 
     }
-
-
-
 
 
     public static function facture(){

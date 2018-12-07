@@ -23,6 +23,7 @@ public static function isVerrouille(){
    return false;
 }
 
+
 public static function compterArticles()
 {
    if (isset($_SESSION['panier']))
