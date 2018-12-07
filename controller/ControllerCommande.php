@@ -10,7 +10,8 @@ class ControllerCommande
 
     public static function commande(){
         $com = ModelCommande::getCommandeById(4);
-        var_dump($com[0]);
+        $prix = ModelCommande::getPrixPlanete("Jupiter");
+        //var_dump($prix);
         $view = 'commande';
         $pagetitle = 'Votre commande';
         require File::build_path(array('view','view.php'));
@@ -85,9 +86,7 @@ class ControllerCommande
     }
 
     public static function generePDF(){
-        $login = $_GET['login'];
-        $prixTotal = $_GET['montant'];
-
+        $login = $_SESSION['login'];
 
         $sql="SELECT * FROM uni_Client WHERE login=:tag";
 
@@ -127,13 +126,17 @@ class ControllerCommande
     // les articles de la facture
     $A = array();
     $i= 0;
+    $prixTotal = 0;
     while( $i< count($tabCommande) ){
         $article = "article".$i+1;
         $article = array(
             'libelleArticle' => $tabCommande[$i]["id"],
-            'quantite' => $tabCommande[$i]["qte"]
-            //GET LE PRIX D'UN ARTICLE 
+            'quantite' => $tabCommande[$i]["qte"],
+            'prix' => ModelCommande::getPrixPlanete($tabCommande[$i]["id"])
             );
+        $qte = $tabCommande[$i]["qte"];
+        $prix = ModelCommande::getPrixPlanete($tabCommande[$i]["id"]);
+        $prixTotal = (int)$prixTotal + ((int)$qte*(int)$prix);
         $A[] = $article;
         $i = $i + 1;
     }
@@ -144,7 +147,7 @@ class ControllerCommande
     // création de la page et définition d'éléments
     ob_get_clean();
     $PDF=new phpToPDF();
-    $PDF->SetFillColor( 197, 223, 179 );
+    $PDF->SetFillColor( 160, 185, 236 );
     $PDF->AddPage();
     $PDF->SetFont('Arial','BI',12);
     
@@ -157,7 +160,7 @@ class ControllerCommande
     // 'L' = left, 'C' = center, 'R' = right
     $PDF->SetFont('Arial','B',18);
     // le titre
-    $PDF->Cell(190,$hau,"Facture ",0,0,'L');
+    $PDF->Cell(190,$hau,utf8_decode("Facture n°".$idCommande),0,0,'L');
     
     // retour à la ligne
     $PDF->Ln($esp);
@@ -176,39 +179,39 @@ class ControllerCommande
     $PDF->Ln(20);
 
     // descriptif de la facture (identifiant de facure)
-    $PDF->Cell(190,$hau,utf8_decode("commande n° rien"),0,0,'L');
+    $PDF->Cell(190,$hau,utf8_decode("commande n° ".$idCommande),0,0,'L');
     $PDF->Ln(20);
-
+    //$PDF->Cell(190,$hau,utf8_decode(),0,0,'L');
     // ligne d'entête du tableau
-    $PDF->Cell(100,$hau,utf8_decode("Montant de la commande: "),1,0,'C',true);
-    $PDF->Cell(90,$hau,$prixTotal." ".chr(128),1,0,'C',false);
+    //$PDF->Cell(100,$hau,utf8_decode("Montant de la commande: "),1,0,'C',true);
+    //$PDF->Cell(90,$hau,$prixTotal." ".chr(128),1,0,'C',false);
     $PDF->Ln();
 
     // ligne par article, et calcul du prix total au fur et à mesure
     $prixTotal = 0;
     foreach ($A as $i => $article) {
-        //$lib = utf8_decode($article['libelleArticle']);
-        //$qte = $article['quantite'];
-        //$prU = $article['prixUnitaire'];
-        //$prT = $qte * $prU;
-        //$prixTotal += $prT;
-        //$PDF->Cell(100,$hau,$lib,1,0,'L');
-        //$PDF->Cell(30,$hau,$qte,1,0,'C');
-        //$PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
-        //$PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
+        $lib = utf8_decode($article['libelleArticle']);
+        $qte = (int)$article['quantite'];
+        $prU = (int)$article['prix'];
+        (int)$prT = (int) $qte * (int) $prU;
+        (int)$prixTotal += $prT;
+        $PDF->Cell(100,$hau,$lib,1,0,'L');
+        $PDF->Cell(30,$hau,$qte,1,0,'C');
+        $PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
+        $PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
         $PDF->Ln();
     }
 
     // ligne du prix total
-    //$PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
-    //$PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
+    $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
+    $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
 
     // export du pdf avec sauvegarde selon le nom spécifié
     //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";
     $PDF->Output("facture", "I");
 
     // affichage du pdf
-    echo '<embed src="facture_n°rien".".pdf" width="100%" height="900px">';
+    echo '<embed src="facture_n°".$idCommande.".pdf" width="100%" height="900px">';
     }
 }
 
