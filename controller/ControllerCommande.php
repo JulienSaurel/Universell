@@ -207,6 +207,28 @@ class ControllerCommande
         //$PDF->Cell(90,$hau,$prixTotal." ".chr(128),1,0,'C',false);
         $PDF->Ln();
 
+            // ligne par article, et calcul du prix total au fur et à mesure
+        $prixTotal = 0;
+        foreach ($A as $i => $article) {
+            $lib = utf8_decode($article['libelleArticle']);
+            $qte = (int)$article['quantite'];
+            $prU = (int)$article['prix'];
+            (int)$prT = (int) $qte * (int) $prU;
+            (int)$prixTotal += $prT;
+            $PDF->Cell(100,$hau,$lib,1,0,'L');
+            $PDF->Cell(30,$hau,$qte,1,0,'C');
+            $PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
+            $PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
+            $PDF->Ln();
+        }
+        // ligne du prix total
+        $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
+        $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
+        // export du pdf avec sauvegarde selon le nom spécifié
+        //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";
+        $PDF->Output("facture", "I");
+        // affichage du pdf
+         echo '<embed src="facture_n°".$idCommande.".pdf" width="100%" height="900px">';
     }
 }
 ?>
