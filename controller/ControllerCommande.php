@@ -49,7 +49,7 @@ class ControllerCommande
                 //On cree l'array pour recuperer l'association entre la commande et les lignes
                 self::saveAchats($tab, $i, $numero);
             }
-            ModelPanier::creationPanier();
+            unset($_SESSION['panier']); //ya plus d'panier'
             self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
 
         }
