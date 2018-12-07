@@ -3,6 +3,7 @@
 <?php echo "<img src=". $planete->get('image')." alt=\" planete \" >"?>
 
 <div> <p> <?php echo $planete->get('id')." : ". $planete->get('prix')." € " ?> </p>
+
   <p> Stock restant : <?php echo $planete->get('qteStock') ?> </p>
 <?php $idP = $planete->get('id');
 

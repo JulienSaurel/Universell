@@ -1,5 +1,6 @@
 <?php
 
+echo "<div id=adminPlanetes>";
 foreach ($tab_p as $p)
 {
     $id = $p->get('id');
@@ -8,7 +9,8 @@ foreach ($tab_p as $p)
 
     echo "<p> La planète  <a href=\"?action=read&controller=administrateur&type=Planetes&id={$idPUrl}\"> $id </a> . </p>";
 }
-
+echo "</div>";
+echo "<div id=adminClients>";
 foreach ($tab_c as $c)
 {
     $id = $c->get('login');
@@ -17,5 +19,7 @@ foreach ($tab_c as $c)
 
     echo "<p> Client d'id  <a href=\"?action=read&controller=administrateur&type=Client&id={$idCUrl}\"> $id </a> . </p>";
 }
+echo "</div>";
+
 
  ?>
