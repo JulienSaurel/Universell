@@ -40,7 +40,7 @@ class ControllerPanier
       
       $planete = ModelPlanetes::select($id);
 
-      $l = $planete-> get('id');
+      $l = $id;
       $p = $planete-> get('prix');
 
       ModelPanier::ajouterArticle($l,$q,$p);
@@ -57,21 +57,21 @@ class ControllerPanier
       $idPlanete = $_SESSION['panier']['libelleProduit'][$q];
       $planete = ModelPlanetes::select($idPlanete);
       $stockPlanete = $planete->get('qteStock');
-      $e = "q".$q; 
+      $e = "q".$q;
       $QteArticle = $_POST[$e];
       if ($QteArticle <= $stockPlanete) {
-      
+
       ModelPanier::modifierQTeArticle($_SESSION['panier']['libelleProduit'][$q],round($QteArticle));
-    } 
-         
-         
+    }
+
+
        }
        Self::display();
 
     }
 
 
-    public static function action(){
+/*    public static function action(){
 
     
     $erreur = false;
@@ -129,26 +129,13 @@ class ControllerPanier
 
 
     Self::display();
-    }
+    }*/
 
 
-public static function commande(){
-
-        $view = 'commande';
-        $pagetitle = 'Votre commande';
-        require File::build_path(array('view','view.php'));
-
-    }
 
     public static function facture(){
 
       Self::generePDF();
-    }
-
-    public static function paye(){
-      $view = 'payed';
-      $pagetitle = 'Merci';
-      require File::build_path(array('view','view.php'));
     }
 
 

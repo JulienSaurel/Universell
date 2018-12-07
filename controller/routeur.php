@@ -4,7 +4,8 @@ require_once File::build_path(array('controller','ControllerAccueil.php'));
 require_once File::build_path(array('controller','ControllerPlanetes.php'));
 require_once File::build_path(array('controller','ControllerPanier.php'));
 require_once File::build_path(array('controller','ControllerMonProfil.php'));
-
+require_once File::build_path(array('controller','ControllerCommande.php'));
+require_once File::build_path(array('controller','ControllerAdministrateur.php'));
 
 
 //------------controller-------------

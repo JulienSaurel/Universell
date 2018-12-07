@@ -21,7 +21,7 @@ class ControllerPlanetes
         $stockPlanete = $planete->get('qteStock');
         
         $view = 'infoPlanete';
-        $pagetitle = 'Acheter ' . $planete->get('nom');
+        $pagetitle = 'Acheter ' . $planete->get('id');
         require File::build_path(array('view','view.php'));
     }
 
@@ -34,16 +34,14 @@ class ControllerPlanetes
 
     public static function create()
     {
-        if(isset($_POST['id'])&&isset($_POST['nom'])&&isset($_POST['prix'])&&isset($_POST['qteStock'])&&isset($_POST['img']))
+        if(isset($_POST['id'])&&isset($_POST['prix'])&&isset($_POST['qteStock'])&&isset($_POST['img']))
         {
             $id = $_POST['id'];
-            $nom = $_POST['nom'];
             $prix = $_POST['prix'];
             $qteStock = $_POST['qteStock'];
             $image = $_POST['img'];
             $array = array(
                 'id' => $id,
-                'nom' => $nom,
                 'prix' => $prix,
                 'qteStock' => $qteStock,
                 'image' => $image,
@@ -68,10 +66,9 @@ class ControllerPlanetes
 
     public static function update()
     {
-        if (isset($_POST['id'])&&isset($_POST['nom'])&&isset($_POST['prix'])&&isset($_POST['img'])) {
+        if (isset($_POST['id'])&&isset($_POST['prix'])&&isset($_POST['img'])) {
             $array = array(
                 'id' => $_POST['id'],
-                'nom' => $_POST['nom'],
                 'prix' => $_POST['prix'],
                 'image' => $_POST['img'],
             );
