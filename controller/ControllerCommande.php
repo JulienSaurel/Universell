@@ -189,7 +189,10 @@ class ControllerCommande
         $PDF->SetFont('Arial', 'B', 12);
         $PDF->Cell(190, $hau, "le " . date("d M Y\, H:i:s"), 0, 0, 'L');
         $PDF->Ln($esp);
-        $PDF->SetFont('Arial', 'B', 20);
+        $PDF->SetFont('Arial', 'B', 26);
+        $PDF->Cell(190, $hau, utf8_decode("UNIVERSELL"), 0, 0, 'C');
+        $PDF->Ln($esp);
+        $PDF->SetFont('Arial', '', 20);
         $PDF->Cell(190, $hau, utf8_decode("Reçu de la commande"), 0, 0, 'C');
         $PDF->SetFont('Arial', '', 14);
         // descriptif de l'adhérent
