@@ -25,6 +25,7 @@ class ControllerCommande
 
             //On enregistre la commande dans la bdd
             $numero = ModelCommande::generateId();
+            setcookie("idCommande",$numero, 3600);
             $arraycommande=array(
                 'numero' => $numero,
                 'login_client' => $_SESSION['login'],
