@@ -18,6 +18,7 @@
       <a class="lienMenu" onclick="openLink()"  href="?action=profile&controller=monProfil">Mon profil</a>
       <ul>
         <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
+          <li><a class="lienMenu" href="?action=modifprofile&controller=monProfil">Modifier mon profil</a></li>
         <li><a class="lienMenu"href="?action=deconnect&controller=client">Se deconnecter</a></li>
       </ul>
     </li>

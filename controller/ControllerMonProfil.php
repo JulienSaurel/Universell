@@ -18,6 +18,14 @@ class ControllerMonProfil
     	require File::build_path(array('view','view.php'));
     }
 
+    public static function modifprofile()
+    {
+        $login = $_SESSION['login'];
+        $c = ModelClient::select($login);
+        $view = 'modifiermonprofil';
+        $pagetitle = 'Mon profil';
+        require File::build_path(array('view','view.php'));
+    }
 	 public static function error()
     {
     $view = 'error';
@@ -54,5 +62,46 @@ class ControllerMonProfil
             'codepostal' => $newC );
         ModelClient::update($data);
         Self::profile();
+    }
+
+    public static function delete()
+    {
+        $login = $_SESSION['login'];
+        $c = ModelClient::delete($login);
+        unset($_SESSION['login']);
+        ControllerAccueil::homepage();
+    }
+
+    public static function gotomodifPW()
+    {
+        $view = 'modifPW';
+        $pagetitle = 'Modification de mon mot de passe';
+        require File::build_path(array('view','view.php'));
+    }
+
+    public static function modifPW()
+    {
+        if (isset($_SESSION['login'])&&isset($_POST['oldPW'])&&isset($_POST['newPW1'])&&isset($_POST['newPW2'])) {
+            $login = $_SESSION['login'];
+            $c = ModelClient::select($login);
+            $oldPW = Security::chiffrer($_POST['oldPW']);
+            $newPW1 = Security::chiffrer($_POST['newPW1']);
+            $newPW2 = Security::chiffrer($_POST['newPW2']);
+            if ($c->checkPW($login, $oldPW)) {
+                if ($newPW1 == $newPW2) {
+                    $array = array(
+                        'login' => $login,
+                        'password' => $newPW1,
+                    );
+                    ModelClient::update($array);
+                    $login = $_SESSION['login'];
+                    $c = ModelClient::select($login);
+                    $view = 'pwmodified';
+                    $pagetitle = 'Votre mot de passe a bien été modifié';
+                    require File::build_path(array('view', 'view.php'));
+                }
+
+            }
+        }
     }
 } ?>
