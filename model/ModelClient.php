@@ -15,6 +15,7 @@ class ModelClient extends Model
     protected $password;
     protected $dateinscription;
     protected $isAdmin;
+    protected $nonce;
     static protected $object = 'client';
     protected static $primary='login';
 
