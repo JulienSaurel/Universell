@@ -31,7 +31,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 //--------------action---------------
 if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 {
-    $action = 'homepage'; //On définit une action par defaut (readAll)
+    $action = 'homepage'; //On définit une action par defaut
 } else {
     if (in_array($_GET['action'], get_class_methods($controller_class))) {
         $action = $_GET['action']; // On recupère l'action passée dans l'URL
@@ -42,6 +42,6 @@ if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 }
 
 $controller_class::$action();
-// Appel de la méthode statique $action de ControllerPersonne
+
 
 ?>
