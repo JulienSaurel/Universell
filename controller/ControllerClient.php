@@ -56,7 +56,8 @@ class ControllerClient
 
     public static function create()
     {
-
+        if (isset($_POST['phrase']))
+            $phrase = $_POST['phrase'];
         $view = 'create';
         $pagetitle = 'Inscription';
         require File::build_path(array('view','view.php'));
@@ -100,15 +101,20 @@ class ControllerClient
                     $headers[] = 'MIME-Version: 1.0';
                     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
                     $headers[] = 'From: Universell <Universell@no-reply.com>';
-                    mail(/*'michel@yopmail.com'*/$mail, $subject, $msg, implode("\r\n", $headers)); //http://localhost/Universell/?action=validate&nonce=dcff5b53b4d9f3288a9fa0f72cc2d099&login=e
+                    mail($mail, $subject, $msg, implode("\r\n", $headers));
+                    $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
+                    ControllerAccueil::homepage();
                 } else {
-                    self::error();
+                    $_POST['phrase'] = "Les deux mots de passe ne sont pas identiques.";
+                    self::create();
                 }
 
             }
 
+        } else {
+            $_POST['phrase'] = "Votre inscription n'a pas pu être enregistrée suite à un problème technique.";
+            ControllerAccueil::homepage();
         }
-        ControllerAccueil::homepage();
 
     }
 
@@ -143,6 +149,11 @@ class ControllerClient
                         require File::build_path(array('view', 'view.php'));
                     }
                 }
+            } else{
+                $phrase = "Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.";
+                $view = 'connect';
+                $pagetitle = 'Se connecter';
+                require File::build_path(array('view','view.php'));
             }
         }
 
@@ -170,7 +181,7 @@ class ControllerClient
     public static function deconnect()
     {
         session_unset();
-
+        $_POST['phrase'] = "Vous avez bien été déconnecté.";
         ControllerAccueil::homepage();
     }
 

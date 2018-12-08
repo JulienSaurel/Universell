@@ -39,7 +39,7 @@ class ControllerMonProfil
             'login' => $_SESSION['login'],
             'nom' => $new );
         ModelClient::update($data);
-        Self::profile();
+        self::profile();
     }
 
     public static function modifPrenom(){
@@ -48,7 +48,7 @@ class ControllerMonProfil
             'login' => $_SESSION['login'],
             'prenom' => $new );
         ModelClient::update($data);
-        Self::profile();
+        self::profile();
     }
 
     public static function modifAdresse(){
@@ -61,13 +61,13 @@ class ControllerMonProfil
             'rue' => $newR,
             'codepostal' => $newC );
         ModelClient::update($data);
-        Self::profile();
+        self::profile();
     }
 
     public static function delete()
     {
         $login = $_SESSION['login'];
-        $c = ModelClient::delete($login);
+        ModelClient::delete($login);
         unset($_SESSION['login']);
         ControllerAccueil::homepage();
     }
@@ -96,11 +96,25 @@ class ControllerMonProfil
                     ModelClient::update($array);
                     $login = $_SESSION['login'];
                     $c = ModelClient::select($login);
-                    $view = 'pwmodified';
+                    $phrase = "Votre mot de passe a bien été modifié.";
+                    $view = 'voirmonprofil';
                     $pagetitle = 'Votre mot de passe a bien été modifié';
                     require File::build_path(array('view', 'view.php'));
+                } else {
+                    $phrase = "Les deux mots de passe ne correspondent pas.";
+                    $view = 'modifPW';
+                    $pagetitle = 'Erreur';
+                    require File::build_path(array('view', 'view.php'));
+
                 }
 
+
+            }
+            else{
+                $phrase = "Votre ancien mot de passe est incorrect.";
+                $view = 'modifPW';
+                $pagetitle = 'Erreur';
+                require File::build_path(array('view', 'view.php'));
             }
         }
     }
