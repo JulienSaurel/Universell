@@ -26,12 +26,24 @@ else
 }
 
 $controller_class = 'Controller' . ucfirst($controller);
-//on crée la variable qui represente la classe dur laquelle on appellera l'action
 
+//on crée la variable qui represente la classe dur laquelle on appellera l'action
 //--------------action---------------
 if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 {
     $action = 'homepage'; //On définit une action par defaut
+    if (!class_exists($controller_class, false))
+    {
+        $controller = 'accueil';
+        $action = 'homepage';
+        $_POST['phrase'] = 'Veuillez naviguer sur ce site uniquement avec les liens.';
+        $controller_class = 'Controller' . ucfirst($controller);
+    }
+} elseif(!class_exists($controller_class, false)) {
+    $controller = 'accueil';
+    $action = 'homepage';
+    $_POST['phrase'] = 'Veuillez naviguer sur ce site uniquement avec les liens.';
+    $controller_class = 'Controller' . ucfirst($controller);
 } else {
     if (in_array($_GET['action'], get_class_methods($controller_class))) {
         $action = $_GET['action']; // On recupère l'action passée dans l'URL
@@ -40,6 +52,7 @@ if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
     }
 
 }
+
 
 $controller_class::$action();
 
