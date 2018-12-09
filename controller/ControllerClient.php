@@ -132,28 +132,34 @@ class ControllerClient
         {
             $login = $_POST['login'];
             $pw = Security::chiffrer($_POST['pw']);
-            $c = ModelClient::select($login);
-            if(is_null($c->get('nonce'))) {
-                if ($c) {
-                    if ($c->checkPW($login, $pw)) {
-                        $_SESSION['login'] = $login;
-                        ControllerMonProfil::profile();
-                        if ($c->get('isAdmin') == 1) {
-                            $_SESSION['admin'] = true;
-                        }
+            if ($c = ModelClient::select($login)) {
+                if (is_null($c->get('nonce'))) {
+                    if ($c) {
+                        if ($c->checkPW($login, $pw)) {
+                            $_SESSION['login'] = $login;
+                            ControllerMonProfil::profile();
+                            if ($c->get('isAdmin') == 1) {
+                                $_SESSION['admin'] = true;
+                            }
 
-                    } else {
-                        $errmsg = "Mot de passe incorrect";
-                        $view = 'errConnect';
-                        $pagetitle = 'erreur connection';
-                        require File::build_path(array('view', 'view.php'));
+                        } else {
+                            $errmsg = "Mot de passe incorrect";
+                            $view = 'errConnect';
+                            $pagetitle = 'erreur connection';
+                            require File::build_path(array('view', 'view.php'));
+                        }
                     }
+                } else {
+                    $phrase = "Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.";
+                    $view = 'connect';
+                    $pagetitle = 'Se connecter';
+                    require File::build_path(array('view', 'view.php'));
                 }
-            } else{
-                $phrase = "Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.";
+            } else {
+                $phrase = "Login incorrect";
                 $view = 'connect';
                 $pagetitle = 'Se connecter';
-                require File::build_path(array('view','view.php'));
+                require File::build_path(array('view', 'view.php'));
             }
         }
 
