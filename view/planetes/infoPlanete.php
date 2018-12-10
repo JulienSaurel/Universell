@@ -56,7 +56,7 @@ else
 
 
 
-  <div>  	<form method="get" action="index.php">
+  <div>  	<form method="post" action="index.php?controller=panier&action=ajout">
 
 
 		  <fieldset>
