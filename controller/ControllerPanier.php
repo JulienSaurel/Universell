@@ -39,9 +39,9 @@ class ControllerPanier
     public static function ajout(){
         if (!isset($_SESSION['panier'])){
         ModelPanier::creationPanier();
-    }   
-      $id = $_GET['idPlanete'];
-      $q = $_GET['qte'];
+    }    
+      $id = $_POST['idPlanete'];
+      $q = $_POST['qte'];
       $l = $id;
       $planete = ModelPlanetes::select($id);
       $p = $planete-> get('prix');
