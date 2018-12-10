@@ -19,38 +19,43 @@ class ControllerCommande
 
     public static function command()
     {
-        if (isset($_SESSION['panier'])) {
-            //On verouille le panier
-            $_SESSION['panier']['verrou'] = true;
+        if(isset($_SESSION['login'])) {
+            if (isset($_SESSION['panier'])) {
+                //On verouille le panier
+                $_SESSION['panier']['verrou'] = true;
 
 
-            $numero = ModelCommande::generateId();
-            setcookie("idCommande", serialize($numero), 3600 + time());
-            self::saveCommande($numero);
+                $numero = ModelCommande::generateId();
+                setcookie("idCommande", serialize($numero), 3600 + time());
+                self::saveCommande($numero);
 
 
-            //on boucle sur les produits pour les enregistrer avec leurs quantités et les liés à la commande
-            for ($i = 0; $i < sizeof($_SESSION['panier']['libelleProduit']); $i++) {
-                //recuperation des données
-                $id = $_SESSION['panier']['libelleProduit'][$i];
-                $qte = $_SESSION['panier']['qteProduit'][$i];
-                $tab[$i] = ModelLigneCommande::generateId(); //on stocke dans les cases i d'un tableau les id de la ligneCommande pour la recupere ensuite
+                //on boucle sur les produits pour les enregistrer avec leurs quantités et les liés à la commande
+                for ($i = 0; $i < sizeof($_SESSION['panier']['libelleProduit']); $i++) {
+                    //recuperation des données
+                    $id = $_SESSION['panier']['libelleProduit'][$i];
+                    $qte = $_SESSION['panier']['qteProduit'][$i];
+                    $tab[$i] = ModelLigneCommande::generateId(); //on stocke dans les cases i d'un tableau les id de la ligneCommande pour la recupere ensuite
 
-                //TODO : verif si qte en stock < qte commandee
+                    //TODO : verif si qte en stock < qte commandee
 
-                //on prend en compte les modifications de stock
-                $p = ModelPlanetes::select($id);
-                self::savePlanetes($p, $id, $qte);
+                    //on prend en compte les modifications de stock
+                    $p = ModelPlanetes::select($id);
+                    self::savePlanetes($p, $id, $qte);
 
-                //on cree l'array pour appeler save avec
-                self::saveligneCommande($tab, $i, $id, $qte);
+                    //on cree l'array pour appeler save avec
+                    self::saveligneCommande($tab, $i, $id, $qte);
 
-                //On cree l'array pour recuperer l'association entre la commande et les lignes
-                self::saveAchats($tab, $i, $numero);
+                    //On cree l'array pour recuperer l'association entre la commande et les lignes
+                    self::saveAchats($tab, $i, $numero);
+                }
+                unset($_SESSION['panier']); //ya plus d'panier'
+                self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
+
             }
-            unset($_SESSION['panier']); //ya plus d'panier'
-            self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
-
+        } else {
+            $_POST['phrase'] = 'Veuillez vous connectez avant de commander';
+            ControllerAccueil::homepage();
         }
 
     }

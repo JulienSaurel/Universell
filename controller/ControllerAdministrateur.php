@@ -8,27 +8,45 @@ class ControllerAdministrateur
 
     public static function adminhomepage()
     {
+        if (isset($_SESSION['login'])) {
+            if (Session::is_admin($_SESSION['login'])) {
         $tab_p = ModelPlanetes::selectAll();
         $tab_c = ModelClient::selectAll();
         $view = 'pageadmin';
         $pagetitle = 'Menu Administrateur';
         require File::build_path(array('view','view.php'));
+            } else {
+                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                ControllerAccueil::homepage();
+            }
+        } else {
+            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            ControllerAccueil::homepage();
+        }
     }
 
     public static function read()
     {
-        $type = $_GET['type'];
-        $Modelgen = 'Model' . $type;
-        $o = $Modelgen::select($_GET['id']);
-        $view = 'detail';
-        if ($type == 'Planetes') {
-            $pagetitle = 'La planete ' . $o->get('id');
+        if (isset($_SESSION['login'])) {
+            if (Session::is_admin($_SESSION['login'])) {
+                $type = $_GET['type'];
+                $Modelgen = 'Model' . $type;
+                $o = $Modelgen::select($_GET['id']);
+                $view = 'detail';
+                if ($type == 'Planetes') {
+                    $pagetitle = 'La planete ' . $o->get('id');
+                } elseif ($type == 'Client') {
+                    $pagetitle = $o->get('nom') . " " . $o->get('prenom');
+                }
+                require File::build_path(array('view', 'view.php'));
+            } else {
+                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                ControllerAccueil::homepage();
+            }
+        } else {
+            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            ControllerAccueil::homepage();
         }
-        elseif ($type == 'Client')
-        {
-            $pagetitle = $o->get('nom') . " " . $o->get('prenom');
-        }
-        require File::build_path(array('view','view.php'));
 
     }
 
@@ -55,17 +73,29 @@ class ControllerAdministrateur
 
     public static function gotoupdate()
     {
-        $type = $_GET['type'];
-        $Modelgen = 'Model' . $type;
-        $id = $_GET['id'];
-        $o = $Modelgen::select($id);
-        $view = 'update';
-        $pagetitle = 'Mis à jour ' . $type;
-        require File::build_path(array('view','view.php'));
+        if (isset($_SESSION['login'])) {
+            if (Session::is_admin($_SESSION['login'])) {
+                $type = $_GET['type'];
+                $Modelgen = 'Model' . $type;
+                $id = $_GET['id'];
+                $o = $Modelgen::select($id);
+                $view = 'update';
+                $pagetitle = 'Mis à jour ' . $type;
+                require File::build_path(array('view', 'view.php'));
+            } else {
+                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                ControllerAccueil::homepage();
+            }
+        } else {
+            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            ControllerAccueil::homepage();
+        }
     }
 
     public static function update()
     {
+        if (isset($_SESSION['login'])) {
+            if (Session::is_admin($_SESSION['login'])) {
         $type = $_GET['type'];
         $Modelgen = 'Model' . $type;
         if ($type == 'Client') {
@@ -102,6 +132,14 @@ class ControllerAdministrateur
         }
         $phrase = $lenom . $_GET['id'] . ' a bien été mise à jour';
         require File::build_path(array('view','view.php'));
+            } else {
+                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                ControllerAccueil::homepage();
+            }
+        } else {
+            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            ControllerAccueil::homepage();
+        }
     }
 }
 ?>

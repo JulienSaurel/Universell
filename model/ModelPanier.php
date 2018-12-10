@@ -12,6 +12,7 @@ public static function creationPanier(){
    }
    return true;
 }
+
 public static function supprimePanier(){
    unset($_SESSION['panier']);
 }
@@ -117,4 +118,5 @@ public static function MontantGlobal(){
    }
    return $total;
 }
+
 }

@@ -7,17 +7,23 @@ class ControllerClient
 
     protected static $object='client';
 
-    public static function readAll()
+/*    public static function readAll()
     {
-        $tab_u = ModelClient::selectAll();//appel au modèle pour gerer la BD
-        //var_dump($tab_u);
+        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true') {
+            $tab_u = ModelClient::selectAll();//appel au modèle pour gerer la BD
+            //var_dump($tab_u);
 
-        $view = 'list';
-        $pagetitle = 'Liste des Utilisateurs';
-        require File::build_path(array('view','view.php'));  //"redirige" vers la vue
-    }
+            $view = 'list';
+            $pagetitle = 'Liste des Utilisateurs';
+            require File::build_path(array('view', 'view.php'));  //"redirige" vers la vue
+        }
+        else
+        {
+            $_POST['phrase'] = 'Vous devez être administrateur pour avoir acces à la liste des utilisateurs';
+        }
+    }*/
 
-    public static function read()
+/*    public static function read()
     {
 
         $log = $_GET['login'];
@@ -41,9 +47,9 @@ class ControllerClient
             require File::build_path(array('view','view.php'));
             //"redirige" vers la vue erreur.php qui affiche un msg d'erreur
         }
-    }
+    }*/
 
-    public static function delete()
+/*    public static function delete()
     {
         $log = $_GET['login'];
         ModelClient::delete($log);//appel au modèle pour gerer la BD
@@ -52,7 +58,7 @@ class ControllerClient
         $pagetitle = '';
         require File::build_path(array('view','view.php'));  //"redirige" vers la vue
         self::readAll();
-    }
+    }*/
 
     public static function create()
     {
@@ -109,7 +115,10 @@ class ControllerClient
                     self::create();
                 }
 
-            }
+            } else {
+                $_POST['phrase'] = "Veuillez entrer une adresse mail valide";
+                ControllerAccueil::homepage();
+        }
 
         } else {
             $_POST['phrase'] = "Votre inscription n'a pas pu être enregistrée suite à un problème technique.";
@@ -134,7 +143,6 @@ class ControllerClient
             $pw = Security::chiffrer($_POST['pw']);
             if ($c = ModelClient::select($login)) {
                 if (is_null($c->get('nonce'))) {
-                    if ($c) {
                         if ($c->checkPW($login, $pw)) {
                             $_SESSION['login'] = $login;
                             ControllerMonProfil::profile();
@@ -148,7 +156,6 @@ class ControllerClient
                             $pagetitle = 'erreur connection';
                             require File::build_path(array('view', 'view.php'));
                         }
-                    }
                 } else {
                     $phrase = "Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.";
                     $view = 'connect';
@@ -161,6 +168,11 @@ class ControllerClient
                 $pagetitle = 'Se connecter';
                 require File::build_path(array('view', 'view.php'));
             }
+        } else {
+            $phrase = 'Erreur : données insuffiasantes, veuillez réessayer';
+            $view = 'connect';
+            $pagetitle = 'Se connecter';
+            require File::build_path(array('view', 'view.php'));
         }
 
     }
@@ -180,7 +192,15 @@ class ControllerClient
                 );
                 ModelClient::update($array);
                 ControllerAccueil::homepage();
+            } else {
+                $phrase = 'Une erreur s\'est glissée dans votre url au niveau du nonce, veuillez la corriger et recharger la page';
+                $_POST['phrase'] = $phrase;
+                ControllerAccueil::homepage();
             }
+        } else {
+            $phrase = 'Une erreur s\'est glissée dans votre url au niveau du login , veuillez la corriger et recharger la page';
+            $_POST['phrase'] = $phrase;
+            ControllerAccueil::homepage();
         }
     }
 
@@ -197,28 +217,6 @@ class ControllerClient
         $view = 'error';
         $pagetitle = '404 Not Found';
         require File::build_path(array('view','view.php'));
-    }
-
-    public static function update()
-    {
-        $log = $_GET['login'];
-        $u = ModelClient::getClientByLog($log);//appel au modèle pour gerer la BD
-
-        $view = 'update';
-        $pagetitle = 'Formulaire Client';
-        require File::build_path(array('view','view.php'));  //"redirige" vers la vue
-    }
-
-    public static function updated()
-    {
-        $u = ModelClient::getClientByLog($_POST['login']);
-        $data = array('login' => $_POST['login'],'nom' => $_POST['nom'], 'prenom' => $_POST['prenom'],);
-        $u->update($data);
-
-        $view = 'updated';
-        $pagetitle = 'Liste des Utilisateurs';
-        require File::build_path(array('view','view.php'));
-        self::readAll();
     }
 }
 ?>
