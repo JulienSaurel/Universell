@@ -81,11 +81,7 @@ class ControllerMonProfil
         $login = $_SESSION['login'];
         ModelClient::delete($login);
         unset($_SESSION['login']);
-        if (isset($_POST['phrase'])) {
-            $phrase = $_POST['phrase'];
-        } else {
-            $phrase = "";
-        }
+        $phrase = 'Votre compte a bien été supprimé';
         ControllerAccueil::homepage();
     }
 
@@ -120,21 +116,26 @@ class ControllerMonProfil
                     $c = ModelClient::select($login);
                     $phrase = "Votre mot de passe a bien été modifié.";
                     $view = 'voirmonprofil';
-                    $pagetitle = 'Votre mot de passe a bien été modifié';
+                    $pagetitle = 'Mon Profil';
                     require File::build_path(array('view', 'view.php'));
                 } else {
-                    $phrase = "Les deux mots de passe ne correspondent pas.";
+                    $phrase = File::warning("Les deux mots de passe ne correspondent pas.");
                     $view = 'modifPW';
                     $pagetitle = 'Erreur';
                     require File::build_path(array('view', 'view.php'));
                 }
             }
             else{
-                $phrase = "Votre ancien mot de passe est incorrect.";
+                $phrase = File::warning("Votre ancien mot de passe est incorrect.");
                 $view = 'modifPW';
                 $pagetitle = 'Erreur';
                 require File::build_path(array('view', 'view.php'));
             }
+        } else {
+            $phrase = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            $view = 'modifPW';
+            $pagetitle = 'Erreur';
+            require File::build_path(array('view', 'view.php'));
         }
     }
 } ?>

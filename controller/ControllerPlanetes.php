@@ -10,11 +10,12 @@ class ControllerPlanetes
     public static function display()
     {
         $planetes = ModelPlanetes::selectAll();
-        $view = 'nosPlanetes';if (isset($_POST['phrase'])) {
-        $phrase = $_POST['phrase'];
-    } else {
-        $phrase = "";
-    }
+        $view = 'nosPlanetes';
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $pagetitle = 'Nos planetes';
         require File::build_path(array('view','view.php'));
     }
@@ -62,6 +63,7 @@ class ControllerPlanetes
             );
             $p = new ModelPlanetes($array);
             ModelPlanetes::save($array);
+            $phrase = 'Le nouvel article a bien été enregistré';
             self::display();
         }
     }
@@ -130,7 +132,7 @@ class ControllerPlanetes
     }
 
     public static function erreurPlanete(){
-        $phrase = "Veuillez entrer un montant correct";
+        $phrase = File::warning("Veuillez entrer un montant correct");
         $view = 'infoPlanete';
         $pagetitle = 'Achat';
         require File::build_path(array('view','view.php'));

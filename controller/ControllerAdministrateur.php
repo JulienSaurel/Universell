@@ -21,11 +21,11 @@ class ControllerAdministrateur
                 $pagetitle = 'Menu Administrateur';
                 require File::build_path(array('view','view.php'));
             } else {
-                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
                 ControllerAccueil::homepage();
             }
         } else {
-            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
             ControllerAccueil::homepage();
         }
     }
@@ -50,11 +50,11 @@ class ControllerAdministrateur
                 }
                 require File::build_path(array('view', 'view.php'));
             } else {
-                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
                 ControllerAccueil::homepage();
             }
         } else {
-            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
             ControllerAccueil::homepage();
         }
 
@@ -93,11 +93,11 @@ class ControllerAdministrateur
                 $pagetitle = 'Mis à jour ' . $type;
                 require File::build_path(array('view', 'view.php'));
             } else {
-                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
                 ControllerAccueil::homepage();
             }
         } else {
-            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
             ControllerAccueil::homepage();
         }
     }
@@ -143,11 +143,11 @@ class ControllerAdministrateur
                 $phrase = $lenom . $_GET['id'] . ' a bien été mise à jour';
                 require File::build_path(array('view','view.php'));
             } else {
-                $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
+                $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
                 ControllerAccueil::homepage();
             }
         } else {
-            $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
             ControllerAccueil::homepage();
         }
     }

@@ -9,14 +9,13 @@ class ControllerPanier
 {
     protected static $object='panier';
 
-    //TODO empecher d'avoir moins de 0 exemplaires d'un produit
 
     public static function display(){
 
         if (ModelPanier::creationPanier())
         {
             if (!isset($_SESSION['login'])) {
-                $phrase = "Vous devez vous identifier avant de finaliser votre commande";
+                $phrase = File::warning("Vous devez vous identifier avant de finaliser votre commande");
             } elseif (isset($_POST['phrase'])) {
                 $phrase = $_POST['phrase'];
             } else {

@@ -62,7 +62,7 @@ class ControllerCommande
 
             }
         } else {
-            $_POST['phrase'] = 'Veuillez vous connectez avant de commander';
+            $_POST['phrase'] = File::warning('Veuillez vous connectez avant de commander');
             ControllerAccueil::homepage();
         }
 

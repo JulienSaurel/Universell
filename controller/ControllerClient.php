@@ -114,17 +114,17 @@ class ControllerClient
                     $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
                     ControllerAccueil::homepage();
                 } else {
-                    $_POST['phrase'] = "Les deux mots de passe ne sont pas identiques.";
+                    $_POST['phrase'] = File::warning("Les deux mots de passe ne sont pas identiques.");
                     self::create();
                 }
 
             } else {
-                $_POST['phrase'] = "Veuillez entrer une adresse mail valide";
+                $_POST['phrase'] = File::warning("Veuillez entrer une adresse mail valide");
                 ControllerAccueil::homepage();
         }
 
         } else {
-            $_POST['phrase'] = "Votre inscription n'a pas pu être enregistrée suite à un problème technique.";
+            $_POST['phrase'] = File::warning("Votre inscription n'a pas pu être enregistrée suite à un problème technique.");
             ControllerAccueil::homepage();
         }
 
@@ -142,7 +142,7 @@ class ControllerClient
             $pagetitle = 'Se connecter';
             require File::build_path(array('view', 'view.php'));
         } else {
-            $_POST['phrase'] = 'Vous êtes déjà connecté';
+            $_POST['phrase'] = File::warning('Vous êtes déjà connecté');
             ControllerAccueil::homepage();
         }
     }
@@ -169,25 +169,25 @@ class ControllerClient
                             }
 
                         } else {
-                            $phrase = "Mot de passe incorrect";
+                            $phrase = File::warning("Mot de passe incorrect");
                             $view = 'connect';
                             $pagetitle = 'erreur connection';
                             require File::build_path(array('view', 'view.php'));
                         }
                 } else {
-                    $phrase = "Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.";
+                    $phrase = File::warning("Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.");
                     $view = 'connect';
                     $pagetitle = 'Se connecter';
                     require File::build_path(array('view', 'view.php'));
                 }
             } else {
-                $phrase = "Login incorrect";
+                $phrase = File::warning("Login incorrect");
                 $view = 'connect';
                 $pagetitle = 'Se connecter';
                 require File::build_path(array('view', 'view.php'));
             }
         } else {
-            $phrase = 'Erreur : données insuffiasantes, veuillez réessayer';
+            $phrase = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
             $view = 'connect';
             $pagetitle = 'Se connecter';
             require File::build_path(array('view', 'view.php'));
@@ -212,12 +212,12 @@ class ControllerClient
                 ModelClient::update($array);
                 ControllerAccueil::homepage();
             } else {
-                $phrase = 'Une erreur s\'est glissée dans votre url au niveau du nonce, veuillez la corriger et recharger la page';
+                $phrase = File::warning('Une erreur s\'est glissée dans votre url au niveau du nonce, veuillez la corriger et recharger la page');
                 $_POST['phrase'] = $phrase;
                 ControllerAccueil::homepage();
             }
         } else {
-            $phrase = 'Une erreur s\'est glissée dans votre url au niveau du login , veuillez la corriger et recharger la page';
+            $phrase = File::warning('Une erreur s\'est glissée dans votre url au niveau du login , veuillez la corriger et recharger la page');
             $_POST['phrase'] = $phrase;
             ControllerAccueil::homepage();
         }
@@ -230,7 +230,7 @@ class ControllerClient
             $_POST['phrase'] = "Vous avez bien été déconnecté.";
             ControllerAccueil::homepage();
         } else {
-            $_POST['phrase'] = 'Vous ne pouvez pas vous déconnecter si vous n\'êtes pas connecter.';
+            $_POST['phrase'] = File::warning('Vous ne pouvez pas vous déconnecter si vous n\'êtes pas connecter.');
             ControllerAccueil::homepage();
         }
     }
