@@ -62,8 +62,11 @@ class ControllerClient
 
     public static function create()
     {
-        if (isset($_POST['phrase']))
+        if (isset($_POST['phrase'])) {
             $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'create';
         $pagetitle = 'Inscription';
         require File::build_path(array('view','view.php'));
@@ -130,6 +133,11 @@ class ControllerClient
     public static function connect()
     {
         if (!isset($_SESSION['login'])) {
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
             $view = 'connect';
             $pagetitle = 'Se connecter';
             require File::build_path(array('view', 'view.php'));
@@ -150,14 +158,19 @@ class ControllerClient
                 if (is_null($c->get('nonce'))) {
                         if ($c->checkPW($login, $pw)) {
                             $_SESSION['login'] = $login;
+                            if (isset($_POST['phrase'])) {
+                                $phrase = $_POST['phrase'];
+                            } else {
+                                $phrase = "";
+                            }
                             ControllerMonProfil::profile();
                             if ($c->get('isAdmin') == 1) {
                                 $_SESSION['admin'] = true;
                             }
 
                         } else {
-                            $errmsg = "Mot de passe incorrect";
-                            $view = 'errConnect';
+                            $phrase = "Mot de passe incorrect";
+                            $view = 'connect';
                             $pagetitle = 'erreur connection';
                             require File::build_path(array('view', 'view.php'));
                         }
@@ -222,12 +235,12 @@ class ControllerClient
         }
     }
 
-    public static function error()
+    /*public static function error()
     {
 
         $view = 'error';
         $pagetitle = '404 Not Found';
         require File::build_path(array('view','view.php'));
-    }
+    }*/
 }
 ?>

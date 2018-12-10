@@ -1,27 +1,34 @@
-<?php 
+<?php
 require_once File::build_path(array('model','ModelPlanetes.php')); // chargement du modèle
 
 class ControllerPlanetes
 {
-	protected static $object='planetes';
+    protected static $object='planetes';
 
-	//TODO checker s'il y a des tests a faire dans ce controller
+    //TODO checker s'il y a des tests a faire dans ce controller
 
-	public static function display()
-	{
-        $planetes = ModelPlanetes::selectAll();        
-
-        $view = 'nosPlanetes';
+    public static function display()
+    {
+        $planetes = ModelPlanetes::selectAll();
+        $view = 'nosPlanetes';if (isset($_POST['phrase'])) {
+        $phrase = $_POST['phrase'];
+    } else {
+        $phrase = "";
+    }
         $pagetitle = 'Nos planetes';
-        require File::build_path(array('view','view.php')); 
-	}
+        require File::build_path(array('view','view.php'));
+    }
 
     public static function achat(){
         $idPlanete = $_GET['planete'];
 
         $planete = ModelPlanetes::select($idPlanete);
         $stockPlanete = $planete->get('qteStock');
-        
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'infoPlanete';
         $pagetitle = 'Acheter ' . $planete->get('id');
         require File::build_path(array('view','view.php'));
@@ -29,6 +36,11 @@ class ControllerPlanetes
 
     public static function gotocreate()
     {
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'create';
         $pagetitle = 'Mise en ligne d\'un nouvel article';
         require File::build_path(array('view','view.php'));
@@ -59,7 +71,11 @@ class ControllerPlanetes
         $p = $_GET['id'];
         ModelPlanetes::delete($p);
         $planetes = ModelPlanetes::selectAll();
-
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'nosPlanetes';
         $pagetitle = 'La planète a bien été supprimée';
         require File::build_path(array('view','view.php'));
@@ -78,7 +94,11 @@ class ControllerPlanetes
 
             $idPlanete = $_POST['id'];
             $planete = ModelPlanetes::select($idPlanete);
-
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
             $view = 'infoPlanete';
             $pagetitle = 'La planète a bien été mise à jour';
             require File::build_path(array('view','view.php'));
@@ -110,17 +130,22 @@ class ControllerPlanetes
     }
 
     public static function erreurPlanete(){
-        $errmsg = "Veuillez entrer un montant correct";
+        $phrase = "Veuillez entrer un montant correct";
         $view = 'infoPlanete';
         $pagetitle = 'Achat';
         require File::build_path(array('view','view.php'));
     }
 
-	 public static function error()
+    public static function error()
     {
-    $view = 'error';
-    $pagetitle = 'Error 404';
-    require File::build_path(array('view','view.php'));
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
+        $view = 'error';
+        $pagetitle = 'Error 404';
+        require File::build_path(array('view','view.php'));
     }
 }
 ?>

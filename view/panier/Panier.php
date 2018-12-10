@@ -46,11 +46,6 @@
 	?>
 </table>
 </form>
-
 <form method="post" action="index.php?controller=commande&action=commande">
-	<?php if(!isset($_SESSION['login'])){ ?>
-		<p> <span class="erreurFormulaire"> <?php echo $errmsg ?> </span></p>
-		<?php }else{ ?>
-		<input style="margin-top: 30px" type="submit" value="Finaliser la commande" >
-		<?php } ?>
+    <input style="margin-top: 30px" type="submit" value="Finaliser la commande" >
 </form>

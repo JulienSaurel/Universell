@@ -15,6 +15,11 @@ class ControllerMonProfil
     	//var_dump($_SESSION['login']);
     	$login = $_SESSION['login'];
         $c = ModelClient::select($login);
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
     	$view = 'voirmonprofil';
     	$pagetitle = 'Mon profil';
     	require File::build_path(array('view','view.php'));
@@ -24,6 +29,11 @@ class ControllerMonProfil
     {
         $login = $_SESSION['login'];
         $c = ModelClient::select($login);
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'modifiermonprofil';
         $pagetitle = 'Mon profil';
         require File::build_path(array('view','view.php'));
@@ -71,6 +81,11 @@ class ControllerMonProfil
         $login = $_SESSION['login'];
         ModelClient::delete($login);
         unset($_SESSION['login']);
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         ControllerAccueil::homepage();
     }
 
@@ -78,6 +93,11 @@ class ControllerMonProfil
     {
         $view = 'modifPW';
         $pagetitle = 'Modification de mon mot de passe';
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         require File::build_path(array('view','view.php'));
     }
 
@@ -107,10 +127,7 @@ class ControllerMonProfil
                     $view = 'modifPW';
                     $pagetitle = 'Erreur';
                     require File::build_path(array('view', 'view.php'));
-
                 }
-
-
             }
             else{
                 $phrase = "Votre ancien mot de passe est incorrect.";

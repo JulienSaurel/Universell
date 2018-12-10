@@ -21,7 +21,8 @@ else
     }
     else {
         $controller = 'accueil';
-        $action = 'error';
+        $action = 'homepage';
+        $_POST['phrase'] = '';
     }
 }
 
@@ -48,7 +49,10 @@ if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
     if (in_array($_GET['action'], get_class_methods($controller_class))) {
         $action = $_GET['action']; // On recupère l'action passée dans l'URL
     } else {
-        $action = 'error';
+        $controller = 'accueil';
+        $action = 'homepage';
+        $_POST['phrase'] = 'Problème d\'url, veuillez naviguer uniquement à l\'aide des liens';
+        $controller_class = 'Controller' . ucfirst($controller);
     }
 
 }

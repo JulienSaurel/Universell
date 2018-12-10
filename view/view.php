@@ -14,9 +14,7 @@
 <main>
     <?php
 
-    if(isset($phrase)){
-        echo "<p><span class=\"erreurFormulaire\">" . $phrase . "</span></p>";
-    }
+        echo $phrase;
 
     $filepath = File::build_path(array("view", static::$object, "$view.php"));
     require $filepath;

@@ -5,6 +5,11 @@ class ControllerNosProduits
 
 	public static function display()
 	{
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'produits';
         $pagetitle = 'Nos Produits';
         require File::build_path(array('view','view.php')); 

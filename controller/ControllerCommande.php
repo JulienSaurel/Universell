@@ -11,9 +11,19 @@ class ControllerCommande
 //TODO tests connected?
     public static function commande()
     {
-        $view = 'commande';
-        $pagetitle = 'Votre commande';
-        require File::build_path(array('view', 'view.php'));
+        if(isset($_SESSION['login'])&&!empty($_SESSION['panier']['libelleProduit'])) {
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
+            $view = 'commande';
+            $pagetitle = 'Votre commande';
+            require File::build_path(array('view', 'view.php'));
+        } else {
+            $_POST['phrase'] = File::warning('Vous devez être connecté et avoir au moins un article dans votre panier pour passer une commande');
+            ControllerPanier::display();
+        }
 
     }
 
@@ -102,6 +112,11 @@ class ControllerCommande
 
     public static function paye()
     {
+        if (isset($_POST['phrase'])) {
+            $phrase = $_POST['phrase'];
+        } else {
+            $phrase = "";
+        }
         $view = 'payed';
         $pagetitle = 'Merci';
         require File::build_path(array('view', 'view.php'));
