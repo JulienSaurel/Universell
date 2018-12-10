@@ -5,6 +5,8 @@ require_once File::build_path(array('controller','ControllerClient.php'));
 class ControllerMonProfil
 {
 
+    //TODO faire des tests
+
     protected static $object='monProfil';
 
     public static function profile()

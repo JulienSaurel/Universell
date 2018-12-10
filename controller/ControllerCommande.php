@@ -8,7 +8,7 @@ require_once File::build_path(array('model','ModelPanier.php'));
 class ControllerCommande
 {
     protected static $object = 'commande';
-
+//TODO tests connected?
     public static function commande()
     {
         $view = 'commande';
@@ -36,8 +36,6 @@ class ControllerCommande
                     $id = $_SESSION['panier']['libelleProduit'][$i];
                     $qte = $_SESSION['panier']['qteProduit'][$i];
                     $tab[$i] = ModelLigneCommande::generateId(); //on stocke dans les cases i d'un tableau les id de la ligneCommande pour la recupere ensuite
-
-                    //TODO : verif si qte en stock < qte commandee
 
                     //on prend en compte les modifications de stock
                     $p = ModelPlanetes::select($id);

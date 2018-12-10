@@ -9,6 +9,8 @@ class ControllerPanier
 {
 	protected static $object='panier';
 
+	//TODO empecher d'avoir moins de 0 exemplaires d'un produit
+
 	public static function display(){	
 
 		if (ModelPanier::creationPanier())

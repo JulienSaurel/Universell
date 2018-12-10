@@ -87,7 +87,7 @@ src: url("font/Philosopher-Regular.ttf");
       display: inline-block;
       width: 120px;
       /*background-color: #5f5f5f;*/
-      border: 0.05em solid grey;
+      /*border: 0.05em solid grey;*/
       padding-left: 5px;
       padding-right: 5px;
       border-radius: 7px;

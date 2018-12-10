@@ -5,6 +5,8 @@ class ControllerPlanetes
 {
 	protected static $object='planetes';
 
+	//TODO checker s'il y a des tests a faire dans ce controller
+
 	public static function display()
 	{
         $planetes = ModelPlanetes::selectAll();        

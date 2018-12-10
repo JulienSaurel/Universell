@@ -129,9 +129,14 @@ class ControllerClient
 
     public static function connect()
     {
-        $view = 'connect';
-        $pagetitle = 'Se connecter';
-        require File::build_path(array('view','view.php'));
+        if (!isset($_SESSION['login'])) {
+            $view = 'connect';
+            $pagetitle = 'Se connecter';
+            require File::build_path(array('view', 'view.php'));
+        } else {
+            $_POST['phrase'] = 'Vous êtes déjà connecté';
+            ControllerAccueil::homepage();
+        }
     }
 
     public static function connected()
@@ -179,6 +184,7 @@ class ControllerClient
 
     public static function validate()
     {
+        //TODO tests
         $login = $_GET['login'];
         $nonce = $_GET['nonce'];
         $c = ModelClient::select($login);
@@ -206,9 +212,14 @@ class ControllerClient
 
     public static function deconnect()
     {
-        session_unset();
-        $_POST['phrase'] = "Vous avez bien été déconnecté.";
-        ControllerAccueil::homepage();
+        if (isset($_SESSION['login'])) {
+            session_unset();
+            $_POST['phrase'] = "Vous avez bien été déconnecté.";
+            ControllerAccueil::homepage();
+        } else {
+            $_POST['phrase'] = 'Vous ne pouvez pas vous déconnecter si vous n\'êtes pas connecter.';
+            ControllerAccueil::homepage();
+        }
     }
 
     public static function error()
