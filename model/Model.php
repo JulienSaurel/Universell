@@ -86,6 +86,10 @@ class Model {
         }
 
         //on retourne le tableau contenant le resultat de la requete
+        if (empty($tab))
+        {
+            return false;
+        }
         return $tab;
     }
 //TODO continuer les commentaires
@@ -135,6 +139,7 @@ class Model {
             $req_prep = Model::$pdo->prepare($sql);
 
             $req_prep->execute();
+            $count = $req_prep->rowCount();
         } catch(PDOException $e) {
             if (Conf::getDebug())
             {
@@ -145,6 +150,11 @@ class Model {
                 echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
             }
             die();
+        }
+        if($count<1 || $count>1) {
+            return false;
+        } else {
+            return true;
         }
     }
 

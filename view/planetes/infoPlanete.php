@@ -48,9 +48,7 @@ if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='tr
                 </p>
             </fieldset>
         </form>
-   <?php }
-else
-    { ?>
+   <?php } ?>
 
 
 
@@ -80,4 +78,3 @@ else
 		  </fieldset> 
 </form>
 </div>
-<?php } ?>
