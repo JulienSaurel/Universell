@@ -41,4 +41,20 @@ class ModelClient extends Model
 
     }
 
+    public static function checkLogin($login){
+        $sql = "SELECT COUNT(login) FROM uni_Client WHERE login=:login";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "login" => $login,);
+
+        $req_prep->execute($data);
+
+        $cpt = $req_prep->fetchAll();
+
+        return $cpt==0;
+    }
+
 }

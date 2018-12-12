@@ -104,7 +104,12 @@ class ControllerClient
                 );
 
                 if ($password == $password2) {
-                    ModelClient::save($array);
+                    if(ModelClient::checkLogin($login)){
+                        ModelClient::save($array); 
+                    } else{
+                        $_POST['phrase'] = File::warning("Ce login existe déjà.");
+                        ControllerAccueil::homepage();
+                }
                     $msg = "<p>Veuillez validez votre email en cliquant sur ce lien <a href='webinfo.iutmontp.univ-montp2.fr/~sambucd/Universell/?action=validate&controller=client&nonce={$nonce}&login={$login}'>Valider mon adresse mail</a></p>";
                     $subject = "Validation de votre adresse mail";
                     $headers[] = 'MIME-Version: 1.0';
