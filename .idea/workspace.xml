@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="66ce5f71-bdca-4e46-bc57-2ba55ac59d7d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/administrateur/pageadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administrateur/pageadmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControllerPlanetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerPlanetes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/planetes/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/planetes/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/planetes/infoPlanete.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/planetes/infoPlanete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/planetes/nosPlanetes.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/planetes/nosPlanetes.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,12 +16,51 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/administrateur/pageadmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="127" selection-start-line="14" selection-start-column="127" selection-end-line="14" selection-end-column="127" />
+            <state relative-caret-position="270">
+              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/planetes/create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerPlanetes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+              <folding>
+                <element signature="n#display#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#achat#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#gotocreate#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#create#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#delete#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#update#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#updateimg#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#stock#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#erreurPlanete#0;n#ControllerPlanetes#0;n#!!top" />
+                <element signature="n#error#0;n#ControllerPlanetes#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/planetes/infoPlanete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -52,21 +94,17 @@
         <option value="$PROJECT_DIR$/model/ModelAchats.php" />
         <option value="$PROJECT_DIR$/../monAMAP/controller/ControllerAdherent.php" />
         <option value="$PROJECT_DIR$/view/client/create.php" />
-        <option value="$PROJECT_DIR$/view/planetes/create.php" />
         <option value="$PROJECT_DIR$/lib/Security.php" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.php" />
         <option value="$PROJECT_DIR$/view/monProfil/pwmodified.php" />
         <option value="$PROJECT_DIR$/view/monProfil/voirmonprofil.php" />
         <option value="$PROJECT_DIR$/view/monProfil/modifPW.php" />
-        <option value="$PROJECT_DIR$/view/planetes/nosPlanetes.php" />
         <option value="$PROJECT_DIR$/view/view.php" />
         <option value="$PROJECT_DIR$/controller/ControllerNosProduits.php" />
         <option value="$PROJECT_DIR$/model/ModelPanier.php" />
         <option value="$PROJECT_DIR$/lib/File.php" />
         <option value="$PROJECT_DIR$/config/Conf.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerPlanetes.php" />
-        <option value="$PROJECT_DIR$/view/planetes/infoPlanete.php" />
         <option value="$PROJECT_DIR$/view/panier/Panier.php" />
         <option value="$PROJECT_DIR$/lib/Session.php" />
         <option value="$PROJECT_DIR$/view/administrateur/detail.php" />
@@ -87,14 +125,18 @@
         <option value="$PROJECT_DIR$/controller/ControllerMonProfil.php" />
         <option value="$PROJECT_DIR$/view/monProfil/historiquecommande.php" />
         <option value="$PROJECT_DIR$/view/administrateur/pageadmin.php" />
+        <option value="$PROJECT_DIR$/view/planetes/nosPlanetes.php" />
+        <option value="$PROJECT_DIR$/view/planetes/infoPlanete.php" />
+        <option value="$PROJECT_DIR$/view/planetes/create.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerPlanetes.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="27" />
-    <option name="width" value="907" />
-    <option name="height" value="1053" />
+    <option name="y" value="25" />
+    <option name="width" value="927" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="false" id="Update" />
@@ -126,46 +168,18 @@
             <path>
               <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Universell" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Universell" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Universell" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Universell" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
               <item name="Universell" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="accueil" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Universell" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="administrateur" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Universell" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="monProfil" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Universell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Universell" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="panier" type="462c0819:PsiDirectoryNode" />
+              <item name="planetes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -231,7 +245,8 @@
       <workItem from="1544646347911" duration="8336000" />
       <workItem from="1544695871177" duration="3820000" />
       <workItem from="1544704187915" duration="6923000" />
-      <workItem from="1544720894999" duration="739000" />
+      <workItem from="1544720894999" duration="1617000" />
+      <workItem from="1544731583876" duration="7931000" />
     </task>
     <task id="LOCAL-00001" summary="debut admin">
       <created>1544023154450</created>
@@ -422,11 +437,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544719270216</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="html pageadmin">
+      <created>1544721853276</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1544721853276</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145607000" />
+    <option name="totallyTimeSpent" value="154416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -439,9 +461,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19811843" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20033205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -453,9 +474,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4986165" visible="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4980631" weight="0.32829374" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013835" side_tool="true" visible="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5019369" side_tool="true" weight="0.32829374" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32982087" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -468,8 +489,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ah" />
-    <MESSAGE value="Création/Suppression/Mise à jour de planètes pour l'admin uniquement" />
     <MESSAGE value="Création/Suppression/Mise à jour de planètes pour l'admin uniquement2" />
     <MESSAGE value="Debut de la gestion de la commande" />
     <MESSAGE value="Debut de la gestion de la commande 2" />
@@ -493,20 +512,15 @@
     <MESSAGE value="fix et panier" />
     <MESSAGE value="panier" />
     <MESSAGE value="PANIER" />
-    <option name="LAST_COMMIT_MESSAGE" value="PANIER" />
+    <MESSAGE value="html pageadmin" />
+    <MESSAGE value="upload de fichier pour les planetes" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload de fichier pour les planetes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/Security.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -520,31 +534,10 @@
     <entry file="file://$PROJECT_DIR$/view/footer.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/planetes/nosPlanetes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/planetes/infoPlanete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/planetes/error.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/planetes/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -596,13 +589,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/client/errConnect.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/client/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/client/connect.php">
       <provider selected="true" editor-type-id="text-editor" />
@@ -660,18 +646,6 @@
           <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
           <folding>
             <element signature="n#deconnect#0;n#ControllerClient#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerPlanetes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="n#stock#0;n#ControllerPlanetes#0;n#!!top" />
-            <element signature="n#erreurPlanete#0;n#ControllerPlanetes#0;n#!!top" />
-            <element signature="n#error#0;n#ControllerPlanetes#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -776,9 +750,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/sharp_shopping_cart_white_18dp.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/sharp_shopping_cart_white_18dp.png" />
     <entry file="file://$PROJECT_DIR$/model/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="579">
@@ -850,8 +822,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/administrateur/pageadmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="127" selection-start-line="14" selection-start-column="127" selection-end-line="14" selection-end-column="127" />
+        <state relative-caret-position="270">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/client/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/planetes/nosPlanetes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/planetes/infoPlanete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="40" selection-start-line="39" selection-start-column="40" selection-end-line="39" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/planetes/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerPlanetes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+          <folding>
+            <element signature="n#display#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#achat#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#gotocreate#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#create#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#delete#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#update#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#updateimg#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#stock#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#erreurPlanete#0;n#ControllerPlanetes#0;n#!!top" />
+            <element signature="n#error#0;n#ControllerPlanetes#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
