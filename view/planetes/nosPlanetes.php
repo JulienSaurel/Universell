@@ -6,7 +6,7 @@
 
 
 if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
-	echo "<a href='?action=gotocreate&controller=planetes'>Mettre en ligne un nouvel article </a>";
+	echo "<h4> <a href='?action=gotocreate&controller=planetes'>Mettre en ligne un nouvel article </a> </h4>";
 }
 foreach ($planetes as $plan){
 
