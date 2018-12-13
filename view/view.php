@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="fr">
+
     <meta charset="UTF-8">
     <title><?php echo $pagetitle; ?></title>
     <link rel="icon" type="image/png" href="images/favicon/favicon.png" />
