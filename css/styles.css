@@ -4,6 +4,14 @@ font-family: "Philosopher";
 src: url("font/Philosopher-Regular.ttf");
 }
 
+.Panier a img {
+  width: 50px;
+}
+
+.Panier, .Panier a, .Panier a img {
+  float: right;
+  border: none !important;
+}
 
 .planetes {
   border: 0.05em solid grey;
