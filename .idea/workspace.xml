@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66ce5f71-bdca-4e46-bc57-2ba55ac59d7d" name="Default Changelist" comment="" />
+    <list default="true" id="66ce5f71-bdca-4e46-bc57-2ba55ac59d7d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/administrateur/pageadmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/administrateur/pageadmin.php" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,116 +13,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/monProfil/historiquecommande.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ControllerMonProfil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="102" column="20" lean-forward="true" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
-              <folding>
-                <element signature="n#gotomodifPW#0;n#ControllerMonProfil#0;n#!!top" />
-                <element signature="n#modifPW#0;n#ControllerMonProfil#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ControllerAdministrateur.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="58" lean-forward="true" selection-start-line="14" selection-start-column="16" selection-end-line="16" selection-end-column="58" />
-              <folding>
-                <element signature="n#read#0;n#ControllerAdministrateur#0;n#!!top" />
-                <element signature="n#delete#0;n#ControllerAdministrateur#0;n#!!top" />
-                <element signature="n#gotoupdate#0;n#ControllerAdministrateur#0;n#!!top" />
-                <element signature="n#update#0;n#ControllerAdministrateur#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/routeur.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="18" selection-start-line="17" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/ModelCommande.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="579">
-              <caret line="120" column="18" lean-forward="true" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
-              <folding>
-                <element signature="n#Init#0;n#Model#0;n#!!top" />
-                <element signature="n#get#0;n#Model#0;n#!!top" />
-                <element signature="n#set#0;n#Model#0;n#!!top" />
-                <element signature="n#__construct#0;n#Model#0;n#!!top" />
-                <element signature="n#delete#0;n#Model#0;n#!!top" />
-                <element signature="n#update#0;n#Model#0;n#!!top" />
-                <element signature="n#save#0;n#Model#0;n#!!top" />
-                <element signature="n#generateId#0;n#Model#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/images/sharp_shopping_cart_white_18dp.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/monProfil/modifiermonprofil.php">
+        <entry file="file://$PROJECT_DIR$/view/administrateur/pageadmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ControllerCommande.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-              <folding>
-                <element signature="n#saveCommande#0;n#ControllerCommande#0;n#!!top" />
-                <element signature="n#savePlanetes#0;n#ControllerCommande#0;n#!!top" />
-                <element signature="n#saveligneCommande#0;n#ControllerCommande#0;n#!!top" />
-                <element signature="n#saveAchats#0;n#ControllerCommande#0;n#!!top" />
-                <element signature="n#generePDF#0;n#ControllerCommande#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="14" column="127" selection-start-line="14" selection-start-column="127" selection-end-line="14" selection-end-column="127" />
             </state>
           </provider>
         </entry>
@@ -170,7 +69,6 @@
         <option value="$PROJECT_DIR$/view/planetes/infoPlanete.php" />
         <option value="$PROJECT_DIR$/view/panier/Panier.php" />
         <option value="$PROJECT_DIR$/lib/Session.php" />
-        <option value="$PROJECT_DIR$/view/administrateur/pageadmin.php" />
         <option value="$PROJECT_DIR$/view/administrateur/detail.php" />
         <option value="$PROJECT_DIR$/view/administrateur/update.php" />
         <option value="$PROJECT_DIR$/controller/ControllerPanier.php" />
@@ -188,6 +86,7 @@
         <option value="$PROJECT_DIR$/view/monProfil/modifiermonprofil.php" />
         <option value="$PROJECT_DIR$/controller/ControllerMonProfil.php" />
         <option value="$PROJECT_DIR$/view/monProfil/historiquecommande.php" />
+        <option value="$PROJECT_DIR$/view/administrateur/pageadmin.php" />
       </list>
     </option>
   </component>
@@ -332,6 +231,7 @@
       <workItem from="1544646347911" duration="8336000" />
       <workItem from="1544695871177" duration="3820000" />
       <workItem from="1544704187915" duration="6923000" />
+      <workItem from="1544720894999" duration="739000" />
     </task>
     <task id="LOCAL-00001" summary="debut admin">
       <created>1544023154450</created>
@@ -515,11 +415,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544719120341</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="PANIER">
+      <created>1544719270216</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1544719270216</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143826000" />
+    <option name="totallyTimeSpent" value="145607000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -534,7 +441,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19590482" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19811843" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -546,9 +453,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4991905" weight="0.32829374" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4986165" visible="true" weight="0.32829374" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5008095" side_tool="true" weight="0.32982087" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013835" side_tool="true" visible="true" weight="0.32829374" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32982087" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -561,7 +468,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="debut admin" />
     <MESSAGE value="ah" />
     <MESSAGE value="Création/Suppression/Mise à jour de planètes pour l'admin uniquement" />
     <MESSAGE value="Création/Suppression/Mise à jour de planètes pour l'admin uniquement2" />
@@ -586,7 +492,8 @@
     <MESSAGE value="Ajouts du html pour faire clignoter en rouge les msg d'erreurs" />
     <MESSAGE value="fix et panier" />
     <MESSAGE value="panier" />
-    <option name="LAST_COMMIT_MESSAGE" value="panier" />
+    <MESSAGE value="PANIER" />
+    <option name="LAST_COMMIT_MESSAGE" value="PANIER" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/Security.php">
@@ -707,13 +614,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/administrateur/pageadmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -855,27 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="18" selection-start-line="17" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/routeur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelCommande.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/monProfil/modifiermonprofil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -894,6 +773,47 @@
             <element signature="n#saveAchats#0;n#ControllerCommande#0;n#!!top" />
             <element signature="n#generePDF#0;n#ControllerCommande#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/sharp_shopping_cart_white_18dp.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="120" column="18" lean-forward="true" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+          <folding>
+            <element signature="n#Init#0;n#Model#0;n#!!top" />
+            <element signature="n#get#0;n#Model#0;n#!!top" />
+            <element signature="n#set#0;n#Model#0;n#!!top" />
+            <element signature="n#__construct#0;n#Model#0;n#!!top" />
+            <element signature="n#delete#0;n#Model#0;n#!!top" />
+            <element signature="n#update#0;n#Model#0;n#!!top" />
+            <element signature="n#save#0;n#Model#0;n#!!top" />
+            <element signature="n#generateId#0;n#Model#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ModelCommande.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="18" selection-start-line="17" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/routeur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -928,25 +848,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Model.php">
+    <entry file="file://$PROJECT_DIR$/view/administrateur/pageadmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="120" column="18" lean-forward="true" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
-          <folding>
-            <element signature="n#Init#0;n#Model#0;n#!!top" />
-            <element signature="n#get#0;n#Model#0;n#!!top" />
-            <element signature="n#set#0;n#Model#0;n#!!top" />
-            <element signature="n#__construct#0;n#Model#0;n#!!top" />
-            <element signature="n#delete#0;n#Model#0;n#!!top" />
-            <element signature="n#update#0;n#Model#0;n#!!top" />
-            <element signature="n#save#0;n#Model#0;n#!!top" />
-            <element signature="n#generateId#0;n#Model#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="14" column="127" selection-start-line="14" selection-start-column="127" selection-end-line="14" selection-end-column="127" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/sharp_shopping_cart_white_18dp.png">
-      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
 </project>
