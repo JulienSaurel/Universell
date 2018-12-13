@@ -8,7 +8,7 @@ require_once File::build_path(array('model','ModelPanier.php'));
 class ControllerCommande
 {
     protected static $object = 'commande';
-//TODO tests connected?
+
     public static function commande()
     {
         if(isset($_SESSION['login'])&&!empty($_SESSION['panier']['libelleProduit'])) {
@@ -57,8 +57,9 @@ class ControllerCommande
                     //On cree l'array pour recuperer l'association entre la commande et les lignes
                     self::saveAchats($tab, $i, $numero);
                 }
-                unset($_SESSION['panier']); //ya plus d'panier'
+
                 self::paye(); //on redirige vers une page de confirmation/remerciement pour la commande
+                unset($_SESSION['panier']); //ya plus d'panier'
 
             }
         } else {
@@ -112,6 +113,7 @@ class ControllerCommande
 
     public static function paye()
     {
+        if (isset($_SESSION['login'])) {
         if (isset($_POST['phrase'])) {
             $phrase = $_POST['phrase'];
         } else {
@@ -120,6 +122,11 @@ class ControllerCommande
         $view = 'payed';
         $pagetitle = 'Merci';
         require File::build_path(array('view', 'view.php'));
+        } else  {
+            $phrase = File::warning("Vous devez d'abord valider votre commande");
+            $_POST['phrase'] = $phrase;
+            ControllerAccueil::homepage();
+        }
     }
 
     public static function generePDF()

@@ -52,7 +52,7 @@ class ModelClient extends Model
 
         $req_prep->execute($data);
 
-        $cpt = $req_prep->fetchAll();
+        $cpt = $req_prep->fetchColumn();
 
         return $cpt==0;
     }

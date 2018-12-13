@@ -25,10 +25,10 @@ public static function getCommandeById($id){
 
     public static function selectAllbyClient()
     {
-        $sql = "SELECT * FROM uni_Commande WHERE 'login_client'=:login;"; //on recupere tous sur les commandes du client connecté
+        $sql = "SELECT * FROM uni_Commande WHERE login_client=:login ORDER BY date DESC"; //on recupere tous sur les commandes du client connecté
         $req_prep = Model::$pdo->prepare($sql); //on prepare la requete
         $array = array(
-            "login" => $_SESSION['login'], //TODO variable a recuperer dans l'action du controller/try catch/tester requete
+            "login" => $_SESSION['login'], //TODO variable a recuperer dans l'action du controller/try catch
         ); //on recupere le login du client connecté
 
         $req_prep->execute($array); //on execute la requete
@@ -43,7 +43,7 @@ public static function getCommandeById($id){
 
     public function getArrayLigneCommande()
     {
-        $sql = "SELECT LC.idligneCommande, LC.id, LC.qte FROM uni_Commande C JOIN uni_Achats A ON C.numero = A.numero JOIN uni_LigneCommande LC ON A.idligneCommande = LC.idligneCommande WHERE numero=:numero;";
+        $sql = "SELECT LC.idligneCommande, LC.id, LC.qte FROM uni_Commande C JOIN uni_Achats A ON C.numero = A.numero JOIN uni_LigneCommande LC ON A.idligneCommande = LC.idligneCommande WHERE C.numero=:numero;";
         $req_prep = Model::$pdo->prepare($sql); //on prepare la requete
         $array = array(
             "numero" => $this->get('numero'), //TODO variable a recuperer dans l'action du controller/try catch/tester requete
