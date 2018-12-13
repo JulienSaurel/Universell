@@ -136,6 +136,7 @@ src: url("font/Philosopher-Regular.ttf");
 
     #menu > li > ul {
       top: -500%;
+      left: -50px;
       text-align: center;
      /* background-color: #c2f6f7;
       border: 2px solid #c2f6f7;*/
