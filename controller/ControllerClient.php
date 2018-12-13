@@ -14,7 +14,7 @@ class ControllerClient
                 //var_dump($tab_u);
 
                 $view = 'list';
-                $pagetitle = 'Liste des Utilisateurs';
+                $pagetitle = 'Liste des Utilisateurs';; ;
                 require File::build_path(array('view', 'view.php'));  //"redirige" vers la vue
             }
             else
@@ -209,27 +209,30 @@ class ControllerClient
 
     public static function validate()
     {
-        //TODO tests
-        $login = $_GET['login'];
-        $nonce = $_GET['nonce'];
-        $c = ModelClient::select($login);
-        if ($c)
-        {
-            if ($c->get('nonce')==$nonce)
-            {
-                $array = array(
-                    'login' => $login,
-                    'nonce' => null,
-                );
-                ModelClient::update($array);
-                ControllerAccueil::homepage();
+        if(isset($_GET['login'])&&isset($_GET['nonce'])) {
+            $login = $_GET['login'];
+            $nonce = $_GET['nonce'];
+            $c = ModelClient::select($login);
+            if ($c) {
+                if ($c->get('nonce') == $nonce) {
+                    $array = array(
+                        'login' => $login,
+                        'nonce' => null,
+                    );
+                    ModelClient::update($array);
+                    ControllerAccueil::homepage();
+                } else {
+                    $phrase = File::warning('Une erreur s\'est glissée dans votre url au niveau du nonce, veuillez la corriger et recharger la page');
+                    $_POST['phrase'] = $phrase;
+                    ControllerAccueil::homepage();
+                }
             } else {
-                $phrase = File::warning('Une erreur s\'est glissée dans votre url au niveau du nonce, veuillez la corriger et recharger la page');
+                $phrase = File::warning('Une erreur s\'est glissée dans votre url au niveau du login , veuillez la corriger et recharger la page');
                 $_POST['phrase'] = $phrase;
                 ControllerAccueil::homepage();
             }
         } else {
-            $phrase = File::warning('Une erreur s\'est glissée dans votre url au niveau du login , veuillez la corriger et recharger la page');
+            $phrase = File::warning('Erreur : données invalides');
             $_POST['phrase'] = $phrase;
             ControllerAccueil::homepage();
         }

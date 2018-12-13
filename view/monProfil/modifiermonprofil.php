@@ -52,4 +52,3 @@
 
     </ul>
 </div>
-<!--TODO peut etre mettre les if dans le controller si possible-->

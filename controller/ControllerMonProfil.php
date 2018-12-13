@@ -5,24 +5,27 @@ require_once File::build_path(array('controller','ControllerClient.php'));
 class ControllerMonProfil
 {
 
-    //TODO faire des tests
-
     protected static $object='monProfil';
 
     public static function profile()
     {
 
     	//var_dump($_SESSION['login']);
-    	$login = $_SESSION['login'];
-        $c = ModelClient::select($login);
-        if (isset($_POST['phrase'])) {
-            $phrase = $_POST['phrase'];
+        if (isset($_SESSION['login'])) {
+            $login = $_SESSION['login'];
+            $c = ModelClient::select($login);
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
+            $view = 'voirmonprofil';
+            $pagetitle = 'Mon profil';
+            require File::build_path(array('view', 'view.php'));
         } else {
-            $phrase = "";
+            $_POST['phrase'] = File::warning('Vous devez etre connecté pour supprimer votre compte.');
+            ControllerAccueil::homepage();
         }
-    	$view = 'voirmonprofil';
-    	$pagetitle = 'Mon profil';
-    	require File::build_path(array('view','view.php'));
     }
 
     public static function modifprofile()
@@ -82,10 +85,10 @@ class ControllerMonProfil
             $login = $_SESSION['login'];
             ModelClient::delete($login);
             unset($_SESSION['login']);
-            $_POST['phrase'] = 'Votre compte a bien été supprimé';
+            $_POST['phrase'] = File::warning('Votre compte a bien été supprimé');
             ControllerAccueil::homepage();
         } else {
-            $_POST['phrase'] = 'Vous devez etre connecté pour supprimer votre compte.';
+            $_POST['phrase'] = File::warning('Vous devez etre connecté pour supprimer votre compte.');
             ControllerAccueil::homepage();
         }
     }
@@ -94,7 +97,12 @@ class ControllerMonProfil
     {
         if (isset($_SESSION)) {
             $tabcomm = ModelCommande::selectAllbyClient($_SESSION['login']);
-            $phrase = "";
+            if (!$tabcomm) {
+                $tabcomm = array();
+                $phrase = "Vous n'avez encore rien commandé.";
+            } else {
+                $phrase = "";
+            }
             $view = 'historiquecommande';
             $pagetitle = 'Mes commandes';
             require_once File::build_path(array('view','view.php'));
