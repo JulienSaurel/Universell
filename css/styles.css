@@ -3,9 +3,28 @@
 font-family: "Philosopher";
 src: url("font/Philosopher-Regular.ttf");
 }
+.issou form fieldset p {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+
+}
+
+.issou form fieldset p input {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+
+}
+#addpanier {
+  border-bottom:none;
+  width:40px;
+  height:35px;
+  margin-left: 50px;
+}
 
 .Panier a img {
-  width: 50px;
+  width: 35px;
 }
 
 .Panier, .Panier a, .Panier a img {

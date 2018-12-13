@@ -54,7 +54,7 @@ if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='tr
 
 
 
-  <div>  	<form method="post" action="index.php?controller=panier&action=ajout">
+  <div class="issou">  	<form method="post" action="index.php?controller=panier&action=ajout">
 
 
 		  <fieldset>
@@ -71,9 +71,9 @@ if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='tr
 			<p>
 		      <label for="qte">quantité souhaitée :</label> 
 		      <input type="number" min="1" max="<?php echo $stockPlanete?>" value="1" placeholder="Ex : 1" name="qte" id="qte" required/>
-		    </p>
-		    <p>
-		      <input type="submit" value="Ajouter au panier" />
+		     
+		    
+		      <input id="addpanier" type="image" src="images/panieradd.png" alt="Ajouter au panier">
 		    </p>
 		  </fieldset> 
 </form>

@@ -29,7 +29,7 @@
             <a  class="lienMenu" href="?action=adminhomepage&controller=administrateur">Menu Admin</a>
         </li>
     <?php } ?>
-    <li class="Panier"><a class="lienMenu" href="?action=display&controller=Panier"> <img src="images/panier.png"> </a></li>
+    <li class="Panier"><a class="lienMenu" href="?action=display&controller=Panier"> <img src="images/panier.png" alt="Panier"> </a></li>
 
 </ul>
 </nav> 
