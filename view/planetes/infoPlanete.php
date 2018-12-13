@@ -20,11 +20,11 @@ if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='tr
     </p>
       <p>
           <label for="prix">Prix</label> :
-          <input type="text"  name="prix" id="prix" value='<?php echo htmlspecialchars($planete->get('prix')); ?>' required/>
+          <input type="number" min="0" name="prix" id="prix" value='<?php echo htmlspecialchars($planete->get('prix')); ?>' required/>
       </p>
       <p>
           <label for="img">Lien Image</label> :
-          <input type="text"  name="img" id="img" value='<?php echo htmlspecialchars($planete->get('image')); ?>' required/>
+          <input type="text"  name="img" id="img" value='<?php echo htmlspecialchars($planete->get('image')); ?>' />
       </p>
     <p>
         <input type="submit" value="Envoyer" />
