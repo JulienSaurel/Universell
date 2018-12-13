@@ -3,7 +3,7 @@
 <ul id="menu">
 <li class="accueil"><a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a></li>
 <li class="nousConnaitre"><a class="lienMenu" href="?action=display&controller=planetes">Nos Produits</a></li>
-<li class="Panier"><a class="lienMenu" href="?action=display&controller=Panier"> Panier </a></li>
+
 
 
 
@@ -29,6 +29,7 @@
             <a  class="lienMenu" href="?action=adminhomepage&controller=administrateur">Menu Admin</a>
         </li>
     <?php } ?>
+    <li class="Panier"><a class="lienMenu" href="?action=display&controller=Panier"> <img src="images/panier.png"> </a></li>
 
 </ul>
 </nav> 

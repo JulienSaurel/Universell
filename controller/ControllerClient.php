@@ -245,7 +245,7 @@ class ControllerClient
             $_POST['phrase'] = "Vous avez bien été déconnecté.";
             ControllerAccueil::homepage();
         } else {
-            $_POST['phrase'] = File::warning('Vous ne pouvez pas vous déconnecter si vous n\'êtes pas connecter.');
+            $_POST['phrase'] = File::warning('Vous ne pouvez pas vous déconnecter si vous n\'êtes pas connecté.');
             ControllerAccueil::homepage();
         }
     }

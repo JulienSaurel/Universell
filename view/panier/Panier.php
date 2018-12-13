@@ -18,9 +18,9 @@
 		echo "<tr><td>" . $info . "</td></tr>";
 
 			for ($i=0 ;$i < $nbArticles ; $i++)
-			{
+			{  
 				echo "<tr>";
-				echo "<td>".htmlspecialchars($_SESSION['panier']['libelleProduit'][$i])."</ td>";
+				echo "<td>". "<a href=\"?action=achat&controller=planetes&planete=".htmlspecialchars($_SESSION['panier']['libelleProduit'][$i])."\" >". htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]) ."</a></ td>";
 				echo "<td><input type=\"number\" min=\"0\" size=\"4\" name=\"q$i\" value=\"".htmlspecialchars($_SESSION['panier']['qteProduit'][$i])."\"/></td>";
 				echo "<td>".htmlspecialchars($_SESSION['panier']['prixProduit'][$i])."</td>";
 				echo "<td><a href=\"".htmlspecialchars("?controller=Panier&action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]))."\"> EFFACER </a></td>";
@@ -35,7 +35,7 @@
 			echo "<tr><td colspan=\"4\">";
 			echo "<input type=\"hidden\" name=\"controller\" value=\"Panier\"/>";
 			echo "<input type=\"hidden\" name=\"action\" value=\"modifier\"/>";
-			echo "<input type=\"submit\" value=\"Rafraichir\"/>";
+			echo "<input type=\"submit\" value=\"Valider les modifications\"/>";
 			
 
 			echo "</td></tr>";
