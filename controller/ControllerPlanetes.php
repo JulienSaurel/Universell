@@ -5,7 +5,6 @@ class ControllerPlanetes
 {
     protected static $object='planetes';
 
-    //TODO checker s'il y a des tests a faire dans ce controller
 
     public static function display()
     {   
@@ -39,6 +38,7 @@ class ControllerPlanetes
 
     public static function gotocreate()
     {
+         if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
         if (isset($_POST['phrase'])) {
             $phrase = $_POST['phrase'];
         } else {
@@ -47,10 +47,15 @@ class ControllerPlanetes
         $view = 'create';
         $pagetitle = 'Mise en ligne d\'un nouvel article';
         require File::build_path(array('view','view.php'));
+    } else {
+        $_POST['phrase'] = "vous n'etes pas admin";
+        self::display();
+    }
     }
 
     public static function create()
-    {
+    {   
+        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
         if(isset($_POST['id'])&&isset($_POST['prix'])&&isset($_POST['qteStock'])&&isset($_POST['img']))
         {
             $id = $_POST['id'];
@@ -68,6 +73,11 @@ class ControllerPlanetes
             $phrase = 'Le nouvel article a bien été enregistré';
             self::display();
         }
+    } else {
+        $_POST['phrase'] = "vous n'etes pas admin";
+        self::display();
+
+    }
     }
 
     public static function delete()
@@ -94,6 +104,7 @@ class ControllerPlanetes
 
     public static function update()
     {
+        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
         if (isset($_POST['id'])&&isset($_POST['prix'])&&isset($_POST['img'])) {
             $array = array(
                 'id' => $_POST['id'],
@@ -116,10 +127,15 @@ class ControllerPlanetes
         else {
             self::error();
         }
+    } else {
+        $_POST['phrase'] = "vous n'etes pas admin";
+        self::display();
+    }
     }
 
     public static function stock()
     {
+        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
         if (isset($_POST['qteStock'])) {
             $array = array(
                 'id' => $_POST['id'],
@@ -137,6 +153,10 @@ class ControllerPlanetes
         else {
             self::error();
         }
+    } else {
+        $_POST['phrase'] = "vous n'etes pas admin";
+        self::display();
+    }
     }
 
     public static function erreurPlanete(){
