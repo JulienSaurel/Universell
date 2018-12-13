@@ -16,7 +16,7 @@
       <input type="submit" value="Envoyer" />
     </p>
     <p>
-      <span class="erreurFormulaire"> <?php echo $errmsg ?> </span>
+      <span class="erreurFormulaire"> <?php echo htmlspecialchars($errmsg) ?> </span>
     </p>
 
   </fieldset>
