@@ -8,16 +8,18 @@ class ControllerPlanetes
     //TODO checker s'il y a des tests a faire dans ce controller
 
     public static function display()
-    {
+    {   
+       
         $planetes = ModelPlanetes::selectAll();
         $view = 'nosPlanetes';
         if (isset($_POST['phrase'])) {
             $phrase = $_POST['phrase'];
-        } else {
+        } elseif(!isset($phrase)) {
             $phrase = "";
-        }
+        } 
         $pagetitle = 'Nos planetes';
         require File::build_path(array('view','view.php'));
+        
     }
 
     public static function achat(){
@@ -70,6 +72,8 @@ class ControllerPlanetes
 
     public static function delete()
     {
+        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
+
         $p = $_GET['id'];
         ModelPlanetes::delete($p);
         $planetes = ModelPlanetes::selectAll();
@@ -81,6 +85,10 @@ class ControllerPlanetes
         $view = 'nosPlanetes';
         $pagetitle = 'La planète a bien été supprimée';
         require File::build_path(array('view','view.php'));
+    } else {
+        $_POST['phrase'] = "vous n'etes pas admin";
+        self::display();
+    }
     }
 
 

@@ -7,58 +7,58 @@ class ControllerClient
 
     protected static $object='client';
 
-/*    public static function readAll()
-    {
-        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true') {
-            $tab_u = ModelClient::selectAll();//appel au modèle pour gerer la BD
-            //var_dump($tab_u);
-
-            $view = 'list';
-            $pagetitle = 'Liste des Utilisateurs';
-            require File::build_path(array('view', 'view.php'));  //"redirige" vers la vue
-        }
-        else
+    /*    public static function readAll()
         {
-            $_POST['phrase'] = 'Vous devez être administrateur pour avoir acces à la liste des utilisateurs';
-        }
-    }*/
+            if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true') {
+                $tab_u = ModelClient::selectAll();//appel au modèle pour gerer la BD
+                //var_dump($tab_u);
 
-/*    public static function read()
-    {
+                $view = 'list';
+                $pagetitle = 'Liste des Utilisateurs';
+                require File::build_path(array('view', 'view.php'));  //"redirige" vers la vue
+            }
+            else
+            {
+                $_POST['phrase'] = 'Vous devez être administrateur pour avoir acces à la liste des utilisateurs';
+            }
+        }*/
 
-        $log = $_GET['login'];
-        $u = ModelClient::select($log);//appel au modèle pour gerer la BD
-
-        if($u)
+    /*    public static function read()
         {
-            $view = 'detail';
-            $pagetitle = 'Client';
+
+            $log = $_GET['login'];
+            $u = ModelClient::select($log);//appel au modèle pour gerer la BD
+
+            if($u)
+            {
+                $view = 'detail';
+                $pagetitle = 'Client';
+                require File::build_path(array('view','view.php'));  //"redirige" vers la vue
+                // $tab_u = ModelClient::getAllClients();//appel au modèle pour gerer la BD
+                //
+                // $view = 'list';
+                // $pagetitle = 'Liste des clients';
+                // require File::build_path(array('view','view.php'));  //"redirige" vers la vue
+            }
+            else
+            {
+                $view = 'error';
+                $pagetitle = '404 Not Found';
+                require File::build_path(array('view','view.php'));
+                //"redirige" vers la vue erreur.php qui affiche un msg d'erreur
+            }
+        }*/
+
+    /*    public static function delete()
+        {
+            $log = $_GET['login'];
+            ModelClient::delete($log);//appel au modèle pour gerer la BD
+
+            $view = 'deleted';
+            $pagetitle = '';
             require File::build_path(array('view','view.php'));  //"redirige" vers la vue
-            // $tab_u = ModelClient::getAllClients();//appel au modèle pour gerer la BD
-            //
-            // $view = 'list';
-            // $pagetitle = 'Liste des clients';
-            // require File::build_path(array('view','view.php'));  //"redirige" vers la vue
-        }
-        else
-        {
-            $view = 'error';
-            $pagetitle = '404 Not Found';
-            require File::build_path(array('view','view.php'));
-            //"redirige" vers la vue erreur.php qui affiche un msg d'erreur
-        }
-    }*/
-
-/*    public static function delete()
-    {
-        $log = $_GET['login'];
-        ModelClient::delete($log);//appel au modèle pour gerer la BD
-
-        $view = 'deleted';
-        $pagetitle = '';
-        require File::build_path(array('view','view.php'));  //"redirige" vers la vue
-        self::readAll();
-    }*/
+            self::readAll();
+        }*/
 
     public static function create()
     {
@@ -105,7 +105,15 @@ class ControllerClient
 
                 if ($password == $password2) {
                     if(ModelClient::checkLogin($login)){
-                        ModelClient::save($array); 
+                        ModelClient::save($array);
+                        $msg = "<p>Veuillez validez votre email en cliquant sur ce lien <a href='webinfo.iutmontp.univ-montp2.fr/~sambucd/Universell/?action=validate&controller=client&nonce={$nonce}&login={$login}'>Valider mon adresse mail</a></p>";
+                        $subject = "Validation de votre adresse mail";
+                        $headers[] = 'MIME-Version: 1.0';
+                        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+                        $headers[] = 'From: Universell <Universell@no-reply.com>';
+                        mail($mail, $subject, $msg, implode("\r\n", $headers));
+                        $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
+                        ControllerAccueil::homepage();
                     } else{
                         $_POST['phrase'] = File::warning("Ce login existe déjà.");
                         Self::create();
@@ -118,6 +126,7 @@ class ControllerClient
                     mail($mail, $subject, $msg, implode("\r\n", $headers));
                     $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
                     ControllerAccueil::homepage();
+
                 } else {
                     $_POST['phrase'] = File::warning("Les deux mots de passe ne sont pas identiques.");
                     self::create();
@@ -125,8 +134,8 @@ class ControllerClient
 
             } else {
                 $_POST['phrase'] = File::warning("Veuillez entrer une adresse mail valide");
-                Self::create();        }
-
+                Self::create();        
+            }
         } else {
             $_POST['phrase'] = File::warning("Votre inscription n'a pas pu être enregistrée suite à un problème technique.");
             ControllerAccueil::homepage();
@@ -160,24 +169,23 @@ class ControllerClient
             $pw = Security::chiffrer($_POST['pw']);
             if ($c = ModelClient::select($login)) {
                 if (is_null($c->get('nonce'))) {
-                        if ($c->checkPW($login, $pw)) {
-                            $_SESSION['login'] = $login;
-                            if (isset($_POST['phrase'])) {
-                                $phrase = $_POST['phrase'];
-                            } else {
-                                $phrase = "";
-                            }
-                            ControllerMonProfil::profile();
-                            if ($c->get('isAdmin') == 1) {
-                                $_SESSION['admin'] = true;
-                            }
-
+                    if ($c->checkPW($login, $pw)) {
+                        $_SESSION['login'] = $login;
+                        if (isset($_POST['phrase'])) {
+                            $phrase = $_POST['phrase'];
                         } else {
-                            $phrase = File::warning("Mot de passe incorrect");
-                            $view = 'connect';
-                            $pagetitle = 'erreur connection';
-                            require File::build_path(array('view', 'view.php'));
+                            $phrase = "";
                         }
+                        if ($c->get('isAdmin') == 1) {
+                            $_SESSION['admin'] = true;
+                        }
+                        ControllerMonProfil::profile();
+                    } else {
+                        $phrase = File::warning("Mot de passe incorrect");
+                        $view = 'connect';
+                        $pagetitle = 'erreur connection';
+                        require File::build_path(array('view', 'view.php'));
+                    }
                 } else {
                     $phrase = File::warning("Votre adresse email n'a pas été vérifiée, veuillez la vérifier avant de vous connecter.");
                     $view = 'connect';

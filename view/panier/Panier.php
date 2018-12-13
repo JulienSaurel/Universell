@@ -14,11 +14,9 @@
 
 	<?php
 	
-		$nbArticles=count($_SESSION['panier']['libelleProduit']);
-		if ($nbArticles <= 0)
-		echo "<tr><td>Votre panier est vide </ td></tr>";
-		else
-		{
+
+		echo "<tr><td>" . $info . "</td></tr>";
+
 			for ($i=0 ;$i < $nbArticles ; $i++)
 			{
 				echo "<tr>";
@@ -41,8 +39,7 @@
 			
 
 			echo "</td></tr>";
-		}	
-	
+
 	?>
 </table>
 </form>

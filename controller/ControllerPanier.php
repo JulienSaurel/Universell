@@ -1,7 +1,7 @@
 <?php
 require_once File::build_path(array('model','ModelPanier.php'));
 require_once File::build_path(array('controller','ControllerPlanetes.php'));
-require_once File::build_path(array('model','ModelCommandes.php'));
+require_once File::build_path(array('model','ModelCommande.php'));
 require_once File::build_path(array('model','ModelPlanetes.php'));
 
 
@@ -14,6 +14,12 @@ class ControllerPanier
 
         if (ModelPanier::creationPanier())
         {
+            $nbArticles=count($_SESSION['panier']['libelleProduit']);
+            if ($nbArticles <= 0) {
+                $info = "Votre panier est vide.";
+            } else {
+                $info = "";
+            }
             if (!isset($_SESSION['login'])) {
                 $phrase = File::warning("Vous devez vous identifier avant de finaliser votre commande");
             } elseif (isset($_POST['phrase'])) {

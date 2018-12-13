@@ -1,9 +1,4 @@
 <?php
-if (isset($_SESSION['login']))
-{
-    if (Session::is_admin($_SESSION['login']))
-    {
-        if (isset($type)) {
             if ($type == 'Client') { ?>
 
                 <form method="post" action="?action=update&controller=administrateur&type=Client&id=<?php echo $id ?>">
@@ -79,20 +74,5 @@ if (isset($_SESSION['login']))
                     </fieldset>
                 </form>
 
-            <?php } else {
-                $_POST['phrase'] = 'Veuillez ne pas toucher à l\'url des liens';
-                ControllerAccueil::homepage();
-            }
-        } else {
-            $_POST['phrase'] = 'Veuillez naviguez sur le site uniquement en utilisant les liens.';
-            ControllerAccueil::homepage();
-        }
-    } else {
-        $_POST['phrase'] = 'Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur';
-        ControllerAccueil::homepage();
-    }
-} else {
-    $_POST['phrase'] = 'Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url';
-    ControllerAccueil::homepage();
-}
-?>
+            <?php } ?>
+<!--TODO: peut etre faire deux view-->
