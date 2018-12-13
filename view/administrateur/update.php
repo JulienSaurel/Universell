@@ -75,4 +75,3 @@
                 </form>
 
             <?php } ?>
-<!--TODO: peut etre faire deux view-->

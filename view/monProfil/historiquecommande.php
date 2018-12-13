@@ -1,10 +1,6 @@
 <?php
 
 foreach ($tabcomm as $comm) {
-    /*TODO: -récupérer un tableau des commandes classés antéchronologiquement fait
-            -creer une methode getArrayLigneCommande qui cree un tableau des lignes de la commande correspondante
-            -fix tous les problemes
-    */
     echo "<table>";
     $idCom = $comm->get('numero');
     $arrayLigneCommande = $comm->getArrayLigneCommande();

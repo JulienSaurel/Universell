@@ -37,13 +37,13 @@ if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
     {
         $controller = 'accueil';
         $action = 'homepage';
-        $_POST['phrase'] = 'Veuillez naviguer sur ce site uniquement avec les liens.';
+        $_POST['phrase'] = File::warning('Veuillez naviguer sur ce site uniquement avec les liens.');
         $controller_class = 'Controller' . ucfirst($controller);
     }
 } elseif(!class_exists($controller_class, false)) {
     $controller = 'accueil';
     $action = 'homepage';
-    $_POST['phrase'] = 'Veuillez naviguer sur ce site uniquement avec les liens.';
+    $_POST['phrase'] = File::warning('Veuillez naviguer sur ce site uniquement avec les liens.');
     $controller_class = 'Controller' . ucfirst($controller);
 } else {
     if (in_array($_GET['action'], get_class_methods($controller_class))) {
@@ -51,7 +51,7 @@ if (!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
     } else {
         $controller = 'accueil';
         $action = 'homepage';
-        $_POST['phrase'] = 'Problème d\'url, veuillez naviguer uniquement à l\'aide des liens';
+        $_POST['phrase'] = File::warning('Problème d\'url, veuillez naviguer uniquement à l\'aide des liens');
         $controller_class = 'Controller' . ucfirst($controller);
     }
 
