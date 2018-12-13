@@ -9,7 +9,8 @@ src: url("font/Philosopher-Regular.ttf");
 }
 
 .Panier, .Panier a, .Panier a img {
-  float: right;
+  vertical-align: top;
+  margin-left: 20% !important;
   border: none !important;
 }
 
@@ -52,10 +53,12 @@ src: url("font/Philosopher-Regular.ttf");
 
 
       #navMenu {
+        margin-left: 25% !important;
       text-align: center;
     }
 
     #menu, #menu ul {
+      margin-left: 25% !important;
       list-style: none;
       padding: 0;
       list-style-type: none;
