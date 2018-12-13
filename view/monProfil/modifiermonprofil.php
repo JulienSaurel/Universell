@@ -3,7 +3,7 @@
     <ul>
         <li>Pseudo: <?php echo $c->get('login'); ?> </li>
         <li>Nom: <?php echo $c->get('nom'); ?> </li>
-        <?php if(Session::is_user($c)){
+        <?php if(Session::is_user($_SESSION['login'])){
             echo "<form method=\"post\" action=\"?action=modifNom&controller=monProfil\">
 			<p>
             	<label for=\"nom_id\">Modifier le nom :</label>
@@ -14,7 +14,7 @@
         	</p>
         	</form>";} ?>
         <li>Prénom: <?php echo $c->get('prenom'); ?> </li>
-        <?php if(Session::is_user($c)){
+        <?php if(Session::is_user($_SESSION['login'])){
             echo "<form method=\"post\" action=\"?action=modifPrenom&controller=monProfil\">
 			<p>
             	<label for=\"prenom_id\">Modifier le prenom :</label>
@@ -25,7 +25,7 @@
         	</p>
         	</form>";} ?>
         <li>Adresse: <?php echo $c->get('rue'). ", " . $c->get('codepostal') .$c->get('ville'); ?> </li>
-        <?php if(Session::is_user($c)){
+        <?php if(Session::is_user($_SESSION['login'])){
             echo "<form method=\"post\" action=\"?action=modifAdresse&controller=monProfil\">
 			<p>
             	<label for=\"ville_id\">Modifier l'adresse :</label><br>

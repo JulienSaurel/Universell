@@ -78,11 +78,30 @@ class ControllerMonProfil
 
     public static function delete()
     {
-        $login = $_SESSION['login'];
-        ModelClient::delete($login);
-        unset($_SESSION['login']);
-        $phrase = 'Votre compte a bien été supprimé';
-        ControllerAccueil::homepage();
+        if (isset($_SESSION['login'])) {
+            $login = $_SESSION['login'];
+            ModelClient::delete($login);
+            unset($_SESSION['login']);
+            $_POST['phrase'] = 'Votre compte a bien été supprimé';
+            ControllerAccueil::homepage();
+        } else {
+            $_POST['phrase'] = 'Vous devez etre connecté pour supprimer votre compte.';
+            ControllerAccueil::homepage();
+        }
+    }
+
+    public static function mescommandes()
+    {
+        if (isset($_SESSION)) {
+            $tabcomm = ModelCommande::selectAllbyClient($_SESSION['login']);
+            $phrase = "";
+            $view = 'historiquecommande';
+            $pagetitle = 'Mes commandes';
+            require_once File::build_path(array('view','view.php'));
+        } else {
+            $_POST['phrase'] = 'Vous devez etre connecté pour acceder a vos commandes.';
+            ControllerAccueil::homepage();
+        }
     }
 
     public static function gotomodifPW()

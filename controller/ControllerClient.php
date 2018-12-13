@@ -116,8 +116,16 @@ class ControllerClient
                         ControllerAccueil::homepage();
                     } else{
                         $_POST['phrase'] = File::warning("Ce login existe déjà.");
-                        self::create();
-                    }
+                        Self::create();
+                }
+                    $msg = "<p>Veuillez validez votre email en cliquant sur ce lien <a href='webinfo.iutmontp.univ-montp2.fr/~sambucd/Universell/?action=validate&controller=client&nonce={$nonce}&login={$login}'>Valider mon adresse mail</a></p>";
+                    $subject = "Validation de votre adresse mail";
+                    $headers[] = 'MIME-Version: 1.0';
+                    $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+                    $headers[] = 'From: Universell <Universell@no-reply.com>';
+                    mail($mail, $subject, $msg, implode("\r\n", $headers));
+                    $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
+                    ControllerAccueil::homepage();
 
                 } else {
                     $_POST['phrase'] = File::warning("Les deux mots de passe ne sont pas identiques.");
@@ -126,9 +134,8 @@ class ControllerClient
 
             } else {
                 $_POST['phrase'] = File::warning("Veuillez entrer une adresse mail valide");
-                ControllerAccueil::homepage();
+                Self::create();        
             }
-
         } else {
             $_POST['phrase'] = File::warning("Votre inscription n'a pas pu être enregistrée suite à un problème technique.");
             ControllerAccueil::homepage();
