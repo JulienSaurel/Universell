@@ -16,8 +16,8 @@ while($i < $cpt){
 	$i = $i +1;
 }
 
-echo "<h4> Prix total : ". $prixTotal." € </h4>";  
+echo "<h4> Prix total : ". htmlspecialchars($prixTotal)." € </h4>";  
 
-echo "<a href='?action=command&controller=commande'> Valider ma commande </a> <br>"
+echo "<a href='?action=command&controller=commande'> Valider ma commande </a> <br>";
 ?>
 

@@ -6,36 +6,36 @@
                         <legend>Mis à jour d'un client :</legend>
                         <p>
                             <label for="id_id">Pseudo :</label>
-                            <input type="text" value="<?php echo $o->get('login'); ?>" name="login" id="id_id" readonly/>
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('login')); ?>" name="login" id="id_id" readonly/>
                         </p>
                         <p>
                             <label for="nom_id">Nom :</label>
-                            <input type="text" value="<?php echo $o->get('nom'); ?>" name="nom" id="nom_id" required/>
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('nom')); ?>" name="nom" id="nom_id" required/>
                         </p>
                         <p>
                             <label for="prenom_id">Prenom :</label>
-                            <input type="text" value="<?php echo $o->get('prenom'); ?>" name="prenom" id="prenom_id" required/>
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('prenom')); ?>" name="prenom" id="prenom_id" required/>
                         </p>
                         <p>
                             <label for="mail_id">Mail :</label>
-                            <input type="email" value="<?php echo $o->get('mail'); ?>" name="mail" id="mail_id" required/>
+                            <input type="email" value="<?php echo htmlspecialchars($o->get('mail')); ?>" name="mail" id="mail_id" required/>
                         </p>
                         <p>
                             <label for="addpost">Rue :</label>
-                            <input type="text" value="<?php echo $o->get('rue'); ?>" name="rue" id="addpost" required/>
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('rue')); ?>" name="rue" id="addpost" required/>
                         </p>
                         <p>
                             <label for="addpost">Code postal :</label>
-                            <input type="text" value="<?php echo $o->get('codepostal'); ?>" name="codepostal" id="addpost"
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('codepostal')); ?>" name="codepostal" id="addpost"
                                    required/>
                         </p>
                         <p>
                             <label for="ville">Ville :</label>
-                            <input type="text" value="<?php echo $o->get('ville'); ?>" name="ville" id="ville" required/>
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('ville')); ?>" name="ville" id="ville" required/>
                         </p>
                         <p>
                             <label for="isAdmin">Rendre Administrateur</label>
-                            <input type="text" value="<?php echo $o->get('isAdmin'); ?>" name="isAdmin" id="isAdmin" required/>
+                            <input type="text" value="<?php echo htmlspecialchars($o->get('isAdmin')); ?>" name="isAdmin" id="isAdmin" required/>
                         </p>
                         <p>
                             <input type="submit" value="Envoyer"/>
@@ -44,7 +44,7 @@
                 </form>
                 <?php
             } elseif ($type == 'Planetes') { ?>
-                <form method="post" action="?action=update&controller=administrateur&type=Planetes&id=<?php echo $id ?>">
+                <form method="post" action="?action=update&controller=administrateur&type=Planetes&id=<?php echo htmlspecialchars($id) ?>">
 
                     <fieldset>
                         <legend>Modifier une planete :</legend>
