@@ -22,7 +22,7 @@ class ControllerPlanetes
     }
 
     public static function achat(){
-        $idPlanete = $_GET['planete'];
+        $idPlanete = htmlspecialchars($_GET['planete']);
 
         $planete = ModelPlanetes::select($idPlanete);
         $stockPlanete = $planete->get('qteStock');
@@ -62,7 +62,7 @@ class ControllerPlanetes
         if (isset($_SESSION['admin'])&&$_SESSION['admin']=='true') {
         if (isset($_GET['id'])) 
         {
-            $id = $_GET['id'];
+            $id = htmlspecialchars($_GET['id']);
             $p = ModelPlanetes::select($id);
             $view = 'create';
             $pagetitle = 'Modification de planete';
@@ -185,7 +185,7 @@ class ControllerPlanetes
     {
         if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
 
-            $p = $_GET['id'];
+            $p = htmlspecialchars($_GET['id']);
             ModelPlanetes::delete($p);
             $planetes = ModelPlanetes::selectAll();
             if (isset($_POST['phrase'])) {

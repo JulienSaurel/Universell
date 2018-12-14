@@ -51,9 +51,10 @@ class ControllerAdministrateur
             if (Session::is_admin($_SESSION['login'])) {
                 if (isset($_GET['type'])&&isset($_GET['id']))
                 {
-                    $type = $_GET['type'];
+                    $type = htmlspecialchars($_GET['type']);
                     $Modelgen = 'Model' . $type;
-                    $o = $Modelgen::select($_GET['id']);
+                    $id = htmlspecialchars($_GET['id']);
+                    $o = $Modelgen::select($id);
                     if($o) {
                         if (isset($_POST['phrase'])) {
                             $phrase = $_POST['phrase'];
@@ -93,9 +94,10 @@ class ControllerAdministrateur
             if (Session::is_admin($_SESSION['login'])) {
                 if (isset($_GET['type'])&&isset($_GET['id']))
                 {
-                    $type = $_GET['type'];
+                    $type = htmlspecialchars($_GET['type']);
+                    $id = htmlspecialchars($_GET['id']);
                     $Modelgen = 'Model' . $type;
-                    if($Modelgen::delete($_GET['id'])) {
+                    if($Modelgen::delete($id)) {
                         $tab_p = ModelPlanetes::selectAll();
                         $tab_c = ModelClient::selectAll();
                         $view = 'pageadmin';
@@ -107,7 +109,7 @@ class ControllerAdministrateur
                         {
                             $lenom = 'Le client ';
                         }
-                        $phrase = $lenom . $_GET['id'] . ' a bien été supprimé';
+                        $phrase = $lenom . $id . ' a bien été supprimé';
                         require File::build_path(array('view','view.php'));
                     } else {
                         $_POST['phrase'] = File::warning('Erreur : données invalides, veuillez réessayer');
@@ -133,9 +135,9 @@ class ControllerAdministrateur
             if (Session::is_admin($_SESSION['login'])) {
                 if (isset($_GET['type'])&&isset($_GET['id']))
                 {
-                    $type = $_GET['type'];
+                    $type = htmlspecialchars($_GET['type']);
+                    $id = htmlspecialchars($_GET['id']);
                     $Modelgen = 'Model' . $type;
-                    $id = $_GET['id'];
                     $o = $Modelgen::select($id);
                     if($o) {
                         $phrase = "";
@@ -164,7 +166,10 @@ class ControllerAdministrateur
     {
         if (isset($_SESSION['login'])) {
             if (Session::is_admin($_SESSION['login'])) {
-                $type = $_GET['type'];
+                if (isset($_GET['type'])&&isset($_GET['id']))
+                {
+                $type = htmlspecialchars($_GET['type']);
+                $id = htmlspecialchars($_GET['id']);
                 $Modelgen = 'Model' . $type;
                 if ($type == 'Client') {
                     $array = array(
@@ -198,8 +203,13 @@ class ControllerAdministrateur
                 {
                     $lenom = 'Le client ';
                 }
-                $phrase = $lenom . $_GET['id'] . ' a bien été mise à jour';
+                $phrase = $lenom . $id . ' a bien été mise à jour';
                 require File::build_path(array('view','view.php'));
+            } else {
+                    $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+                    self::adminhomepage();
+                }
+
             } else {
                 $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
                 ControllerAccueil::homepage();
