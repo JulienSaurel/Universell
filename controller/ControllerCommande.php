@@ -44,11 +44,16 @@ class ControllerCommande
                 for ($i = 0; $i < sizeof($_SESSION['panier']['libelleProduit']); $i++) {
                     //recuperation des données
                     $id = $_SESSION['panier']['libelleProduit'][$i];
+                    $p = ModelPlanetes::select($id);
+                    $max = $p->get('qteStock');
+                    if($_SESSION['panier']['qteProduit'][$i] < 0 || $_SESSION['panier']['qteProduit'][$i] > $max) {
+                        $qte = 0;
+                    } else {
                     $qte = $_SESSION['panier']['qteProduit'][$i];
+                    }
                     $tab[$i] = ModelLigneCommande::generateId(); //on stocke dans les cases i d'un tableau les id de la ligneCommande pour la recupere ensuite
 
                     //on prend en compte les modifications de stock
-                    $p = ModelPlanetes::select($id);
                     self::savePlanetes($p, $id, $qte);
 
                     //on cree l'array pour appeler save avec
