@@ -5,31 +5,31 @@
         <legend>Formulaire d'inscription :</legend>
         <p>
             <label for="id_id">Pseudo :</label>
-            <input type="text" placeholder="Ex : 2" name="login" id="id_id" required/>
+            <input type="text" value="<?php echo htmlspecialchars($login);?>" name="login" id="id_id" required/>
         </p>
         <p>
             <label for="nom_id">Nom :</label>
-            <input type="text" placeholder="Ex : Sambuc" name="nom" id="nom_id" required/>
+            <input type="text" value="<?php echo htmlspecialchars($nom);?>" name="nom" id="nom_id" required/>
         </p>
         <p>
             <label for="prenom_id">Prenom :</label>
-            <input type="text" placeholder="Ex : David" name="prenom" id="prenom_id" required/>
+            <input type="text" value="<?php echo htmlspecialchars($prenom);?>" name="prenom" id="prenom_id" required/>
         </p>
         <p>
             <label for="mail_id">Mail :</label>
-            <input type="email" placeholder="Ex : dsambuc@free.fr" name="mail" id="mail_id" required/>
+            <input type="email" value="<?php echo htmlspecialchars($mail);?>" name="mail" id="mail_id" required/>
         </p>
         <p>
             <label for="addpost">Rue :</label> 
-            <input type="text" placeholder="Ex : 7, rue Marceau" name="rue" id="addpost" required/>
+            <input type="text" value="<?php echo htmlspecialchars($rue);?>" name="rue" id="addpost" required/>
         </p>
          <p>
             <label for="addpost">Code postal :</label> 
-            <input type="text" placeholder="Ex : 7, rue Marceau" name="codepostal" id="addpost" required/>
+            <input type="text" value="<?php echo htmlspecialchars($codepostal);?>" name="codepostal" id="addpost" required/>
         </p>
         <p>
             <label for="ville">Ville :</label> 
-            <input type="text" placeholder="Ex : Montpellier" name="ville" id="ville" required/>
+            <input type="text" value="<?php echo htmlspecialchars($ville);?>" name="ville" id="ville" required/>
         </p>
 
         <p>

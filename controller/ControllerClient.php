@@ -62,6 +62,42 @@ class ControllerClient
 
     public static function create()
     {
+        if(!isset($_POST['nom'])){
+            $login = "";
+        }else {
+            $login = $_POST['login'];
+        }
+        if(!isset($_POST['nom'])){
+            $nom = "";
+        }else {
+            $nom = $_POST['nom'];
+        }
+        if(!isset($_POST['nom'])){
+            $prenom = "";
+        }else {
+            $prenom = $_POST['prenom'];
+        }
+        if(!isset($_POST['nom'])){
+            $mail = "";
+        }else {
+            $mail = $_POST['mail'];
+        }
+        if(!isset($_POST['nom'])){
+            $rue = "";
+        }else {
+            $rue = $_POST['rue'];
+        }
+        if(!isset($_POST['nom'])){
+            $ville = "";
+        }else {
+            $ville = $_POST['ville'];
+        }
+        if(!isset($_POST['nom'])){
+            $codepostal = "";
+        }else {
+            $codepostal = $_POST['codepostal'];
+        }
+
         if (isset($_POST['phrase'])) {
             $phrase = $_POST['phrase'];
         } else {
@@ -103,8 +139,8 @@ class ControllerClient
                     'nonce' => $nonce,
                 );
 
-                if ($password == $password2) {
-                    if(ModelClient::checkLogin($login)){
+                if ($password == $password2) { // si les deux mdp sont corrects
+                    if(ModelClient::checkLogin($login)){ // si le login n'existe pas déjà
                         ModelClient::save($array);
                         $msg = "<p>Veuillez validez votre email en cliquant sur ce lien <a href='webinfo.iutmontp.univ-montp2.fr/~sambucd/Universell/?action=validate&controller=client&nonce={$nonce}&login={$login}'>Valider mon adresse mail</a></p>";
                         $subject = "Validation de votre adresse mail";
@@ -114,7 +150,7 @@ class ControllerClient
                         mail($mail, $subject, $msg, implode("\r\n", $headers));
                         $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
                         ControllerAccueil::homepage();
-                    } else{
+                    } else{ // si le login existe déjà
                         $_POST['phrase'] = File::warning("Ce login existe déjà.");
                         Self::create();
                 }
@@ -127,16 +163,16 @@ class ControllerClient
                     $_POST['phrase'] = "Votre inscription a bien été enregistrée.";
                     ControllerAccueil::homepage();
 
-                } else {
+                } else { // si les deux mdp sont différents
                     $_POST['phrase'] = File::warning("Les deux mots de passe ne sont pas identiques.");
                     self::create();
                 }
 
-            } else {
+            } else { // si le mail n'est pas valide
                 $_POST['phrase'] = File::warning("Veuillez entrer une adresse mail valide");
                 Self::create();        
             }
-        } else {
+        } else { 
             $_POST['phrase'] = File::warning("Votre inscription n'a pas pu être enregistrée suite à un problème technique.");
             ControllerAccueil::homepage();
         }
@@ -151,6 +187,10 @@ class ControllerClient
             } else {
                 $phrase = "";
             }
+            if(!isset($login)){
+                       $login ="";
+                        }
+             
             $view = 'connect';
             $pagetitle = 'Se connecter';
             require File::build_path(array('view', 'view.php'));
@@ -181,6 +221,7 @@ class ControllerClient
                         }
                         ControllerMonProfil::profile();
                     } else {
+                        
                         $phrase = File::warning("Mot de passe incorrect");
                         $view = 'connect';
                         $pagetitle = 'erreur connection';
