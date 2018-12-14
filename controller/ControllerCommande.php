@@ -260,6 +260,9 @@ class ControllerCommande
         // ligne du prix total
         $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
         $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
+        $PDF->Ln(30);
+        $PDF->Cell(190,1,"",0,0,'R', true);
+        $PDF->Ln($esp);
         // export du pdf avec sauvegarde selon le nom spécifié
         //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";
         $PDF->Output("facture", "I");
