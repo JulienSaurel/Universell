@@ -1,6 +1,6 @@
 <?php if (isset($_SESSION['admin'])&&$_SESSION['admin']=='true')
 { ?>
-<form method="post" action="?action=create&controller=planetes">
+<form method="post" action="?action=create&controller=planetes" enctype="multipart/form-data">
 
     <fieldset>
         <legend>Mise en ligne d'un nouvel article :</legend>
@@ -17,10 +17,13 @@
             <input type="number"  name="qteStock" id="qte" required/>
         </p>
         <p>
-            <label for="img">Lien Image</label> :
-            <input type="text"  name="img" id="img"  required/>
+            <label for="img">Nom Image</label> :
+            <input type="text" placeholder="img.jpg" name="img" id="img"  required/>
         </p>
         <p>
+            <label for="fichier">Upload de l'image </label> :
+            <input type="file" name="nom-du-fichier" id="fichier">
+        </p>
         <p>
             <input type="submit" value="Envoyer" />
         </p>
