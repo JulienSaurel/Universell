@@ -123,7 +123,7 @@ class ControllerClient
                 $password = htmlspecialchars($_POST['pw1']);
                 $password2 = htmlspecialchars($_POST['pw2']);
                 $dateinscription = date("Y-m-d H:i:s");
-                $nonce = Security::generateRandomHex();
+                $nonce = rawurlencode(Security::generateRandomHex());
 
                 $array = array(
                     'login' => $login,
@@ -251,8 +251,8 @@ class ControllerClient
     public static function validate()
     {
         if(isset($_GET['login'])&&isset($_GET['nonce'])) {
-            $login = $_GET['login'];
-            $nonce = $_GET['nonce'];
+            $login = htmlspecialchars($_GET['login']);
+            $nonce = htmlspecialchars($_GET['nonce']);
             $c = ModelClient::select($login);
             if ($c) {
                 if ($c->get('nonce') == $nonce) {
