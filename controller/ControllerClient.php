@@ -151,6 +151,10 @@ class ControllerClient
             } else {
                 $phrase = "";
             }
+            if(!isset($login)){
+                       $login ="";
+                        }
+             
             $view = 'connect';
             $pagetitle = 'Se connecter';
             require File::build_path(array('view', 'view.php'));
@@ -181,6 +185,7 @@ class ControllerClient
                         }
                         ControllerMonProfil::profile();
                     } else {
+                        
                         $phrase = File::warning("Mot de passe incorrect");
                         $view = 'connect';
                         $pagetitle = 'erreur connection';
