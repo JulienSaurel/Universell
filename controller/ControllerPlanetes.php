@@ -45,13 +45,92 @@ class ControllerPlanetes
                 $phrase = "";
             }
             $view = 'create';
+            $p = new ModelPlanetes();
+            $action ='create';
+            $type = 'required';
             $pagetitle = 'Mise en ligne d\'un nouvel article';
+            $formtitle = 'Mise en ligne d\'un nouvel article';
             require File::build_path(array('view','view.php'));
         } else {
             $_POST['phrase'] = File::warning("Vous n'etes pas administrateur");
             self::display();
         }
     }
+
+    public static function gotoupdatefull()
+    {
+        if (isset($_SESSION['admin'])&&$_SESSION['admin']=='true') {
+        if (isset($_GET['id'])) 
+        {
+            $id = $_GET['id'];
+            $p = ModelPlanetes::select($id);
+            $view = 'create';
+            $pagetitle = 'Modification de planete';
+            $action = 'updatefull';
+            $type = 'readonly';
+            $formtitle = 'Modification de ' . $p->get('id');
+            $phrase = "";
+            require File::build_path(array('view','view.php'));  //"redirige" vers la vue
+        }else {
+            $_POST['phrase'] = File::warning("Id incorrecte");
+            self::display();
+        }
+    } else {
+        $_POST['phrase'] = File::warning("VOUS NE PASSEREZ PAS");
+            self::display();
+    }
+
+}  
+        public static function updatefull()
+    {
+        if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
+            if (isset($_POST['id'])&&isset($_POST['img'])&&isset($_POST['qteStock'])&&isset($_POST['prix'])) {
+                if (!empty($_FILES['nom-du-fichier']) && is_uploaded_file($_FILES['nom-du-fichier']['tmp_name'])) {
+                    $name = $_FILES['nom-du-fichier']['name'];
+                    $pic_path = __DIR__ . '/' . ".." . "/images/$name";
+                    $allowed_ext = array("jpg", "jpeg", "png");
+                    $realextarray = explode('.', $_FILES['nom-du-fichier']['name']);
+                    if (!in_array(end($realextarray), $allowed_ext)) {
+                        $_POST['phrase'] = File::warning("Mauvais type de fichier soumis !");
+                        self::display();
+                    } elseif (!move_uploaded_file($_FILES['nom-du-fichier']['tmp_name'], $pic_path)) {
+                        echo "La copie a échoué";
+                    }
+                }
+                $path = File::build_path(array('images',$_POST['img']));
+                if(file_exists($path)) {
+                    $array = array(
+                        'id' => $_POST['id'],
+                        'image' => $_POST['img'],
+                        'qteStock' => $_POST['qteStock'],
+                        'prix' => $_POST['prix'],
+                    );
+                    ModelPlanetes::update($array);
+
+                    $idPlanete = $_POST['id'];
+                    $planete = ModelPlanetes::select($idPlanete);
+                    if (isset($_POST['phrase'])) {
+                        $phrase = $_POST['phrase'];
+                    } else {
+                        $phrase = "";
+                    }
+                    $view = 'infoPlanete';
+                    $pagetitle = 'La planète a bien été mise à jour';
+                    require File::build_path(array('view', 'view.php'));
+                } else {
+                    $_POST['phrase'] = File::warning("Vous vous etes trompé de nom d'image, elle n'existe pas ou n'a pas été importée.");
+                    self::display();
+                }
+            }
+            else {
+                self::error();
+            }
+        } else {
+            $_POST['phrase'] = File::warning("Vous n'etes (toujours) pas administrateur");
+            self::display();
+        }
+    }
+
 
     public static function create()
     {
@@ -214,7 +293,7 @@ class ControllerPlanetes
 
                 $idPlanete = $_POST['id'];
                 $planete = ModelPlanetes::select($idPlanete);
-
+                $phrase = "";
                 $view = 'infoPlanete';
                 $pagetitle = 'Le nombre de planètes a bien été mis à jour';
                 require File::build_path(array('view','view.php'));

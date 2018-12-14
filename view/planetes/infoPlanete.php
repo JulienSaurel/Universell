@@ -9,7 +9,7 @@
     <?php $idP = $planete->get('id');
 
     if(isset($_SESSION['login'])&&isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){
-        echo "<a href='?action=delete&id={$idP}&controller=planetes'>Supprimer </a>";?>
+        echo "<p><a href='?action=delete&id={$idP}&controller=planetes'>Supprimer </a> <a href='?action=gotoupdatefull&id={$idP}&controller=planetes'>Modifier tout </a></p>";?>
 
         <form method="post" action="?action=update&controller=planetes">
 
