@@ -191,7 +191,7 @@ class ControllerCommande
         // création de la page et définition d'éléments
         ob_get_clean();
         $PDF = new phpToPDF();
-        $PDF->SetFillColor(160, 185, 236);
+        $PDF->SetFillColor( 27, 39, 104 );
         $PDF->AddPage();
         $PDF->SetFont('Arial', 'BI', 12);
 
@@ -216,6 +216,8 @@ class ControllerCommande
         $PDF->SetFont('Arial', 'B', 26);
         $PDF->Cell(190, $hau, utf8_decode("UNIVERSELL"), 0, 0, 'C');
         $PDF->Ln($esp);
+        $PDF->Cell(190,1,"",0,0,'R', true);
+        $PDF->Ln($esp);
         $PDF->SetFont('Arial', '', 20);
         $PDF->Cell(190, $hau, utf8_decode("Reçu de la commande"), 0, 0, 'C');
         $PDF->SetFont('Arial', '', 14);
@@ -235,6 +237,13 @@ class ControllerCommande
         $PDF->Ln();
 
             // ligne par article, et calcul du prix total au fur et à mesure
+        $PDF->SetTextColor( 250, 250, 250 );
+        $PDF->Cell(100,$hau,utf8_decode("Libellé de la planète"),1,0,'L',true);
+        $PDF->Cell(30,$hau,utf8_decode("quantité"),1,0,'C',true);
+        $PDF->Cell(30,$hau,utf8_decode("Prix unitaire"),1,0,'R',true);
+        $PDF->Cell(30,$hau,utf8_decode("Prix total"),1,0,'R',true);
+        $PDF->Ln();
+        $PDF->SetTextColor(  0, 0, 0 );
         $prixTotal = 0;
         foreach ($A as $i => $article) {
             $lib = utf8_decode($article['libelleArticle']);
