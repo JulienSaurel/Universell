@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once File::build_path(array('model','ModelClient.php'));
 require_once File::build_path(array('controller','ControllerClient.php'));
 
@@ -10,7 +10,7 @@ class ControllerMonProfil
     public static function profile()
     {
 
-    	//var_dump($_SESSION['login']);
+        //var_dump($_SESSION['login']);
         if (isset($_SESSION['login'])) {
             $login = $_SESSION['login'];
             $c = ModelClient::select($login);
@@ -41,11 +41,11 @@ class ControllerMonProfil
         $pagetitle = 'Mon profil';
         require File::build_path(array('view','view.php'));
     }
-	 public static function error()
+    public static function error()
     {
-    $view = 'error';
-    $pagetitle = 'Error 404';
-    require File::build_path(array('view','view.php'));
+        $view = 'error';
+        $pagetitle = 'Error 404';
+        require File::build_path(array('view','view.php'));
     }
 
     public static function modifNom(){

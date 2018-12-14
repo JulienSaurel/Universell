@@ -92,7 +92,6 @@ class Model {
         }
         return $tab;
     }
-//TODO continuer les commentaires
     //retourne l'objet dont la clé primaire est $primary_value
     static public function select($primary_value)
     {

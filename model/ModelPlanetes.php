@@ -12,6 +12,6 @@ class ModelPlanetes extends Model
     static protected $object = 'planetes';
     protected static $primary='id';
 
-    
+
 }
 ?>

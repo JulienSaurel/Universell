@@ -168,44 +168,44 @@ class ControllerAdministrateur
             if (Session::is_admin($_SESSION['login'])) {
                 if (isset($_GET['type'])&&isset($_GET['id']))
                 {
-                $type = htmlspecialchars($_GET['type']);
-                $id = htmlspecialchars($_GET['id']);
-                $Modelgen = 'Model' . $type;
-                if ($type == 'Client') {
-                    $array = array(
-                        'login' => $_POST['login'],
-                        'nom' => $_POST['nom'],
-                        'prenom' => $_POST['prenom'],
-                        'mail' => $_POST['mail'],
-                        'codepostal' => $_POST['codepostal'],
-                        'ville' => $_POST['ville'],
-                        'rue' => $_POST['rue'],
-                        'isAdmin' => $_POST['isAdmin'],
-                    );
-                } elseif ($type == 'Planetes')
-                {
-                    $array = array(
-                        'id' => $_POST['id'],
-                        'prix' => $_POST['prix'],
-                        'qteStock' => $_POST['qteStock'],
-                        'image' => $_POST['img'],
-                    );
-                }
-                $o = $Modelgen::update($array);
-                $tab_p = ModelPlanetes::selectAll();
-                $tab_c = ModelClient::selectAll();
-                $view = 'pageadmin';
-                $pagetitle = 'Menu admin';
-                if ($type == 'Planetes') {
-                    $lenom = 'La planete ';
-                }
-                elseif ($type == 'Client')
-                {
-                    $lenom = 'Le client ';
-                }
-                $phrase = $lenom . $id . ' a bien été mise à jour';
-                require File::build_path(array('view','view.php'));
-            } else {
+                    $type = htmlspecialchars($_GET['type']);
+                    $id = htmlspecialchars($_GET['id']);
+                    $Modelgen = 'Model' . $type;
+                    if ($type == 'Client') {
+                        $array = array(
+                            'login' => $_POST['login'],
+                            'nom' => $_POST['nom'],
+                            'prenom' => $_POST['prenom'],
+                            'mail' => $_POST['mail'],
+                            'codepostal' => $_POST['codepostal'],
+                            'ville' => $_POST['ville'],
+                            'rue' => $_POST['rue'],
+                            'isAdmin' => $_POST['isAdmin'],
+                        );
+                    } elseif ($type == 'Planetes')
+                    {
+                        $array = array(
+                            'id' => $_POST['id'],
+                            'prix' => $_POST['prix'],
+                            'qteStock' => $_POST['qteStock'],
+                            'image' => $_POST['img'],
+                        );
+                    }
+                    $o = $Modelgen::update($array);
+                    $tab_p = ModelPlanetes::selectAll();
+                    $tab_c = ModelClient::selectAll();
+                    $view = 'pageadmin';
+                    $pagetitle = 'Menu admin';
+                    if ($type == 'Planetes') {
+                        $lenom = 'La planete ';
+                    }
+                    elseif ($type == 'Client')
+                    {
+                        $lenom = 'Le client ';
+                    }
+                    $phrase = $lenom . $id . ' a bien été mise à jour';
+                    require File::build_path(array('view','view.php'));
+                } else {
                     $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
                     self::adminhomepage();
                 }

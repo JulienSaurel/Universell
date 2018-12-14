@@ -49,7 +49,7 @@ class ControllerCommande
                     if($_SESSION['panier']['qteProduit'][$i] < 0 || $_SESSION['panier']['qteProduit'][$i] > $max) {
                         $qte = 0;
                     } else {
-                    $qte = $_SESSION['panier']['qteProduit'][$i];
+                        $qte = $_SESSION['panier']['qteProduit'][$i];
                     }
                     $tab[$i] = ModelLigneCommande::generateId(); //on stocke dans les cases i d'un tableau les id de la ligneCommande pour la recupere ensuite
 
@@ -119,14 +119,14 @@ class ControllerCommande
     public static function paye()
     {
         if (isset($_SESSION['login'])) {
-        if (isset($_POST['phrase'])) {
-            $phrase = $_POST['phrase'];
-        } else {
-            $phrase = "";
-        }
-        $view = 'payed';
-        $pagetitle = 'Merci';
-        require File::build_path(array('view', 'view.php'));
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
+            $view = 'payed';
+            $pagetitle = 'Merci';
+            require File::build_path(array('view', 'view.php'));
         } else  {
             $phrase = File::warning("Vous devez d'abord valider votre commande");
             $_POST['phrase'] = $phrase;
@@ -241,7 +241,7 @@ class ControllerCommande
         //$PDF->Cell(90,$hau,$prixTotal." ".chr(128),1,0,'C',false);
         $PDF->Ln();
 
-            // ligne par article, et calcul du prix total au fur et à mesure
+        // ligne par article, et calcul du prix total au fur et à mesure
         $PDF->SetTextColor( 250, 250, 250 );
         $PDF->Cell(100,$hau,utf8_decode("Libellé de la planète"),1,0,'L',true);
         $PDF->Cell(30,$hau,utf8_decode("quantité"),1,0,'C',true);
@@ -272,7 +272,7 @@ class ControllerCommande
         //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";
         $PDF->Output("facture", "I");
         // affichage du pdf
-         echo '<embed src="facture_n°".$idCommande.".pdf" width="100%" height="900px">';
+        echo '<embed src="facture_n°".$idCommande.".pdf" width="100%" height="900px">';
     }
 }
 ?>

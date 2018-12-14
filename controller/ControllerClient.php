@@ -153,7 +153,7 @@ class ControllerClient
                     } else{ // si le login existe déjà
                         $_POST['phrase'] = File::warning("Ce login existe déjà.");
                         Self::create();
-                }
+                    }
                     $msg = "<p>Veuillez validez votre email en cliquant sur ce lien <a href='webinfo.iutmontp.univ-montp2.fr/~sambucd/Universell/?action=validate&controller=client&nonce={$nonce}&login={$login}'>Valider mon adresse mail</a></p>";
                     $subject = "Validation de votre adresse mail";
                     $headers[] = 'MIME-Version: 1.0';
@@ -170,9 +170,9 @@ class ControllerClient
 
             } else { // si le mail n'est pas valide
                 $_POST['phrase'] = File::warning("Veuillez entrer une adresse mail valide");
-                Self::create();        
+                Self::create();
             }
-        } else { 
+        } else {
             $_POST['phrase'] = File::warning("Votre inscription n'a pas pu être enregistrée suite à un problème technique.");
             ControllerAccueil::homepage();
         }
@@ -188,9 +188,9 @@ class ControllerClient
                 $phrase = "";
             }
             if(!isset($login)){
-                       $login ="";
-                        }
-             
+                $login ="";
+            }
+
             $view = 'connect';
             $pagetitle = 'Se connecter';
             require File::build_path(array('view', 'view.php'));
@@ -221,7 +221,7 @@ class ControllerClient
                         }
                         ControllerMonProfil::profile();
                     } else {
-                        
+
                         $phrase = File::warning("Mot de passe incorrect");
                         $view = 'connect';
                         $pagetitle = 'erreur connection';

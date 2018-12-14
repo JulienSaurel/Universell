@@ -36,6 +36,7 @@ class ControllerPlanetes
         require File::build_path(array('view','view.php'));
     }
 
+
     public static function gotocreate()
     {
         if(isset($_SESSION['admin'])&&$_SESSION['admin']=='true'){

@@ -38,15 +38,15 @@ class ModelCommande extends Model
     public static function selectAllbyClient()
     {
         try {
-        $sql = "SELECT * FROM uni_Commande WHERE login_client=:login ORDER BY date DESC"; //on recupere tous sur les commandes du client connecté
-        $req_prep = Model::$pdo->prepare($sql); //on prepare la requete
-        $array = array(
-            "login" => $_SESSION['login'],
-        ); //on recupere le login du client connecté
+            $sql = "SELECT * FROM uni_Commande WHERE login_client=:login ORDER BY date DESC"; //on recupere tous sur les commandes du client connecté
+            $req_prep = Model::$pdo->prepare($sql); //on prepare la requete
+            $array = array(
+                "login" => $_SESSION['login'],
+            ); //on recupere le login du client connecté
 
-        $req_prep->execute($array); //on execute la requete
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelCommande'); //on recupere des objets ModelCommande
-        $tabCom = $req_prep->fetchAll();
+            $req_prep->execute($array); //on execute la requete
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelCommande'); //on recupere des objets ModelCommande
+            $tabCom = $req_prep->fetchAll();
         } catch(PDOException $e) {
             if (Conf::getDebug())
             {
